@@ -8,7 +8,7 @@
      *
      * @todo            Compile list of feeds to read from from database
      * @todo            Merge feeds
-     *
+     * ?todo            Allow support for more than just files
      */
 
     /**
@@ -34,7 +34,7 @@
              * ============================================ */
             switch( $type )
             {
-                case github:
+                case 'github':
                     $this->Parse_GitHub();
                     break;
                 default:
@@ -46,7 +46,17 @@
          * ========================== */
         private function Parse_GitHub()
         {
+            $xml = simplexml_load_file($this->strFeed);
 
+            foreach($xml->entry as $entry)
+            {
+                $content = str_replace('/SeerUK','https://www.github.com/SeerUK',$entry->content);
+                $content = str_replace('https://github.comhttps://www.github.com','https://www.github.com',$content);
+                $content = str_replace('https://www.github.comhttps://www.github.com','https://www.github.com',$content);
+                echo $content . '<br />';
+
+                //break;
+            }
         }
 
     }

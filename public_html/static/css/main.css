@@ -330,3 +330,8 @@ h1 { background: url('../images/LineWhite.gif') 0 14px repeat-x; margin: 22px 0 
                     height: 32px;
                     border-bottom: 1px solid #558a5e;
                 }
+
+/* Feed Setup:
+ * =========== */
+#feed .details { display: none; }
+#feed time { display: block; }

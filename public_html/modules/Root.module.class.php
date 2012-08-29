@@ -29,22 +29,25 @@
         protected function Root()
         {
 
-            $this->objEngine->caching = false;
-            /**
-             * Page Variables:
-             */
-                /* Page Title:
-                 * =========== */
-                $this->objEngine->Assign( 'strPageTitle', 'Home' );
+            /* Pre-template setup:
+             * =================== */
+            echo '<div id="feed">';
+            $fedGithub = new FeedHandler( ROOT . '/SeerUK.atom', 'github' );
+            echo '</div>';
 
-            /**
-             * Navigation:
-             */
+
+            $this->objEngine->caching = false;
+
+            /* Page Variables:
+             * =============== */
+            $this->objEngine->Assign( 'strPageTitle', 'Home' );
+
+            /* Navigation:
+             * =========== */
             $this->objEngine->Assign( 'arrPN', CommonUI::GetPrimaryNav(0) );
 
-            /**
-             * User Information:
-             */
+            /* User Information:
+             * ================= */
             $this->objEngine->Assign( 'strAvatarUrl', CommonUI::GetAvatar( 'Seer', 120 ) );
 
             $this->objEngine->Display( 'modules/templates/Root/Root.tpl' );
