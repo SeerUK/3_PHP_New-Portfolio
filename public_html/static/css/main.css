@@ -1,0 +1,332 @@
+/**
+ * Top Hats & Monocles
+ *
+ * @rel         stylesheet
+ * @desc        This is the main stylesheet for the website.
+ *
+ */
+
+/**
+ * Page Setup
+ */
+html { height: 100%; }
+body {
+    font: 13px 'prenton', 'Candara', sans-serif;
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Common Elements
+ */
+.clearfix { clear: both; }
+.left { float: left; }
+.right { float: right; }
+
+.MT20 { height: 10px;}
+
+.serif { font-family: 'rooney-web', 'cambria', serif; }
+.sans { font-family: 'prenton', 'Candara', sans-serif; }
+
+a { color: #40bb85; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+form { margin: 0; padding: 0; }
+
+input { font: 13px 'prenton', 'Candara', sans-serif; }
+input[type="text"], input[type="password"] { margin: 0; }
+input:-moz-placeholder { color: #aaa !important; }
+
+h1 { background: url('../images/LineWhite.gif') 0 14px repeat-x; margin: 22px 0 22px 0; }
+    h1 span { background: white; padding: 0 10px 0 0; font: normal normal normal 24px 'corner-store', 'Lobster 14', sans-serif; }
+
+/**
+ * Navigation Elements
+ */
+#PrimaryNavigation {
+    font: 24px "bebas-neue", 'Bebas Neue', sans-serif;
+    list-style: none;
+    margin: 30px 0 30px 0;
+    text-transform: uppercase;
+}
+    #PrimaryNavigation li {
+        height: 26px;
+        margin: 4px 78px 14px 10px;
+        text-align: right;
+    }
+        #PrimaryNavigation li a {
+            color: white;
+            text-decoration: none;
+        }
+            #PrimaryNavigation li a:hover {
+                color: #096;
+            }
+
+/**
+ * Footer
+ */
+#Footer {
+    bottom: 16px;
+    color: white;
+    left: 16px;
+    position: absolute;
+    width: 240px;
+}
+    #Footer div {
+        padding: 10px;
+    }
+        #Footer div span.main {
+            color: #8A8A8A;
+            display: block;
+            font-size: 12px;
+            margin: 0 0 6px 0;
+        }
+        #Footer div span.desc {
+            color: #444;
+            display: block;
+            font-size: 12px;
+        }
+    #Footer .lines {
+        background: url('../images/LineBlack.gif') repeat-x;
+        height: 10px;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+/**
+ * Column Layout
+ */
+#LeftColumn {
+    background: url('../images/LeftColumn-bg.gif') repeat-y left;
+    color: white;
+    height: 100%;
+    left: 0;
+    max-height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 320px;
+}
+
+#CentreColumn {
+    height: 100%;
+    margin: 0 320px;
+    max-height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+#RightColumn {
+    background: url('../images/RightColumn-bg.gif') repeat-y right;
+    color: white;
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+}
+
+    /**
+     *  Side Column Inner Elements:
+     */
+    .SideColumn .SideBarBox {
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;
+        margin: 10px 0;
+        position: relative;
+        width: 278px;
+    }
+        .SideColumn .SideBarBox .inner {
+            background-color: #fff;
+            border-top: 1px solid #111;
+            border-bottom: 1px solid #111;
+            padding: 14px;
+            position: relative;
+            width: 249px;
+        }
+            .SideColumn .SideBarBox .inner #MainStream {
+                height: 77px;
+            }
+
+            .SideColumn .SideBarBox .inner .AltStream {
+                height: 40px;
+            }
+                .SideColumn .SideBarBox .inner #MainStream img, .SideColumn .SideBarBox .inner .AltStream img {
+                    border: 1px solid #bbb;
+                    margin: 0 10px 0 0;
+                    padding: 1px;
+                }
+                .SideColumn .SideBarBox .inner #MainStream span {
+                    color: black;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 162px;
+                    white-space: nowrap;
+                }
+                    .SideColumn .SideBarBox .inner #MainStream span.viewing {
+                        line-height: 16px;
+                        margin-top: 6px;
+                    }
+                    .SideColumn .SideBarBox .inner #MainStream span.game {
+                        font: normal normal normal 24px "bebas-neue", 'Bebas Neue', sans-serif;
+                        word-spacing: 2px;
+                    }
+                    .SideColumn .SideBarBox .inner #MainStream span.streamer {
+                        font-size: 16px;
+                    }
+                        .SideColumn .SideBarBox .inner #MainStream span.streamer span{
+                            display: inline;
+                        }
+                .SideColumn .SideBarBox .inner .AltStream img {
+                    max-height: 36px;
+                    max-width: 36px;
+                }
+                .SideColumn .SideBarBox .inner .AltStream span {
+                    color: black;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 182px;
+                    white-space: nowrap;
+                }
+                    .SideColumn .SideBarBox .inner .AltStream span.game {
+                        font: normal normal normal 20px "bebas-neue", 'Bebas Neue', sans-serif;
+                        word-spacing: 2px;
+                    }
+                    .SideColumn .SideBarBox .inner .AltStream span.streamer {
+                        font-size: 14px;
+                        margin-top: -1px;
+                    }
+                        .SideColumn .SideBarBox .inner .AltStream span.streamer span{
+                            display: inline;
+                        }
+
+
+
+        .SideColumn .SideBarBox input[type="text"] {
+            margin-bottom: 6px;
+            margin-bottom: 8px\9;
+            *margin-bottom: 8px;
+        }
+
+        .SideColumn .SideBarBox input[type="text"], .SideColumn .SideBarBox input[type="password"] {
+            background-color: #eaeaea;
+            border: 1px solid #a4a4a4;
+            box-shadow: inset -0 2px 0px 1px #fff;
+            color: #101010;
+            font-size: 15px;
+            line-height: 21px;
+            outline: none;
+            padding: 10px 9px 8px 8px;
+            width: 153px;
+        }
+            .SideColumn .SideBarBox input[type="text"]:focus, .SideColumn .SideBarBox input[type="password"]:focus,
+            .SideColumn .SideBarBox input[type="text"]:hover, .SideColumn .SideBarBox input[type="password"]:hover {
+                background-color: #f3f3f3;
+                border: 1px solid #7d7d7d;
+            }
+        .SideColumn .SideBarBox input[type="submit"] {
+            background-color: #40bb85;
+            border: 1px solid #558a5e;
+            border-bottom: 5px solid #558a5e;
+            box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            height: 92px;
+            margin-top: -6px;
+            outline: none;
+            position: absolute;
+            right: 14px;
+            text-shadow: rgba(0, 0, 0, 0.8) 0px -1px -1px;
+            top: 16px;
+            width: 66px;
+        }
+            .SideColumn .SideBarBox input[type="submit"]:hover {
+                background-color: #5cd49c;
+            }
+            .SideColumn .SideBarBox input[type="submit"]:active {
+                margin-top: -2px;
+                height: 88px;
+                border-bottom: 1px solid #558a5e;
+            }
+
+    /**
+     * Centre Column Inner Elements:
+     */
+    #CentreContent {
+        padding: 0 16px;
+    }
+        #CentreContent .SecondaryNavigation {
+            background: #ddd;
+            border: 1px solid #bbb;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+            height: 36px;
+            line-height: 36px;
+        }
+            #CentreContent span.right {
+                border-left: 1px solid #bbb;
+                display: block;
+                height: 36px;
+            }
+                #CentreContent span.right > a {
+                    border-left: 1px solid white;
+                    border-left: 1px solid rgba(255,255,255,0.6);
+                    color: black;
+                    display: block;
+                    font-size: 12px;
+                    height: 36px;
+                    padding: 0 12px;
+                    text-decoration: none;
+                }
+                    #CentreContent span.right > a:hover {
+                        box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+                        background: #e7e7e7;
+                    }
+
+        #CentreContent #StreamContainer {
+            background-color: #ddd;
+            border: 1px solid #bbb;
+            height: 724px;
+            margin: 10px 0 0 0;
+        }
+
+        #CentreContent #StreamControls {
+            background-color: #ccc;
+            border: 1px solid #aaa;
+            height: 38px;
+            margin: -1px 0 10px 0;
+            padding: 6px 1px;
+        }
+            #CentreContent #StreamControls .button {
+                background-color: #40bb85;
+                border: 1px solid #558a5e;
+                border-bottom: 5px solid #558a5e;
+                box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+                color: white;
+                cursor: pointer;
+                height: 32px;
+                line-height: 32px;
+                margin: 0 5px;
+                padding: 0 14px;
+                text-align: center;
+                text-decoration: none;
+                text-shadow: rgba(0, 0, 0, 0.8) 0px -1px -1px;
+            }
+                #CentreContent #StreamControls .button:hover {
+                    background-color: #5cd49c;
+                }
+                #CentreContent #StreamControls .button:active {
+                    margin-top: 4px;
+                    height: 32px;
+                    border-bottom: 1px solid #558a5e;
+                }
