@@ -7,8 +7,6 @@
      *                  here...
      *
      * @todo            Compile list of feeds to read from from database
-     * @todo            Merge feeds
-     * ?todo            Allow support for more than just files
      */
 
     /**
@@ -19,43 +17,65 @@
 
         /* Let all of the functions in our instance access the feed...
          * =========================================================== */
-        private $strFeed;
+        private $arrFeed = array();
 
-        /* When making an instance of this class we should make it easy to
-         * choose what feed type we're parsing and make this sort of a...
-         * feed abstraction layer? The output before merging should always be
-         * the same format.
-         * ================================================================== */
-        public function __construct( $source, $type )
+        /* The source of a feed can be either an XML file or plain XML in a
+         * string. Each parser will handle the data as it needs to. Error
+         * handling happens within each of the parsers so that if a single
+         * parser fails to get their feed information it doesn't affect the
+         * rest of the script.
+         *
+         * Errors are logged.
+         *
+         * @param       The source of the feed. Either XML in a string or
+         *              an XML file.
+         * @param       The type so that the parser can decide which
+         *              function to use to parse the feed.
+         * @return      Void
+         * ================================================================ */
+        public function Parse( $strSource, $strType )
         {
-            $this->strFeed = $source;
-
             /* Lets be more secure in how we handle this...
              * ============================================ */
-            switch( $type )
+            switch( $strType )
             {
                 case 'github':
-                    $this->Parse_GitHub();
+                    @$this->Parse_GitHub( $strSource );
                     break;
                 default:
                     break;
             }
+
+            var_dump($this->arrFeed);
         }
 
         /* Parse GitHub Atom Files...
          * ========================== */
-        private function Parse_GitHub()
+        private function Parse_GitHub( $strSource )
         {
-            $xml = simplexml_load_file($this->strFeed);
+            $xml = simplexml_load_file( 'ygbijk' );
 
-            foreach($xml->entry as $entry)
+            if($xml)
             {
-                $content = str_replace('/SeerUK','https://www.github.com/SeerUK',$entry->content);
-                $content = str_replace('https://github.comhttps://www.github.com','https://www.github.com',$content);
-                $content = str_replace('https://www.github.comhttps://www.github.com','https://www.github.com',$content);
-                echo $content . '<br />';
+                $arrFeed = array();
 
-                //break;
+                foreach($xml->entry as $entry)
+                {
+                    /* TODO: Try work this one out with REGEX!
+                     * ======================================= */
+                    $strContent = str_replace( '/SeerUK', 'https://www.github.com/SeerUK', $entry->content );
+                    $strContent = str_replace( 'https://github.comhttps://www.github.com', 'https://www.github.com', $strContent );
+                    $strContent = str_replace( 'https://www.github.comhttps://www.github.com', 'https://www.github.com', $strContent );
+
+                    $arrFeed[] = $strContent;
+
+                }
+
+                $this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );
+            }
+            else
+            {
+                error_log('[Feed Handler::Github] Failed to load feed.');
             }
         }
 

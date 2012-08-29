@@ -12,10 +12,6 @@
 html { height: 100%; }
 body {
     font: 13px 'prenton', 'Candara', sans-serif;
-    height: 100%;
-    max-height: 100%;
-    min-height: 100%;
-    overflow: hidden;
     margin: 0;
     padding: 0;
 }
@@ -27,12 +23,10 @@ body {
 .left { float: left; }
 .right { float: right; }
 
-.MT20 { height: 10px;}
-
 .serif { font-family: 'rooney-web', 'cambria', serif; }
 .sans { font-family: 'prenton', 'Candara', sans-serif; }
 
-a { color: #40bb85; text-decoration: none; }
+a { color: #3c6; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 form { margin: 0; padding: 0; }

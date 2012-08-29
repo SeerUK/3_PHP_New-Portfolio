@@ -32,7 +32,10 @@
             /* Pre-template setup:
              * =================== */
             echo '<div id="feed">';
-            $fedGithub = new FeedHandler( ROOT . '/SeerUK.atom', 'github' );
+
+            $objFeed = new FeedHandler();
+            $objFeed->Parse(ROOT . 'SeerUK.atom','github');
+
             echo '</div>';
 
 
