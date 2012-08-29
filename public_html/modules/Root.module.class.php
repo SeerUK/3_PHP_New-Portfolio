@@ -35,6 +35,7 @@
 
             $objFeed = new FeedHandler();
             $objFeed->Parse(ROOT . 'SeerUK.atom','github');
+            echo $objFeed->ReturnFeed(5);
 
             echo '</div>';
 

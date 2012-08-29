@@ -45,21 +45,23 @@
                 default:
                     break;
             }
-
-            var_dump($this->arrFeed);
         }
 
         /* Parse GitHub Atom Files...
+         *
+         * @param       The source input. Must be an atom file. Usually from
+         *              Github.
+         * @return      Void
          * ========================== */
         private function Parse_GitHub( $strSource )
         {
-            $xml = simplexml_load_file( 'ygbijk' );
+            $xml = simplexml_load_file( $strSource );
 
-            if($xml)
+            if( $xml )
             {
                 $arrFeed = array();
 
-                foreach($xml->entry as $entry)
+                foreach( $xml->entry as $entry )
                 {
                     /* TODO: Try work this one out with REGEX!
                      * ======================================= */
@@ -67,7 +69,7 @@
                     $strContent = str_replace( 'https://github.comhttps://www.github.com', 'https://www.github.com', $strContent );
                     $strContent = str_replace( 'https://www.github.comhttps://www.github.com', 'https://www.github.com', $strContent );
 
-                    $arrFeed[] = $strContent;
+                    $arrFeed[] = array( 'content' => $strContent, 'type' => 'Github' );
 
                 }
 
@@ -75,7 +77,30 @@
             }
             else
             {
-                error_log('[Feed Handler::Github] Failed to load feed.');
+                error_log( '[Feed Handler::Github] Failed to load feed.' );
+            }
+        }
+
+        /* Gets the merged feed array after sorting it via the timestamp with a
+         * specified limit.
+         *
+         * @param       Limits the number of entries returned by the function.
+         * @return      Array
+         * ==================================================================== */
+        public function ReturnFeed( $intLimit = false )
+        {
+            foreach( $this->arrFeed as $strEntry )
+            {
+                echo $strEntry['content'];
+                echo 'From: ' . $strEntry['type'];
+                if( $intLimit )
+                {
+                    $intLimit = $intLimit - 1;
+                    if( $intLimit == 0 )
+                    {
+                        break;
+                    }
+                }
             }
         }
 
