@@ -7,6 +7,8 @@
      *                  here...
      *
      * @todo            Compile list of feeds to read from from database
+     * @todo            Find some way to limit the full returned feed before
+     *                  sorting. This could get REALLY slow after a while...
      */
 
     /**
@@ -73,7 +75,11 @@
                     $timTimestamp = str_replace( 'Z', '', $timTimestamp );
 
                     $timTimestamp = strtotime( $timTimestamp );
-                    $timTimestamp = date( 'D, jS F Y - g:ia', $timTimestamp );
+
+                    /* TODO: This needs to be in the template. Saves it being in
+                     * every single one of the parsing functions.
+                     * ========================================================= */
+                    //$timTimestamp = date( 'D, jS F Y - g:ia', $timTimestamp );
 
                     $arrFeed[] = array( 'content'   => $strContent
                                       , 'type'      => 'Github'
@@ -82,6 +88,14 @@
                 }
 
                 $this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );
+
+                $test = array(
+                    array( 'content'    => '<p>Just a test really...</p>'
+                          ,'type'       => 'Github'
+                          ,'timestamp'  => 1346076688)
+                );
+
+                $this->arrFeed = array_merge_recursive( $this->arrFeed, $test);
             }
             else
             {
@@ -97,9 +111,21 @@
          * ==================================================================== */
         public function ReturnFeed( $intLimit = false )
         {
+            $arrFull   = array();
             $arrReturn = array();
 
+            /* Build the full list of all feed entries.
+             * ======================================== */
             foreach( $this->arrFeed as $strEntry )
+            {
+                $arrFull[] = $strEntry;
+            }
+
+            /* Sort the array by time before returning...
+             * ========================================== */
+            $this->SortFeed($arrFull, 'timestamp');
+
+            foreach( $arrFull as $strEntry )
             {
                 if( $intLimit )
                 {
@@ -115,10 +141,6 @@
                     $arrReturn[] = $strEntry;
                 }
             }
-
-            /* Sort the array by time before returning...
-             * ========================================== */
-            $this->SortFeed($arrReturn, 'timestamp');
 
             return $arrReturn;
         }
