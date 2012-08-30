@@ -15,55 +15,24 @@
     {
 
         /**
-         * Get Avatar:
-         *
-         * @desc        Currently only supports Gravatar avatars. Easy to
-         *              implement and for people to use if they already have
-         *              a Gravatar account.
-         * @return      String
-         *
-         */
-        public static function GetAvatar( $strUserName, $intSize = false )
-        {
-            /**
-             * TODO: Avatar types:
-             */
-            $strType = 'gravatar';
-            switch ( $strType )
-            {
-                case 'gravatar':
-                    $strEmail = 'wright.elliot@gmail.com';
-
-                    $strUrl = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $strEmail ) ) );
-                    if ( $intSize )
-                    {
-                        $strUrl.= "&s=" . $intSize;
-                    }
-                    return $strUrl;
-            }
-
-            return false;
-        }
-
-        /**
          * Get Primary Navigation:
          *
          * @desc        Returns an array containing the elements that should
          *              be included in the primary navigation of the website.
          * @return      Array
          */
-        public static function GetPrimaryNav($bolAuthStatus)
+        public static function GetPrimaryNav( $bolAuthStatus )
         {
 
             $arrPNCommon = array( 'Home'       => ROOT,
-                                    'Streamers'  => ROOT . '?module=root&invoke=streamers',
-                                    'Forum'      => ROOT . '?module=forum&invoke=forum',
+                                  'Streamers'  => ROOT . '?module=root&invoke=streamers',
+                                  'Forum'      => ROOT . '?module=forum&invoke=forum',
                                 );
 
             $arrPNUnAuthed = array( 'Register'   => SECURE_ROOT . '?module=account&invoke=register' );
             $arrPNAuthed = array( 'My Account' => SECURE_ROOT . '?module=account&invoke=account' );
 
-            switch ($bolAuthStatus) {
+            switch ( $bolAuthStatus ) {
 
                 case 0:
                     $arrPN = array_merge( $arrPNCommon, $arrPNUnAuthed );
@@ -78,32 +47,31 @@
 
         }
 
-        public static function RelativeTime($timestamp)
+        public static function RelativeTime( $timTimestamp )
         {
-            $difference = time() - $timestamp;
-            $periods = array("sec", "min", "hour", "day", "week",
-            "month", "years", "decade");
-            $lengths = array("60","60","24","7","4.35","12","10");
+            $timDifference = time() - $timTimestamp;
+            $arrPeriods = array( "second", "minute", "hour", "day", "week","month", "years", "decade" );
+            $arrLengths = array( "60","60","24","7","4.35","12","10" );
 
-            if ($difference > 0)
+            if ( $timDifference > 0 )
             {
-                $ending = "ago";
+                $strEnding = "ago";
             }
             else
             {
-                $difference = -$difference;
-                $ending = "to go";
+                $timDifference = -$timDifference;
+                $strEnding = "to go";
             }
 
-            for($j = 0; $difference >= $lengths[$j]; $j++)
-            $difference /= $lengths[$j];
-            $difference = round($difference);
+            for( $j = 0; $timDifference >= $arrLengths[$j]; $j++ )
+            {
+                $timDifference /= $arrLengths[$j];
+                $timDifference = round( $timDifference );
+            }
 
-            if($difference != 1) $periods[$j].= "s";
+            if( $timDifference != 1 ) $arrPeriods[$j].= "s";
 
-            $text = "$difference $periods[$j] $ending";
-            
-            return $text;
+            return "$timDifference $arrPeriods[$j] $strEnding";
         }
 
     }
