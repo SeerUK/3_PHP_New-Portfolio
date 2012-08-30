@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-08-29 17:32:25
+<?php /* Smarty version Smarty-3.1.11, created on 2012-08-29 21:42:15
          compiled from "C:\PDE\3_PHP_New-Portfolio\public_html\modules\templates\Root\RootHeader.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14513503e522916f461-00247689%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85dfc10389d1b68ac605ecd9f4f3ddd03caaf0e2' => 
     array (
       0 => 'C:\\PDE\\3_PHP_New-Portfolio\\public_html\\modules\\templates\\Root\\RootHeader.tpl',
-      1 => 1346221584,
+      1 => 1346276534,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_503e5229206355_21708974',
   'variables' => 
   array (
     'strPageTitle' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_503e5229206355_21708974',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_503e5229206355_21708974')) {function content_503e5229206355_21708974($_smarty_tpl) {?><!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title><?php echo $_smarty_tpl->tpl_vars['strPageTitle']->value;?>
  | <?php echo @TITLE;?>
@@ -47,6 +47,7 @@ js/jquery.min.js" type="text/javascript"></script>
 js/modernizer.js" type="text/javascript"></script>
         <script src="<?php echo @STATIC_ROOT;?>
 js/ewp.js" type="text/javascript"></script>
+
     </head>
     <body>
 <?php }} ?>

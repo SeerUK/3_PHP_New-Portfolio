@@ -25,7 +25,7 @@
          * parser fails to get their feed information it doesn't affect the
          * rest of the script.
          *
-         * Errors are logged.
+         * Errors are logged on a per-parser basis. See Parse_{type}.
          *
          * @param       The source of the feed. Either XML in a string or
          *              an XML file.
@@ -69,7 +69,15 @@
                     $strContent = str_replace( 'https://github.comhttps://www.github.com', 'https://www.github.com', $strContent );
                     $strContent = str_replace( 'https://www.github.comhttps://www.github.com', 'https://www.github.com', $strContent );
 
-                    $arrFeed[] = array( 'content' => $strContent, 'type' => 'Github' );
+                    $timTimestamp = str_replace( 'T', ' ', $entry->updated );
+                    $timTimestamp = str_replace( 'Z', '', $timTimestamp );
+
+                    $timTimestamp = strtotime( $timTimestamp );
+                    $timTimestamp = date( 'D, jS F Y - g:ia', $timTimestamp );
+
+                    $arrFeed[] = array( 'content'   => $strContent
+                                      , 'type'      => 'Github'
+                                      , 'timestamp' => $timTimestamp );
 
                 }
 
@@ -89,19 +97,49 @@
          * ==================================================================== */
         public function ReturnFeed( $intLimit = false )
         {
+            $arrReturn = array();
+
             foreach( $this->arrFeed as $strEntry )
             {
-                echo $strEntry['content'];
-                echo 'From: ' . $strEntry['type'];
                 if( $intLimit )
                 {
+                    $arrReturn[] = $strEntry;
                     $intLimit = $intLimit - 1;
                     if( $intLimit == 0 )
                     {
                         break;
                     }
                 }
+                else
+                {
+                    $arrReturn[] = $strEntry;
+                }
             }
+
+            /* Sort the array by time before returning...
+             * ========================================== */
+            $this->SortFeed($arrReturn, 'timestamp');
+
+            return $arrReturn;
+        }
+
+        /* Sorts a multidimensional array with 2 levels by the selected key in
+         * sub-arrays. (i.e. $array[0]['timestamp']).
+         *
+         * @param       The array to be sorted.
+         * @param       The key we're sorting by in the sub-arrays.
+         * @param       (Optional) Sorting direction. Defaults to descending.
+         * @return      Void
+         */
+        public function SortFeed( &$arrFeed, $strColumn, $strDirection = SORT_DESC )
+        {
+            $arrSortCol = array();
+            foreach( $arrFeed as $strKey => $arrRow)
+            {
+                $arrSortCol[$strKey] = $arrRow[$strColumn];
+            }
+
+            $result = array_multisort( $arrSortCol, $strDirection, $arrFeed);
         }
 
     }

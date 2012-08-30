@@ -31,28 +31,17 @@
 
             /* Pre-template setup:
              * =================== */
-            echo '<div id="feed">';
-
             $objFeed = new FeedHandler();
             $objFeed->Parse(ROOT . 'SeerUK.atom','github');
-            echo $objFeed->ReturnFeed(5);
 
-            echo '</div>';
-
-
-            $this->objEngine->caching = false;
-
-            /* Page Variables:
+            /* Template Setup:
              * =============== */
-            $this->objEngine->Assign( 'strPageTitle', 'Home' );
+            $this->objEngine->caching = false;
+            $this->objEngine->Assign( 'arrFeed',        $objFeed->ReturnFeed(5) );
+            $this->objEngine->Assign( 'arrPN',          CommonUI::GetPrimaryNav(0) );
+            $this->objEngine->Assign( 'strAvatarUrl',   CommonUI::GetAvatar( 'Seer', 120 ) );
+            $this->objEngine->Assign( 'strPageTitle',   'Home' );
 
-            /* Navigation:
-             * =========== */
-            $this->objEngine->Assign( 'arrPN', CommonUI::GetPrimaryNav(0) );
-
-            /* User Information:
-             * ================= */
-            $this->objEngine->Assign( 'strAvatarUrl', CommonUI::GetAvatar( 'Seer', 120 ) );
 
             $this->objEngine->Display( 'modules/templates/Root/Root.tpl' );
 
