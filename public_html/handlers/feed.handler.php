@@ -65,21 +65,13 @@
 
                 foreach( $xml->entry as $entry )
                 {
-                    /* TODO: Try work this one out with REGEX!
-                     * ======================================= */
-                    $strContent = str_replace( '/SeerUK', 'https://www.github.com/SeerUK', $entry->content );
-                    $strContent = str_replace( 'https://github.comhttps://www.github.com', 'https://www.github.com', $strContent );
-                    $strContent = str_replace( 'https://www.github.comhttps://www.github.com', 'https://www.github.com', $strContent );
+                    $strContent = str_replace( 'href="/', 'href="https://www.github.com/', $entry->content );
+                    $strContent = str_replace( 'href="',  'target="_blank" href="', $strContent );
 
                     $timTimestamp = str_replace( 'T', ' ', $entry->updated );
                     $timTimestamp = str_replace( 'Z', '', $timTimestamp );
 
                     $timTimestamp = strtotime( $timTimestamp );
-
-                    /* TODO: This needs to be in the template. Saves it being in
-                     * every single one of the parsing functions.
-                     * ========================================================= */
-                    //$timTimestamp = date( 'D, jS F Y - g:ia', $timTimestamp );
 
                     $arrFeed[] = array( 'content'   => $strContent
                                       , 'type'      => 'Github'
@@ -88,14 +80,6 @@
                 }
 
                 $this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );
-
-                $test = array(
-                    array( 'content'    => '<p>Just a test really...</p>'
-                          ,'type'       => 'Github'
-                          ,'timestamp'  => 1346076688)
-                );
-
-                $this->arrFeed = array_merge_recursive( $this->arrFeed, $test);
             }
             else
             {
@@ -127,6 +111,7 @@
 
             foreach( $arrFull as $strEntry )
             {
+                $strEntry['timestamp'] = CommonUI::RelativeTime( $strEntry['timestamp'] );
                 if( $intLimit )
                 {
                     $arrReturn[] = $strEntry;

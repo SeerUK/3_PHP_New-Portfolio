@@ -1,85 +1,82 @@
-/**
- * Top Hats & Monocles
- *
- * @rel         stylesheet
- * @desc        This is the main stylesheet for the website.
- *
- */
+    /**
+     * Top Hats & Monocles
+     *
+     * @rel         stylesheet
+     * @desc        This is the main stylesheet for the website.
+     *
+     */
 
-/**
- * Page Setup
- */
-html { height: 100%; }
-body {
-    font-family: Helvetica, arial, freesans, clean, sans-serif;
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-}
-
-/**
- * Common Elements
- */
-.clearfix { clear: both; }
-.left { float: left; }
-.right { float: right; }
-
-.serif { font-family: 'rooney-web', 'cambria', serif; }
-.sans { font-family: 'prenton', 'Candara', sans-serif; }
-
-a { color: #4183C4; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-form { margin: 0; padding: 0; }
-
-input { font: 13px 'prenton', 'Candara', sans-serif; }
-input[type="text"], input[type="password"] { margin: 0; }
-input:-moz-placeholder { color: #aaa !important; }
-
-h1 { background: url('../images/LineWhite.gif') 0 14px repeat-x; margin: 22px 0 22px 0; }
-    h1 span { background: white; padding: 0 10px 0 0; font: normal normal normal 24px 'corner-store', 'Lobster 14', sans-serif; }
-
-/* Common Styles:
- * ============== */
-.bubble {
-    background: #F8F8F8;
-    border-radius: 3px;
-    margin: 10px; /* FOR DEV!!! */
-    padding: 3px;
-}
-
-/* Feed Setup:
- * =========== */
-.feed {
-    border: 1px solid #CACACA;
-    border: 1px solid #BBD2BC;
-    border-top-color: #D1EAD2;
-}
-.feed .entry {
-    border-bottom: 1px solid #eee;
-    display: block;
-    padding: 7px 10px;
-}
-    .feed .imgFeedType {
-        margin-right: 6px;
+    /**
+     * Page Setup
+     */
+    html { height: 100%; }
+    body {
+        font-family: Helvetica, arial, freesans, clean, sans-serif;
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
     }
-.feed a { color: black; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
-.feed h1 {
-    background: #FAFAFA;
-    background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
-    background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea')";
-    border-bottom: 1px solid #D8D8D8;
-    color: #555;
-    font-size: 13px;
-    line-height: 1.4;
-    margin: 0;
-    padding: 6px 12px;
-    text-shadow: 0 1px 0 white;
-}
 
-    /* Github Feed Style:
-     * ================== */
-    .feed .entry.Github .details { display: none; }
-    .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .feed .entry.Github time { display: none; }
+    /**
+     * Common Elements
+     */
+    .clearfix { clear: both; }
+    .left { float: left; }
+    .right { float: right; }
+
+    .serif { font-family: 'rooney-web', 'cambria', serif; }
+    .sans { font-family: 'prenton', 'Candara', sans-serif; }
+
+    a { color: #4183C4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    form { margin: 0; padding: 0; }
+
+    input { font: 13px 'prenton', 'Candara', sans-serif; }
+    input[type="text"], input[type="password"] { margin: 0; }
+    input:-moz-placeholder { color: #aaa !important; }
+
+    h1 { background: url('../images/LineWhite.gif') 0 14px repeat-x; margin: 22px 0 22px 0; }
+        h1 span { background: white; padding: 0 10px 0 0; font: normal normal normal 24px 'corner-store', 'Lobster 14', sans-serif; }
+
+    /* Common Styles:
+     * ============== */
+    .bubble {
+        background: #eee;
+        border-radius: 3px;
+        margin: 10px; /* FOR DEV!!! */
+        padding: 3px;
+    }
+
+    /* Feed Setup:
+     * =========== */
+    .feed {
+        border: 1px solid #CACACA;
+        border: 1px solid #BBD2BC;
+        border-top-color: #D1EAD2;
+    }
+    .feed .entry {
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #eee;
+        display: block;
+        padding: 7px 10px;
+    }
+        .feed .imgFeedType {
+            margin: -8px 14px 0 -10px;
+        }
+    .feed a { color: #4183C4; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
+    .feed h1 {
+        background-color: #DFF0D8;
+        border-bottom: 1px solid #D8D8D8;
+        color: #468847;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+        padding: 6px 12px;
+    }
+
+        /* Github Feed Style:
+         * ================== */
+        .feed .entry.Github .details { display: none; }
+        .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .feed .entry.Github time { display: none; }
