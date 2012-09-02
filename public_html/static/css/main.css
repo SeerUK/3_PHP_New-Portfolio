@@ -1,82 +1,114 @@
-    /**
-     * Top Hats & Monocles
-     *
-     * @rel         stylesheet
-     * @desc        This is the main stylesheet for the website.
-     *
-     */
+/**
+ * Top Hats & Monocles
+ *
+ * @rel         stylesheet
+ * @desc        This is the main stylesheet for the website.
+ *
+ */
 
-    /**
-     * Page Setup
-     */
-    html { height: 100%; }
-    body {
-        font-family: Helvetica, arial, freesans, clean, sans-serif;
-        font-size: 13px;
-        margin: 0;
-        padding: 0;
-    }
+/**
+ * Page Setup
+ */
+html { height: 100%; }
+body {
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
 
-    /**
-     * Common Elements
-     */
-    .clearfix { clear: both; }
-    .left { float: left; }
-    .right { float: right; }
+/**
+ * Common Elements
+ */
+.clearfix { clear: both; }
+.left { float: left; }
+.right { float: right; }
 
-    .serif { font-family: 'rooney-web', 'cambria', serif; }
-    .sans { font-family: 'prenton', 'Candara', sans-serif; }
+a { color: #4183C4; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-    a { color: #4183C4; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+/* Main Page Setup
+ * =============== */
+#container {
+    height: 416px;
+    left: 50%;
+    margin: -208px 0 0 -512px;
+    position: absolute;
+    top: 50%;
+    width: 1024px;
+}
 
-    form { margin: 0; padding: 0; }
-
-    input { font: 13px 'prenton', 'Candara', sans-serif; }
-    input[type="text"], input[type="password"] { margin: 0; }
-    input:-moz-placeholder { color: #aaa !important; }
-
-    h1 { background: url('../images/LineWhite.gif') 0 14px repeat-x; margin: 22px 0 22px 0; }
-        h1 span { background: white; padding: 0 10px 0 0; font: normal normal normal 24px 'corner-store', 'Lobster 14', sans-serif; }
-
-    /* Common Styles:
-     * ============== */
-    .bubble {
-        background: #eee;
-        border-radius: 3px;
-        margin: 10px; /* FOR DEV!!! */
-        padding: 3px;
-    }
-
-    /* Feed Setup:
-     * =========== */
-    .feed {
-        border: 1px solid #CACACA;
-        border: 1px solid #BBD2BC;
-        border-top-color: #D1EAD2;
-    }
-    .feed .entry {
-        background-color: #f8f8f8;
-        border-bottom: 1px solid #eee;
-        display: block;
-        padding: 7px 10px;
-    }
-        .feed .imgFeedType {
-            margin: -8px 14px 0 -10px;
-        }
-    .feed a { color: #4183C4; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
-    .feed h1 {
-        background-color: #DFF0D8;
-        border-bottom: 1px solid #D8D8D8;
-        color: #468847;
-        font-size: 14px;
+/* Primary Navigation
+ * ================== */
+#primary-navigation {
+    background-color: #FAFAFB;
+    border: 1px solid #D8D8D8;
+    border-radius: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    #primary-navigation li {
+        border-bottom: 1px solid #EEE;
+        border-top: 1px solid white;
         line-height: 1.4;
-        margin: 0;
-        padding: 6px 12px;
     }
+        #primary-navigation li:hover {
+            background-color: #fdfdfe;
+        }
+        #primary-navigation li a {
+            display: block;
+            padding: 8px 10px;
+        }
+            #primary-navigation li a:hover {
+                color: #4183C4;
+                text-decoration: none;
+            }
+        #primary-navigation li a.active {
+            background-color: white;
+            border-left: 2px solid #D26911;
+            color: black;
+            font-weight: bold;
+        }
 
-        /* Github Feed Style:
-         * ================== */
-        .feed .entry.Github .details { display: none; }
-        .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .feed .entry.Github time { display: none; }
+/* Common Styles:
+ * ============== */
+.bubble {
+    background: #eee;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+/* Feed Setup:
+ * =========== */
+.feed {
+    border: 1px solid #CACACA;
+    border: 1px solid #BBD2BC;
+    border-top-color: #D1EAD2;
+}
+.feed .entry {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    display: block;
+    line-height: 16px;
+    padding: 7px 10px;
+}
+    .feed .imgFeedType {
+        margin: -8px 14px 0 -10px;
+    }
+.feed a { color: #4183C4; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
+.feed h1 {
+    background-color: #DFF0D8;
+    border-bottom: 1px solid #D8D8D8;
+    color: #468847;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 6px 12px;
+}
+
+    /* Github Feed Style:
+     * ================== */
+    .feed .entry.Github .details { display: none; }
+    .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .feed .entry.Github time { display: none; }

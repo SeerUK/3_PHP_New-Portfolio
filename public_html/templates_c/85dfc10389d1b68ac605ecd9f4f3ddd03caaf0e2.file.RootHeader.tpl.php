@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-08-29 21:42:15
+<?php /* Smarty version Smarty-3.1.11, created on 2012-09-02 20:13:08
          compiled from "C:\PDE\3_PHP_New-Portfolio\public_html\modules\templates\Root\RootHeader.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14513503e522916f461-00247689%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85dfc10389d1b68ac605ecd9f4f3ddd03caaf0e2' => 
     array (
       0 => 'C:\\PDE\\3_PHP_New-Portfolio\\public_html\\modules\\templates\\Root\\RootHeader.tpl',
-      1 => 1346276534,
+      1 => 1346616785,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html lang="en">
     <head>
         <title><?php echo $_smarty_tpl->tpl_vars['strPageTitle']->value;?>
- | <?php echo @TITLE;?>
+ · <?php echo @TITLE;?>
 </title>
 
         <!-- Include Typekit Fonts -->
@@ -35,6 +35,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
         <!-- Include Stylesheets -->
+        <link rel="stylesheet" href="<?php echo @STATIC_ROOT;?>
+css/bootstrap.css" />
         <link rel="stylesheet" href="<?php echo @STATIC_ROOT;?>
 css/main.css" />
         <link rel="stylesheet" href="<?php echo @STATIC_ROOT;?>

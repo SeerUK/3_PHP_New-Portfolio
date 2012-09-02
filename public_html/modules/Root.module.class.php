@@ -31,12 +31,13 @@
             /* Pre-template setup:
              * =================== */
             $objFeed = new FeedHandler();
-            $objFeed->Parse('https://github.com/SeerUK.atom','github');
+            $objFeed->Parse( 'https://github.com/SeerUK.atom','github' );
+            //$objFeed->Parse( 'SeerUK.atom','github' );
 
             /* Template Setup:
              * =============== */
             $this->objEngine->caching = false;
-            $this->objEngine->Assign( 'arrFeed',        $objFeed->ReturnFeed(6) );
+            $this->objEngine->Assign( 'arrFeed',        $objFeed->ReturnFeed(8) );
             $this->objEngine->Assign( 'arrPN',          CommonUI::GetPrimaryNav(0) );
             $this->objEngine->Assign( 'strPageTitle',   'Home' );
 
