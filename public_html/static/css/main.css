@@ -27,6 +27,11 @@ body {
 a { color: #4183C4; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+.n100ph { height: 100%; }
+
+.relative { position: relative; }
+.bottom { bottom: 0; margin-bottom: 0; position: absolute; }
+
 /* Main Page Setup
  * =============== */
 #container {
@@ -79,36 +84,43 @@ a:hover { text-decoration: underline; }
     padding: 3px;
 }
 
-/* Feed Setup:
- * =========== */
-.feed {
-    border: 1px solid #CACACA;
-    border: 1px solid #BBD2BC;
-    border-top-color: #D1EAD2;
-}
-.feed .entry {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #eee;
-    display: block;
-    line-height: 16px;
-    padding: 7px 10px;
-}
-    .feed .imgFeedType {
-        margin: -8px 14px 0 -10px;
-    }
-.feed a { color: #4183C4; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
-.feed h1 {
-    background-color: #DFF0D8;
-    border-bottom: 1px solid #D8D8D8;
-    color: #468847;
-    font-size: 14px;
-    line-height: 1.4;
-    margin: 0;
-    padding: 6px 12px;
-}
+/* Homepage Styles
+ * =============== */
 
-    /* Github Feed Style:
-     * ================== */
-    .feed .entry.Github .details { display: none; }
-    .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .feed .entry.Github time { display: none; }
+    /* Homepage Project
+     * ================ */
+    #currentproj > p { padding: 5px 0 0 0; }
+
+    /* Feed Setup:
+     * =========== */
+    .feed {
+        border: 1px solid #CACACA;
+        border: 1px solid #BBD2BC;
+        border-top-color: #D1EAD2;
+    }
+    .feed .entry {
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #eee;
+        display: block;
+        line-height: 16px;
+        padding: 7px 10px;
+    }
+        .feed .imgFeedType {
+            margin: -8px 14px 0 -10px;
+        }
+    .feed a { color: #4183C4; font-size: 13px; font-weight: bold; text-shadow: white 1px 1px 0px; }
+    .feed h1 {
+        background-color: #DFF0D8;
+        border-bottom: 1px solid #D8D8D8;
+        color: #468847;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+        padding: 6px 12px;
+    }
+
+        /* Github Feed Style:
+         * ================== */
+        .feed .entry.Github .details { display: none; }
+        .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .feed .entry.Github time { display: none; }

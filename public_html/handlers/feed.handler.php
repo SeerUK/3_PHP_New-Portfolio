@@ -141,7 +141,7 @@
         public function SortFeed( &$arrFeed, $strColumn, $strDirection = SORT_DESC )
         {
             $arrSortCol = array();
-            
+
             foreach( $arrFeed as $strKey => $arrRow )
             {
                 $arrSortCol[$strKey] = $arrRow[$strColumn];
