@@ -71,7 +71,7 @@ a:hover { text-decoration: underline; }
             }
         #primary-navigation li a.active {
             background-color: white;
-            border-left: 2px solid #D26911;
+            border-left: 2px solid #009966;
             color: black;
             font-weight: bold;
         }

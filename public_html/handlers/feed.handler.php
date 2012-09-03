@@ -11,9 +11,12 @@
      *                  sorting. This could get REALLY slow after a while...
      */
 
-    /**
-     * Feed handler main class
-     */
+    /* IMPORTANT: For any remote feed, try set up a cron job to download it to
+     * the server the website is on instead every 5 minutes or so. It will make
+     * any page with the feeds on load a LOT faster than it will with it
+     * connecting remotely.
+     * ======================================================================== */
+
     class FeedHandler
     {
 
@@ -61,6 +64,7 @@
 
             if( $xml )
             {
+
                 $arrFeed = array();
 
                 foreach( $xml->entry as $entry )
@@ -76,7 +80,6 @@
                     $arrFeed[] = array( 'content'   => $strContent
                                       , 'type'      => 'Github'
                                       , 'timestamp' => $timTimestamp );
-
                 }
 
                 $this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );

@@ -21,29 +21,14 @@
          *              be included in the primary navigation of the website.
          * @return      Array
          */
-        public static function GetPrimaryNav( $bolAuthStatus )
+        public static function GetPrimaryNav()
         {
-
-            $arrPNCommon = array( 'Home'       => ROOT,
-                                  'Streamers'  => ROOT . '?module=root&invoke=streamers',
-                                  'Forum'      => ROOT . '?module=forum&invoke=forum',
-                                );
-
-            $arrPNUnAuthed = array( 'Register'   => SECURE_ROOT . '?module=account&invoke=register' );
-            $arrPNAuthed = array( 'My Account' => SECURE_ROOT . '?module=account&invoke=account' );
-
-            switch ( $bolAuthStatus ) {
-
-                case 0:
-                    $arrPN = array_merge( $arrPNCommon, $arrPNUnAuthed );
-                    return $arrPN;
-                case 1:
-                    $arrPN = array_merge( $arrPNCommon, $arrPNAuthed );
-                    return $arrPN;
-                default:
-                    return false;
-
-            }
+            /* TODO: Get this from the database:
+             * ================================ */
+            return array( 'Home' => '?module=root&invoke=root'
+                        , 'Skills' => '?module=root&invoke=skills'
+                        , 'Portfolio' => '?module=root&invoke=portfolio'
+                        , 'Contact' => '?module=root&invoke=contact' );
 
         }
 

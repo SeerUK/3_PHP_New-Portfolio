@@ -1,29 +1,32 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-09-02 20:13:08
+<?php /* Smarty version Smarty-3.1.11, created on 2012-09-03 06:46:09
          compiled from "C:\PDE\3_PHP_New-Portfolio\public_html\modules\templates\Root\RootHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14513503e522916f461-00247689%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1736550445231a4f7a9-64613280%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '85dfc10389d1b68ac605ecd9f4f3ddd03caaf0e2' => 
     array (
       0 => 'C:\\PDE\\3_PHP_New-Portfolio\\public_html\\modules\\templates\\Root\\RootHeader.tpl',
-      1 => 1346616785,
+      1 => 1346654719,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14513503e522916f461-00247689',
+  'nocache_hash' => '1736550445231a4f7a9-64613280',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_503e5229206355_21708974',
   'variables' => 
   array (
     'strPageTitle' => 0,
+    'arrPrimaryNavigation' => 0,
+    'strPrimaryNavigationKey' => 0,
+    'strPrimaryNavigationItem' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_50445231b44185_38599212',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_503e5229206355_21708974')) {function content_503e5229206355_21708974($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_50445231b44185_38599212')) {function content_50445231b44185_38599212($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
     <head>
         <title><?php echo $_smarty_tpl->tpl_vars['strPageTitle']->value;?>
@@ -52,4 +55,30 @@ js/ewp.js" type="text/javascript"></script>
 
     </head>
     <body>
+        <div id="container">
+            <div class="row-fluid n100ph">
+                <div class="span3">
+                    <div class="bubble">
+                        <nav>
+                            <ul id="primary-navigation">
+                                <?php  $_smarty_tpl->tpl_vars['strPrimaryNavigationItem'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->_loop = false;
+ $_smarty_tpl->tpl_vars['strPrimaryNavigationKey'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['arrPrimaryNavigation']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->key => $_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->value){
+$_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->_loop = true;
+ $_smarty_tpl->tpl_vars['strPrimaryNavigationKey']->value = $_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->key;
+?>
+                                    <li><a <?php if ($_smarty_tpl->tpl_vars['strPageTitle']->value==$_smarty_tpl->tpl_vars['strPrimaryNavigationKey']->value){?> class="active" <?php }?> href="<?php echo $_smarty_tpl->tpl_vars['strPrimaryNavigationItem']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['strPrimaryNavigationKey']->value;?>
+</a></li>
+                                <?php } ?>
+                            </ul>
+                        </nav>
+                    </div>
+                    <br />
+                    <blockquote class="pull-right">
+                        <p><strong>Elliot Wright</strong></p>
+                        <small>PHP Web Developer</small>
+                    </blockquote>
+                </div>
 <?php }} ?>
