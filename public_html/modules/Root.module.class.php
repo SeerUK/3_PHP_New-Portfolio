@@ -44,6 +44,21 @@
             $this->objEngine->Display( 'modules/templates/Root/Root.tpl' );
         }
 
+        protected function Skills()
+        {
+            /* Pre-template Setup:
+             * =================== */
+
+
+            /* Template Setup:
+             * ============== */
+            $this->objEngine->caching = false;
+            $this->objEngine->Assign( 'strPageTitle',           'Skills' );
+            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );
+
+            $this->objEngine->Display( 'modules/templates/Root/Skills.tpl' );
+        }
+
         protected function Portfolio()
         {
             /* Pre-template Setup:
@@ -59,8 +74,21 @@
             $this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );
             $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );
 
-
-            $this->objEngine->Display( 'modules/templates/Root/Root.tpl' );
+            $this->objEngine->Display( 'modules/templates/Root/Portfolio.tpl' );
         }
 
+        protected function Contact()
+        {
+            /* Pre-template Setup:
+             * =================== */
+
+
+            /* Template Setup:
+             * ============== */
+            $this->objEngine->caching = false;
+            $this->objEngine->Assign( 'strPageTitle',           'Contact' );
+            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );
+
+            $this->objEngine->Display( 'modules/templates/Root/Contact.tpl' );
+        }
     }

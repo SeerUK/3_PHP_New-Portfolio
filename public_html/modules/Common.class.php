@@ -25,10 +25,10 @@
         {
             /* TODO: Get this from the database:
              * ================================ */
-            return array( 'Home' => '?module=root&invoke=root'
-                        , 'Skills' => '?module=root&invoke=skills'
-                        , 'Portfolio' => '?module=root&invoke=portfolio'
-                        , 'Contact' => '?module=root&invoke=contact' );
+            return array( 'Home' => '?module=Root&invoke=Root'
+                        , 'Skills' => '?module=Root&invoke=Skills'
+                        , 'Portfolio' => '?module=Root&invoke=Portfolio'
+                        , 'Contact' => '?module=Root&invoke=Contact' );
 
         }
 
