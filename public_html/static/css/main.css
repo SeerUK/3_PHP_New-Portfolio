@@ -83,6 +83,24 @@ a:hover { text-decoration: underline; }
     border-radius: 3px;
     padding: 3px;
 }
+.wwell {
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    border-radius: 2px;
+    padding: 19px;
+}
+
+p.header {
+    background-color: #DFF0D8;
+    border: 1px solid #d1d1d1;
+    border-bottom: 1px solid #D8D8D8;
+    color: #468847;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0 0 -2px;
+    padding: 6px 12px;
+}
 
 /* Homepage Styles
  * =============== */
@@ -124,3 +142,34 @@ a:hover { text-decoration: underline; }
         .feed .entry.Github .details { display: none; }
         .feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .feed .entry.Github time { display: none; }
+
+/* Contact Page Styles
+ * =================== */
+#cntContact {
+    position: relative;
+}
+    #cntContact address {
+        margin:0;
+    }
+    #cntContact input[type="text"] {
+        font-size: 13px;
+        width: 180px;
+    }
+    #cntContact textarea {
+        background-color: #FAFAFA;
+        border: 1px solid #d1d1d1;
+        border-radius: 3px;
+        font-size: 13px;
+        height: 280px;
+        max-height: 280px;
+        margin: -6px;
+        padding: 8px;
+        width: 453px;
+        max-width: 453px;
+    }
+    #cntContact .headers {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 244px;
+    }

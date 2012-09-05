@@ -5,7 +5,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7182726eb94eaedcc50b470ed495c6c6c3f7f276' => 
     array (
       0 => 'modules\\templates\\Root\\Root.tpl',
-      1 => 1346653986,
+      1 => 1346789464,
       2 => 'file',
     ),
     '85dfc10389d1b68ac605ecd9f4f3ddd03caaf0e2' => 
@@ -22,17 +22,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     ),
   ),
   'nocache_hash' => '146405044ea3a31a078-81756745',
-  'variables' => 
-  array (
-    'arrFeed' => 0,
-    'entry' => 0,
-  ),
-  'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5044ea3a561fd7_07979060',
   'cache_lifetime' => 3600,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5046f224a36658_53258321',
+  'has_nocache_code' => false,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5044ea3a561fd7_07979060')) {function content_5044ea3a561fd7_07979060($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5046f224a36658_53258321')) {function content_5046f224a36658_53258321($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Home · Elliot Wright</title>
@@ -59,10 +54,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="bubble">
                         <nav>
                             <ul id="primary-navigation">
-                                                                    <li><a  class="active"  href="?module=root&invoke=root">Home</a></li>
-                                                                    <li><a  href="?module=root&invoke=skills">Skills</a></li>
-                                                                    <li><a  href="?module=root&invoke=portfolio">Portfolio</a></li>
-                                                                    <li><a  href="?module=root&invoke=contact">Contact</a></li>
+                                                                    <li><a  class="active"  href="?module=Root&invoke=Root">Home</a></li>
+                                                                    <li><a  href="?module=Root&invoke=Skills">Skills</a></li>
+                                                                    <li><a  href="?module=Root&invoke=Portfolio">Portfolio</a></li>
+                                                                    <li><a  href="?module=Root&invoke=Contact">Contact</a></li>
                                                             </ul>
                         </nav>
                     </div>
@@ -77,7 +72,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="span5 relative n100ph">
     <p class="lead">Thanks for stopping by! Why don't you take a look around?</p>
     <p>I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed to the right!</p>
-    <p>The major projects I'm working on at the moment you can find described in a bit more detail by checking out the box below, or looking at my <a href="#">portfolio page</a>.</p>
+    <p>The major projects I'm working on at the moment you can find described in a bit more detail by checking out the box below, or looking at my <a href="?module=Root&invoke=Portfolio">portfolio page</a>.</p>
     <div id="currentproj" class="well bottom">
         <img src="//ewp.pde.com/static/images/projects/140_140_thnm.jpg" class="left img-polaroid" alt="" title="" style="margin-right: 10px;" />
         <p><strong>Top Hats &amp; Monocles</strong> (<abbr title="Top Hats & Monocles">THNM</abbr>)</p>
@@ -232,7 +227,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   </div>
 </div>
 </div>
-                    <div>2 weeks ago</div>
+                    <div>3 weeks ago</div>
                 </span>
                             <span class="entry Github">
                     <img src="//ewp.pde.com/static/images/feed/Github.png" class="left imgFeedType" alt="Github" title="Github" />
@@ -261,7 +256,7 @@ Better logic. Generally... better.</blockquote>
   </div>
 </div>
 </div>
-                    <div>2 weeks ago</div>
+                    <div>3 weeks ago</div>
                 </span>
                     </div>
     </div>

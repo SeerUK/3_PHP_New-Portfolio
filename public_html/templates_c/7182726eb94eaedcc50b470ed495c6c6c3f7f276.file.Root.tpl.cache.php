@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-09-03 17:34:50
+<?php /* Smarty version Smarty-3.1.11, created on 2012-09-04 20:11:06
          compiled from "modules\templates\Root\Root.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:146405044ea3a31a078-81756745%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7182726eb94eaedcc50b470ed495c6c6c3f7f276' => 
     array (
       0 => 'modules\\templates\\Root\\Root.tpl',
-      1 => 1346653986,
+      1 => 1346789464,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'cache_lifetime' => 3600,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5044ea3a438718_07105103',
   'variables' => 
   array (
     'arrFeed' => 0,
     'entry' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5044ea3a438718_07105103',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5044ea3a438718_07105103')) {function content_5044ea3a438718_07105103($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('.\RootHeader.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
@@ -30,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="span5 relative n100ph">
     <p class="lead">Thanks for stopping by! Why don't you take a look around?</p>
     <p>I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed to the right!</p>
-    <p>The major projects I'm working on at the moment you can find described in a bit more detail by checking out the box below, or looking at my <a href="#">portfolio page</a>.</p>
+    <p>The major projects I'm working on at the moment you can find described in a bit more detail by checking out the box below, or looking at my <a href="?module=Root&invoke=Portfolio">portfolio page</a>.</p>
     <div id="currentproj" class="well bottom">
         <img src="<?php echo @STATIC_ROOT;?>
 images/projects/140_140_thnm.jpg" class="left img-polaroid" alt="" title="" style="margin-right: 10px;" />

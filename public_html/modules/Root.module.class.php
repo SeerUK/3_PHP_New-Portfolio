@@ -36,7 +36,7 @@
 
             /* Template Setup:
              * =============== */
-            $this->objEngine->caching = false;
+            $this->objEngine->caching = true;
             $this->objEngine->Assign( 'strPageTitle',           'Home' );
             $this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );
             $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );

@@ -17,8 +17,7 @@
      */
     define( 'ROOT',             'http://ewp.pde.com/' );
     define( 'SECURE_ROOT',      'https://ewp.pde.com/' );
-    define( 'STATIC_ROOT',      '//ewp.pde.com/static/' ); /* Protocol-less for
-                                                          greater flexibility */
+    define( 'STATIC_ROOT',      '//ewp.pde.com/static/' );
     define( 'COOKIE_DOMAIN',    'ewp.pde.com' );
     define( 'COOKIE_PATH',      '/' );
 
