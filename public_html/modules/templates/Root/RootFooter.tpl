@@ -1,5 +1,5 @@
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </body>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
     /**
-     * 0_PHP_DB-Session-Login
+     * 3_PHP_New-Portfolio
      *
      * @desc            Initialisation File - Sets up environment. Set
      *                  configuration values in here.

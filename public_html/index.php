@@ -1,14 +1,14 @@
 <?php
 
     /**
-     * 0_PHP_DB-Session-Login
+     * 3_PHP_New-Portfolio
      *
-     * v0.1-prealpha
+     * v0.1-alpha
      * Main public executable wrapper.
      *
      * @author     Elliot Wright
-     * @package    SeerUK.0_PHP_DB-Session-Login
-     * @version    v0.1-prealpha
+     * @package    SeerUK/3_PHP_New-Portfolio
+     * @version    v0.1-alpha
      *
      */
 

@@ -1,0 +1,396 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public_html/modules/Root.module.class.php",
+			"settings":
+			{
+				"buffer_size": 3197,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 60.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package ina",
+				"Package Control: Install Package"
+			],
+			[
+				"package conrol list",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: tag",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 307.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Root.module.class.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/feed.handler.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Common.class.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/static/css/main.css",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt.tmTheme",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt Orig.tmTheme",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/CSS/CSS.tmLanguage",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt Orig.tmTheme.cache",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/static/css/bootstrap.css",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/SeerUK.atom",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/index.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/init.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Contact.tpl",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Root.tpl",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/README.md",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/db.handler.php",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Phix Color Scheme/Phix Dark.tmTheme",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/CSS.sublime-settings",
+		"/C/Users/Seer/Desktop/test.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/auth.handler.php",
+		"/C/Users/Seer/Desktop/index.html",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/template.handler.php",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Whitespaces/readme.md",
+		"/C/Users/Seer/Desktop/index2.php",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Whitespaces/Whitespaces.sublime-settings",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/session.handler.php",
+		"/C/Users/Seer/index.php",
+		"/C/Users/Seer/Kaspersky.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"constant.numeric.css",
+			"#80",
+			"italic",
+			"italic bold",
+			"bold italic",
+			"italic",
+			"STRING",
+			"FF628C",
+			"int",
+			"num",
+			"number",
+			"strings",
+			"string",
+			"686868",
+			"entity.name.type",
+			"class",
+			"80FCFF",
+			"class",
+			"comment",
+			"comments",
+			"ffee5e",
+			"ffe400",
+			"class",
+			"31729e",
+			"18c289",
+			"a7ed65",
+			"VARIABLE",
+			"a4c460",
+			"contact",
+			"feed",
+			"primary navig",
+			"<?php\n\n    /**\n     * Root Module.\n     *\n     * @desc            Handles the main website pages such as the homepage.\n     *                  If this file doesn't exist or is invalid, we have a big\n     *                  problem.\n     *\n     */\n\n    /**\n     * Require the CommonUI functions:\n     */\n    require_once( 'modules/Common.class.php' );;\n\n    class RootUI extends TemplateReq\n    {\n\n        //----------------------------------------------------------------------\n        // Begin build functions:\n        //----------------------------------------------------------------------\n\n        /**\n         * @invoke      Root\n         *\n         * @desc        Website Homepage.\n         */\n        protected function Root()\n        {\n            /* Pre-template Setup:\n             * =================== */\n            $objFeed = new FeedHandler;\n            //$objFeed->Parse( 'https://github.com/SeerUK.atom','github' );\n            $objFeed->Parse( 'SeerUK.atom','github' );\n\n            /* Template Setup:\n             * =============== */\n            $this->objEngine->caching = true;\n            $this->objEngine->Assign( 'strPageTitle',           'Home' );\n            $this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );\n            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );\n\n            $this->objEngine->Display( 'modules/templates/Root/Root.tpl' );\n        }\n\n        protected function Skills()\n        {\n            /* Pre-template Setup:\n             * =================== */\n\n\n            /* Template Setup:\n             * ============== */\n            $this->objEngine->caching = false;\n            $this->objEngine->Assign( 'strPageTitle',           'Skills' );\n            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );\n\n            $this->objEngine->Display( 'modules/templates/Root/Skills.tpl' );\n        }\n\n        protected function Portfolio()\n        {\n            /* Pre-template Setup:\n             * =================== */\n            $objFeed = new FeedHandler;\n            //$objFeed->Parse( 'https://github.com/SeerUK.atom','github' );\n            $objFeed->Parse( 'SeerUK.atom','github' );\n\n            /* Template Setup:\n             * =============== */\n            $this->objEngine->caching = false;\n            $this->objEngine->Assign( 'strPageTitle',           'Portfolio' );\n            $this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );\n            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );\n\n            $this->objEngine->Display( 'modules/templates/Root/Portfolio.tpl' );\n        }\n\n        protected function Contact()\n        {\n            /* Pre-template Setup:\n             * =================== */\n\n\n            /* Template Setup:\n             * ============== */\n            $this->objEngine->caching = false;\n            $this->objEngine->Assign( 'strPageTitle',           'Contact' );\n            $this->objEngine->Assign( 'arrPrimaryNavigation',   CommonUI::GetPrimaryNav() );\n\n            $this->objEngine->Display( 'modules/templates/Root/Contact.tpl' );\n        }\n    }\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"fff389",
+			"ffee5e",
+			"00aeff",
+			"28e08b",
+			"31729e"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public_html/modules/Root.module.class.php",
+					"settings":
+					{
+						"buffer_size": 3197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								394,
+								394
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"is_xml": false,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"indent": 1,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML5/Syntaxes/HTML 5.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"main",
+				"public_html/static/css/main.css"
+			],
+			[
+				"css",
+				"public_html/static/css/bootstrap.css"
+			],
+			[
+				"common",
+				"public_html/modules/Common.class.php"
+			],
+			[
+				"main.css",
+				"public_html/static/css/main.css"
+			],
+			[
+				"auth",
+				"public_html/handlers/auth.handler.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true
+}

@@ -56,7 +56,7 @@
 
             if( $timDifference != 1 ) $arrPeriods[$j].= "s";
 
-            return "$timDifference $arrPeriods[$j] $strEnding";
+            return $timDifference.' '.$arrPeriods[$j].' '.$strEnding;
         }
 
     }
