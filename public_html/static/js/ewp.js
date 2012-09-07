@@ -8,10 +8,9 @@
  */
 
 $(document).ready(function() {
-
     if(!Modernizr.input.placeholder){
         $("input").each( function(){
-            if($(this).val()=="" && $(this).attr("placeholder")!="")
+            if($(this).val()==="" && $(this).attr("placeholder")!=="")
             {
                 $(this).val($(this).attr("placeholder"));
                 $(this).css('color','#aaa');
@@ -23,7 +22,7 @@ $(document).ready(function() {
                     }
                 });
                 $(this).blur(function(){
-                    if($(this).val()=="")
+                    if($(this).val()==="")
                     {
                         $(this).val($(this).attr("placeholder"));
                         $(this).css('color','#aaa');
@@ -32,5 +31,4 @@ $(document).ready(function() {
             }
         });
     }
-
 });

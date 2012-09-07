@@ -8,42 +8,38 @@
 	"buffers":
 	[
 		{
-			"file": "public_html/modules/Root.module.class.php",
-			"settings":
-			{
-				"buffer_size": 3197,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public_html/handlers/feed.handler.php",
-			"settings":
-			{
-				"buffer_size": 4435,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "public_html/handlers/template.handler.php",
 			"settings":
 			{
-				"buffer_size": 4096,
+				"buffer_size": 4222,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 137,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 7540,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 85.0,
+		"height": 60.0,
 		"selected_items":
 		[
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"list",
+				"Package Control: list",
 				"Package Control: List Packages"
 			],
 			[
@@ -51,11 +47,35 @@
 				"Package Control: Install Package"
 			],
 			[
-				"remo",
+				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"remove",
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
 				"Package Control: Remove Package"
 			],
 			[
@@ -77,10 +97,6 @@
 			[
 				"package conrol list",
 				"Package Control: List Packages"
-			],
-			[
-				"package",
-				"Package Control: Install Package"
 			],
 			[
 				"Package Control: ",
@@ -116,34 +132,49 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/template.libs/Smarty.class.php",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/init.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/index.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/static/css/main.css",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/static/js/ewp.js",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Login.module.class.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/static/js/bootstrap.js",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/Default (Windows).sublime-keymap",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Root.tpl",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/README.md",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Root.module.class.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/template.handler.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/session.handler.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/db.handler.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/db.libs/dibi.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/db.libs/libs/DibiDateTime.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/feed.handler.php",
+		"/C/Users/Seer/index.php",
+		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/auth.handler.php",
+		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt.tmTheme",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/libs/codeintel2/lang_php.py",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Default (Windows).sublime-mousemap",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Default (Windows).sublime-keymap",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Default (Linux).sublime-mousemap",
 		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Common.class.php",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Open-Include/Default.sublime-keymap",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/init.php",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/template.handler.php",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Open-Include/desktop/windows.py",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Open-Include/open_include.py",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/template.libs/Smarty.class.php",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/auth.handler.php",
 		"/C/PDE/3_PHP_New-Portfolio/public_html/SeerUK.atom",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/Root.module.class.php",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/index.php",
-		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt.tmTheme",
 		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Skills.tpl",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Root.tpl",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/feed.handler.php",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/static/css/main.css",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt Orig.tmTheme",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/CSS/CSS.tmLanguage",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Color Scheme - Default/Vibrnt Orig.tmTheme.cache",
-		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/PDE/3_PHP_New-Portfolio/public_html/static/css/bootstrap.css",
 		"/C/PDE/3_PHP_New-Portfolio/public_html/modules/templates/Root/Contact.tpl",
-		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/README.md",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/db.handler.php",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Phix Color Scheme/Phix Dark.tmTheme",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/CSS.sublime-settings",
 		"/C/Users/Seer/Desktop/test.php",
@@ -151,8 +182,6 @@
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Whitespaces/readme.md",
 		"/C/Users/Seer/Desktop/index2.php",
 		"/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/Whitespaces/Whitespaces.sublime-settings",
-		"/C/PDE/3_PHP_New-Portfolio/public_html/handlers/session.handler.php",
-		"/C/Users/Seer/index.php",
 		"/C/Users/Seer/Kaspersky.txt"
 	],
 	"find":
@@ -171,6 +200,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"delay",
+			"PHP",
+			"cache",
 			"alt",
 			"TemplateHandler",
 			"80ffbb",
@@ -228,23 +260,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public_html/modules/Root.module.class.php",
+					"file": "public_html/handlers/template.handler.php",
 					"settings":
 					{
-						"buffer_size": 3197,
+						"buffer_size": 4222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								847,
-								847
+								379,
+								379
 							]
 						],
 						"settings":
@@ -319,12 +351,15 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 0.5,
 							"sublimelinter_disable":
 							[
 							],
 							"sublimelinter_executable_map":
 							{
+								"css": "node",
+								"js": "node",
+								"php": "php"
 							},
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": false,
@@ -338,7 +373,7 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML5/Syntaxes/HTML 5.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -350,18 +385,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "public_html/handlers/feed.handler.php",
+					"file": "/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 4435,
+						"buffer_size": 137,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								640,
-								640
+								137,
+								137
 							]
 						],
 						"settings":
@@ -413,7 +448,6 @@
 							"gjslint_options":
 							[
 							],
-							"is_xml": false,
 							"javascript_linter": "jshint",
 							"jshint_options":
 							{
@@ -436,12 +470,15 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 0.5,
 							"sublimelinter_disable":
 							[
 							],
 							"sublimelinter_executable_map":
 							{
+								"css": "node",
+								"js": "node",
+								"php": "php"
 							},
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": false,
@@ -455,8 +492,7 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML5/Syntaxes/HTML 5.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -466,18 +502,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "public_html/handlers/template.handler.php",
+					"file": "/C/Users/Seer/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 4096,
+						"buffer_size": 7540,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1476,
-								1476
+								0,
+								0
 							]
 						],
 						"settings":
@@ -529,7 +565,6 @@
 							"gjslint_options":
 							[
 							],
-							"is_xml": false,
 							"javascript_linter": "jshint",
 							"jshint_options":
 							{
@@ -552,12 +587,15 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 0.5,
 							"sublimelinter_disable":
 							[
 							],
 							"sublimelinter_executable_map":
 							{
+								"css": "node",
+								"js": "node",
+								"php": "php"
 							},
 							"sublimelinter_fill_outlines": false,
 							"sublimelinter_gutter_marks": false,
@@ -571,12 +609,12 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML5/Syntaxes/HTML 5.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 473.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -590,7 +628,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -625,6 +663,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"index.p",
+				"public_html/index.php"
+			],
 			[
 				"init",
 				"public_html/init.php"

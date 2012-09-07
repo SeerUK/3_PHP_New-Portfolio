@@ -147,6 +147,7 @@
                 $this->objEngine = new $strHandler;
                 $this->objEngine->setCacheDir( CACHE_DIR );
                 $this->objEngine->setCompileDir( COMPILED_DIR );
+
                 $this->$strInvoke();
             }
 
