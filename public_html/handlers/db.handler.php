@@ -59,7 +59,7 @@
 
 		/**
 		 * Fetches a single row for a given query
-         * @param [string] $strQuery [The query to return values for]
+		 * @param [string] $strQuery [The query to return values for]
 		 */
 		public static function FetchRow($strQuery)
 		{
