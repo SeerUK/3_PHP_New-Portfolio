@@ -1,10 +1,13 @@
 <?php
 
     /**
-     * HTTP Error Module
+     * Error Module
      *
-     * @desc            Prepares pages for HTTP errors, usually from requests in
-     *                  scripts in our system (hopefully).
+     * Contains all of the error page UI setup. Defaults are specified in the
+     * template handler.
+     *
+     * @package [SeerUK/3_PHP_New-Portfolio]
+     * @since   [v0.1-alpha]
      *
      */
 

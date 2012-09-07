@@ -3,12 +3,16 @@
 	/**
 	 * Feed Handler
 	 *
-	 * @desc			Handles parsing various feeds. Lots of TODO features
-	 *					here...
+	 * Handles all kinds of feeds and merges them into one properly formatted
+	 * array that can be used to show all parsed feeds at once merged.
 	 *
-	 * @todo			Compile list of feeds to read from from database
-	 * @todo			Find some way to limit the full returned feed before
-	 *					sorting. This could get REALLY slow after a while...
+	 * @package [SeerUK/3_PHP_New-Portfolio]
+	 * @since   [v0.1-alpha]
+	 *
+	 * @todo	[Compile list of feeds to read from from database]
+	 * @todo	[Find some way to limit the full returned feed before
+	 *			sorting. This could get REALLY slow after a while...]
+	 *
 	 */
 
 	/* IMPORTANT: For any remote feed, try set up a cron job to download it to
@@ -20,28 +24,21 @@
 	class FeedHandler
 	{
 
-		/* Let all of the functions in our instance access the feed...
-		 * =========================================================== */
+		/**
+		 * The final feed array (unsorted)
+		 * @var array
+		 */
 		private $arrFeed = array();
 
-		/* The source of a feed can be either an XML file or plain XML in a
-		 * string. Each parser will handle the data as it needs to. Error
-		 * handling happens within each of the parsers so that if a single
-		 * parser fails to get their feed information it doesn't affect the
-		 * rest of the script.
-		 *
-		 * Errors are logged on a per-parser basis. See Parse_{type}.
-		 *
-		 * @param		The source of the feed. Either XML in a string or
-		 *				an XML file.
-		 * @param		The type so that the parser can decide which
-		 *				function to use to parse the feed.
-		 * @return		Void
-		 * ================================================================ */
+		/**
+		 * Parses a feed by passing it to the appropriate feed handler. If the
+		 * feed handler specified doesn't exist then the function will simply
+		 * ignore the feed.
+		 * @param [string] $strSource [The source of the feed]
+		 * @param [string] $strType   [The feed type]
+		 */
 		public function Parse( $strSource, $strType )
 		{
-			/* Lets be more secure in how we handle this...
-			 * ============================================ */
 			switch( $strType )
 			{
 				case 'github':
@@ -52,12 +49,11 @@
 			}
 		}
 
-		/* Parse GitHub Atom Files...
-		 *
-		 * @param		The source input. Must be an atom file. Usually from
-		 * 				Github.
-		 * @return		Void
-		 * ========================== */
+		/**
+		 * Parses Github atom files (currently).
+		 * @param [string] $strSource [The source file (can be remote)]
+		 * @todo  [Parse XML properly]
+		 */
 		private function Parse_GitHub( $strSource )
 		{
 			$xml = simplexml_load_file( $strSource );
@@ -90,12 +86,11 @@
 			}
 		}
 
-		/* Gets the merged feed array after sorting it via the timestamp with a
-		 * specified limit.
-		 *
-		 * @param		Limits the number of entries returned by the function.
-		 * @return		Array
-		 * ==================================================================== */
+		/**
+		 * Returns the feed ready for placing in a webpage
+		 * @param [integer] $intLimit [If specified; limits the number of entires returned]
+		 * @return [array]
+		 */
 		public function ReturnFeed( $intLimit = false )
 		{
 			$arrFull   = array();
@@ -114,7 +109,7 @@
 
 			foreach( $arrFull as $strEntry )
 			{
-				$strEntry['timestamp'] = CommonUI::RelativeTime( $strEntry['timestamp'] );
+				$strEntry['timestamp'] = GenericCommon::RelativeTime( $strEntry['timestamp'] );
 				if( $intLimit )
 				{
 					$arrReturn[] = $strEntry;
@@ -133,13 +128,12 @@
 			return $arrReturn;
 		}
 
-		/* Sorts a multidimensional array with 2 levels by the selected key in
-		 * sub-arrays. (i.e. $array[0]['timestamp']).
-		 *
-		 * @param		The array to be sorted.
-		 * @param		The key we're sorting by in the sub-arrays.
-		 * @param		(Optional) Sorting direction. Defaults to descending.
-		 * @return		Void
+		/**
+		 * Sorts the feeds multidimensional array so that all of the feeds
+		 * can be sorted by time.
+		 * @param [array] $arrFeed      [The feed array]
+		 * @param [string] $strColumn    [The key to sort by in the feed array]
+		 * @param [string] $strDirection [(Optional) Sorting direction]
 		 */
 		public function SortFeed( &$arrFeed, $strColumn, $strDirection = SORT_DESC )
 		{

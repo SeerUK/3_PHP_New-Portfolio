@@ -45,7 +45,7 @@ a:hover { text-decoration: underline; }
 	#errContainer .alert {
 		margin-top: 10px;
 	}
- 
+
 #container {
 	height: 416px;
 	left: 50%;
@@ -185,3 +185,14 @@ p.header {
 		position: absolute;
 		width: 244px;
 	}
+
+/* Login Page Styles:
+ * ================== */
+#loginContainer {
+	height: 335px;
+	left: 50%;
+	margin: -220px 0 0 -135px;
+	position: absolute;
+	top: 50%;
+	width: 270px;
+}

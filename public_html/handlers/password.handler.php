@@ -3,22 +3,23 @@
     /**
      * Password Handler
      *
-     * @current system  PHPass 0.3
-     * @desc            Handles password hashing and checks.
+     * Handles hashing and checking passwords.
+     *
+     * @package [SeerUK/3_PHP_New-Portfolio]
+     * @since   [v0.1-alpha]
      *
      */
 
-    /**
-     * Require the current password hashing library:
-     */
     require_once( 'password.libs/PasswordHash.php' );
 
-    /**
-     * Password handler main class
-     */
     class PasswordHandler
     {
 
+        /**
+         * Hashes the given password into a very secure encrypted form
+         * @param [string] $strPassword [Password to be encrypted]
+         * @return [string]
+         */
         public static function Hash( $strPassword )
         {
 
@@ -27,6 +28,12 @@
 
         }
 
+        /**
+         * Checks the given password against the hashed value stored in the
+         * database to verify validity
+         * @param [string] $strPassword [Password to check validity of]
+         * @param [string] $strHash     [Password hash to compare against]
+         */
         public static function Check( $strPassword, $strHash )
         {
             $objHasher = new PasswordHash(8, false);

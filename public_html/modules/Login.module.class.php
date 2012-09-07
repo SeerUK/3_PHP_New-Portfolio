@@ -1,94 +1,58 @@
 <?php
 
-    /**
-     * Login Module
-     *
-     * @desc            Controls all aspects of logging in. Not related to
-     *                  authentication, just sets up the user session so that
-     *                  the system can authenticate a user.
-     *
-     */
+	/**
+	 * Login Module
+	 *
+	 * Any pages related to logging in go in here. Seperate from pages for
+	 * when a user is logged in such as account pages.
+	 *
+	 * @package [SeerUK/3_PHP_New-Portfolio]
+	 * @since 	[v0.1-alpha]
+	 *
+	 */
 
-    require_once( 'handlers/password.handler.php' );
+	require_once( 'classes/Common.class.php' );
+	require_once( 'handlers/password.handler.php' );
 
-    /**
-     * Main Login Class
-     */
-    class LoginUI extends TemplateReq
-    {
+	/**
+	 * Main Login Class
+	 */
+	class LoginUI extends TemplateReq
+	{
 
-        $test = "test";
+		//----------------------------------------------------------------------
+		// Begin build functions:
+		//----------------------------------------------------------------------
 
-        //----------------------------------------------------------------------
-        // Begin build functions:
-        //----------------------------------------------------------------------
+		/**
+		 * @invoke      DoLogin
+		 *
+		 * @desc        Login page for all areas of the website. Authentication
+		 *              is page specific.
+		 */
+		protected function Login()
+		{
 
-        /**
-         * @invoke      DoLogin
-         *
-         * @desc        Processes login requests. Does not actually display a
-         *              page.
-         */
-        protected function DoLogin()
-        {
+			/* Template Setup:
+			 * =============== */
+			$this->objEngine->caching = true;
 
-            /**
-             * Check we're actually being sent something..
-             */
-            if ( isset( $_POST['iptLoginUser'] ) )
-            {
+			$arrHTMLErrors = array();
 
-                /**
-                 *Prepare user input for MySQL:
-                 */
-                $strUsername = DbHandler::Escape( $_POST['iptLoginUser'] );
-                $strPassword = DbHandler::Escape( $_POST['iptLoginPass'] );
+			/* Show error messages:
+			 * ==================== */
+			if(isset($_POST['iptUsername']) && isset($_POST['iptPassword']))
+			{
+				$arrHTMLErrors[] = GenericCommon::getHTMLError(
+					'error',
+					'< Message >'
+				);
+			}
 
-                /**
-                 * Query Database:
-                 */
-                $strUserPassHash = DbHandler::Fetch("
-                        SELECT
-                            user_pass AS strUserPass
-                        FROM
-                            tbl_user
-                        WHERE
-                            user_name = '$strUsername'
-                        ");
+			$this->objEngine->Assign( 'strErrors',				$arrHTMLErrors );
+			$this->objEngine->Assign( 'strPageTitle',           'Login');
 
-                /**
-                 * If no use was found, exit here...
-                 */
-                if ( isset( $strUserPassHash ) )
-                {
-                    /**
-                     * Check to see if password matches:
-                     */
-                    if ( PasswordHandler::Check( $strPassword, $strUserPassHash ) )
-                    {
-                        echo "Success!";
-                        SessionHandler::Create( $strUsername, $strUserPassHash );
-                        return true;
-                    }
-                    else
-                    {
-                        echo "Password doesn't match!";
-                        return false;
-                    }
-                } else {
-                    echo "No user found.";
-                    return false;
-                }
+			$this->objEngine->Display( 'modules/templates/Login/Login.tpl' );
+		}
 
-            }
-            else
-            {
-
-                header( 'Location: ' . ROOT );
-                exit;
-
-            }
-
-        }
-
-    }
+	}
