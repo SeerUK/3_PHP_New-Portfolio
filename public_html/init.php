@@ -15,11 +15,20 @@
     /**
      * Domain Settings:
      */
-    define( 'ROOT',             'http://ewp.pde.com/' );
-    define( 'SECURE_ROOT',      'https://ewp.pde.com/' );
-    define( 'STATIC_ROOT',      '//ewp.pde.com/static/' );
-    define( 'COOKIE_DOMAIN',    'ewp.pde.com' );
+    define( 'RAW_ROOT',         'ewp.pde.com' );
+    define( 'ROOT',             'http://' . RAW_ROOT . '/' );
+    define( 'SECURE_ROOT',      'https://' . RAW_ROOT . '/' );
+    define( 'STATIC_ROOT',      '//' . RAW_ROOT . '/static/' );
+    define( 'COOKIE_DOMAIN',    RAW_ROOT );
     define( 'COOKIE_PATH',      '/' );
+
+    /**
+     * File System Settings
+     *
+     * These Settings are specific to Smarty.
+     */
+    define( 'CACHE_DIR',        'C:/cache/' . RAW_ROOT . '/cache' );
+    define( 'COMPILED_DIR',     'C:/cache/' . RAW_ROOT . '/compiled' );
 
     /**
      * Database Settings
