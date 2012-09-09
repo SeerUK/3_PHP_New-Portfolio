@@ -12,7 +12,7 @@
 	 */
 
 	require_once( 'template.libs/Smarty.class.php' );
-	require_once( 'session.handler.php' );
+	require_once( 'sessions.handler.php' );
 	require_once( 'auth.handler.php' );
 	require_once( 'feed.handler.php' );
 

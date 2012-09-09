@@ -11,7 +11,7 @@
 	 *
 	 */
 
-	class SessionHandler
+	class SessionsHandler
 	{
-
+		
 	}
