@@ -87,11 +87,13 @@
 						switch ($objItem->payload->ref_type) 
 						{
 							case 'branch':
-								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '/tree/' . $objItem->payload->ref . '">' 
-														. $objItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '/tree/' 
+								                        . $objItem->payload->ref . '">' . $objItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' 
+								                        . $objItem->repo->name . '</a>';
 								break;
 							case 'repository':
-								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' 
+								                        . $objItem->repo->name . '</a>';
 								break;
 							default:
 								$arrFeed[$i]['content'].= 'created a ' . $objItem->payload->ref_type;
@@ -121,15 +123,15 @@
 					 * ========================= */
 					case 'IssueCommentEvent':
 						$arrFeed[$i]['content'].= 'commented on <a target="_blank" href="' . $objItem->payload->issue->html_url . '">issue ' . $objItem->payload->issue->number . '</a> in ' 
-												. '<a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+						                        . '<a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
 						break;
 
 					/* Pushing to a Branch -> Repository:
 					 * ================================== */
 					case 'PushEvent':
 						$arrFeed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $objItem->repo->name . '/tree/' . str_replace('refs/heads/','',$objItem->payload->ref) . '">' 
-												. str_replace('refs/heads/','',$objItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' 
-												. $objItem->repo->name . '</a>';
+						                        . str_replace('refs/heads/','',$objItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' 
+						                        . $objItem->repo->name . '</a>';
 						break;
 
 					/* Unhandled events:
