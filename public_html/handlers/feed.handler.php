@@ -54,36 +54,97 @@
 		 * @param [string] $strSource [The source file (can be remote)]
 		 * @todo  [Parse XML properly]
 		 */
-		private function Parse_GitHub( $strSource )
+		private function Parse_GitHub( $strUser )
 		{
-			$xml = simplexml_load_file( $strSource );
+			$strRoot = 'https://api.github.com';
+			$strURI  = '/users/' . $strUser . '/events';
+			$objCurl = curl_init();
 
-			if( $xml )
+			curl_setopt( $objCurl, CURLOPT_URL, $strRoot . $strURI );
+			curl_setopt( $objCurl, CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $objCurl, CURLOPT_SSL_VERIFYPEER, false );
+
+			// curl_setopt( $objCurl, CONNECTTIMEOUT, 1 );
+			$strResponse = curl_exec( $objCurl );
+			$objResponse = json_decode( $strResponse );
+			$arrFeed	 = array();
+
+			$i = 0;
+			foreach( $objResponse as $objItem )
 			{
+				/* Begin Friendly Output:
+				 * ====================== */
+				$arrFeed[$i]['type'] = 'Github';
+				$arrFeed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $objItem->actor->login . '">' . $objItem->actor->login . '</a> ';
 
-				$arrFeed = array();
-
-				foreach( $xml->entry as $entry )
+				/* Handle different events from Github:
+				 * ==================================== */
+				switch ( $objItem->type ) 
 				{
-					$strContent = str_replace( 'href="/', 'href="https://www.github.com/', $entry->content );
-					$strContent = str_replace( 'href="',  'target="_blank" href="', $strContent );
+					/* Creating Branches / Repositories:
+					 * ================================= */
+					case 'CreateEvent':
+						switch ($objItem->payload->ref_type) 
+						{
+							case 'branch':
+								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '/tree/' . $objItem->payload->ref . '">' 
+														. $objItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+								break;
+							case 'repository':
+								$arrFeed[$i]['content'].= 'created ' . $objItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+								break;
+							default:
+								$arrFeed[$i]['content'].= 'created a ' . $objItem->payload->ref_type;
+								break;
+						}
+						break;
 
-					$timTimestamp = str_replace( 'T', ' ', $entry->updated );
-					$timTimestamp = str_replace( 'Z', '', $timTimestamp );
+					/* Creating / Editing Gists:
+					 * ========================= */
+					case 'GistEvent':
+						switch ($objItem->payload->action)
+						{
+							case 'update':
+								$arrFeed[$i]['content'].= 'updated';
+								break;
+							case 'create':
+								$arrFeed[$i]['content'].= 'created';
+								break;
+							default:
+								$arrFeed[$i]['content'].= 'was active with';
+								break;
+						}
+						$arrFeed[$i]['content'].= ' gist <a target="_blank" href="' . $objItem->payload->gist->html_url . '">' . $objItem->payload->gist->html_url . '</a>';
+						break;
 
-					$timTimestamp = strtotime( $timTimestamp );
+					/* Commenting on an 'Issue':
+					 * ========================= */
+					case 'IssueCommentEvent':
+						$arrFeed[$i]['content'].= 'commented on <a target="_blank" href="' . $objItem->payload->issue->html_url . '">issue ' . $objItem->payload->issue->number . '</a> in ' 
+												. '<a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' . $objItem->repo->name . '</a>';
+						break;
 
-					$arrFeed[] = array( 'content'   => $strContent
-									  , 'type'	  => 'Github'
-									  , 'timestamp' => $timTimestamp );
+					/* Pushing to a Branch -> Repository:
+					 * ================================== */
+					case 'PushEvent':
+						$arrFeed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $objItem->repo->name . '/tree/' . str_replace('refs/heads/','',$objItem->payload->ref) . '">' 
+												. str_replace('refs/heads/','',$objItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $objItem->repo->name . '">' 
+												. $objItem->repo->name . '</a>';
+						break;
+
+					/* Unhandled events:
+					 * ================= */
+					default:
+						$arrFeed[$i]['content'].= 'was active in';
+						break;
 				}
 
-				$this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );
+				$arrFeed[$i]['timestamp'] = strtotime( $objItem->created_at );
+
+				$i = $i + 1;
 			}
-			else
-			{
-				error_log( '[Feed Handler::Github] Failed to load feed.' );
-			}
+
+			$this->arrFeed = array_merge_recursive( $this->arrFeed, $arrFeed );
 		}
 
 		/**

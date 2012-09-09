@@ -18,7 +18,7 @@
 			{{foreach $arrFeed as $entry}}
 				<span class="entry {{$entry.type}}">
 					<img src="{{$smarty.const.STATIC_ROOT}}images/feed/{{$entry.type}}.png" class="left imgFeedType" alt="{{$entry.type}}" title="{{$entry.type}}" />
-					<div>{{$entry.content}}</div>
+					<div class="title">{{$entry.content}}</div>
 					<div>{{$entry.timestamp}}</div>
 				</span>
 			{{/foreach}}

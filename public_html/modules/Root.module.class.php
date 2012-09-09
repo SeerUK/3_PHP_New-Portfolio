@@ -20,7 +20,7 @@
 			/* Pre-template Setup:
 			 * =================== */
 			$objFeed = new FeedHandler;
-			$objFeed->Parse( 'https://github.com/SeerUK.atom','github' );
+			$objFeed->Parse( 'SeerUK','github' );
 			//$objFeed->Parse( 'SeerUK.atom','github' );
 
 			/* Template Setup:

@@ -15,12 +15,7 @@
 
 	</head>
 	<body>
-		<div id="errContainer">
-			<div class="alert alert-error">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Error:</strong> There was a problem processing your login details.
-			</div>
-		</div>
+		<div id="errContainer"></div>
 		<div id="container">
 			<div class="row-fluid n100ph">
 				<div class="span3">
