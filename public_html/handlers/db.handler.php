@@ -32,7 +32,8 @@
 
 		/**
 		 * Escapes unescaped strings so that they're safe(r) for the database.
-		 * @param [string] $strEscape [The string to be escaped]
+		 * @param  [string] $strEscape [The string to be escaped]
+		 * @return [string]
 		 */
 		public static function Escape($strEscape)
 		{
@@ -41,7 +42,8 @@
 
 		/**
 		 * Fetches a single value (must select only 1 value) for a given query
-		 * @param [string] $strQuery [The query to return values for]
+		 * @param  [string] $strQuery [The query to return values for]
+		 * @return [string]
 		 */
 		public static function Fetch($strQuery)
 		{
@@ -50,7 +52,8 @@
 
 		/**
 		 * Fetches all rows for a given query
-		 * @param [string] $strQuery [The query to return values for]
+		 * @param  [string] $strQuery [The query to return values for]
+		 * @return [array]
 		 */
 		public static function FetchAll($strQuery)
 		{
@@ -59,7 +62,8 @@
 
 		/**
 		 * Fetches a single row for a given query
-		 * @param [string] $strQuery [The query to return values for]
+		 * @param  [string] $strQuery [The query to return values for]
+		 * @return [array]
 		 */
 		public static function FetchRow($strQuery)
 		{
@@ -68,7 +72,8 @@
 
 		/**
 		 * Runs a given query
-		 * @param [string] $strQuery [The query to run]
+		 * @param  [string] $strQuery [The query to run]
+		 * @return [object]
 		 */
 		public static function Query($strQuery)
 		{

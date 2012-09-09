@@ -88,7 +88,7 @@
 
 		/**
 		 * Returns the feed ready for placing in a webpage
-		 * @param [integer] $intLimit [If specified; limits the number of entires returned]
+		 * @param  [integer] $intLimit [If specified; limits the number of entires returned]
 		 * @return [array]
 		 */
 		public function ReturnFeed( $intLimit = false )
@@ -131,7 +131,7 @@
 		/**
 		 * Sorts the feeds multidimensional array so that all of the feeds
 		 * can be sorted by time.
-		 * @param [array] $arrFeed      [The feed array]
+		 * @param [array]  $arrFeed      [The feed array]
 		 * @param [string] $strColumn    [The key to sort by in the feed array]
 		 * @param [string] $strDirection [(Optional) Sorting direction]
 		 */
