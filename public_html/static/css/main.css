@@ -46,12 +46,17 @@ a:hover { text-decoration: underline; }
 		margin-top: 10px;
 	}
 
-#container {
+#fixedContainer {
 	height: 416px;
 	left: 50%;
 	margin: -208px 0 0 -512px;
 	position: absolute;
 	top: 50%;
+	width: 1024px;
+}
+
+#longContainer {
+	margin: 40px auto;
 	width: 1024px;
 }
 

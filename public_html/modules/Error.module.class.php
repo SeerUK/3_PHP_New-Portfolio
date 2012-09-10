@@ -14,15 +14,6 @@
     class ErrorUI extends TemplateReq
     {
 
-        //----------------------------------------------------------------------
-        // Begin assignment and build functions:
-        //----------------------------------------------------------------------
-
-        /**
-         * @invoke      404
-         *
-         * @desc        HTTP 404 page
-         */
         protected function n404()
         {
 

@@ -22,9 +22,10 @@
 			/* TODO: Get this from the database:
 			 * ================================ */
 			return array( 'Home' => '?module=Root&invoke=Root'
-						, 'Skills' => '?module=Root&invoke=Skills'
-						, 'Portfolio' => '?module=Root&invoke=Portfolio'
-						, 'Contact' => '?module=Root&invoke=Contact' );
+			            , 'Blog' => '?module=Blog&invoke=Root'
+			            , 'Skills' => '?module=Root&invoke=Skills'
+			            , 'Portfolio' => '?module=Root&invoke=Portfolio'
+			            , 'Contact' => '?module=Root&invoke=Contact' );
 
 		}
 
