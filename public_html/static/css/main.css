@@ -24,13 +24,23 @@ body {
 .left { float: left; }
 .right { float: right; }
 
+.serif { font-family: 'Cambria', serif; }
+.sans { font-family: sans-serif; }
+
 a { color: #4183C4; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .n100ph { height: 100%; }
+.nnormal { font-weight: normal; }
+.nbold { font-weight: bold; }
+.nbreak { border-bottom: 1px solid #EEE; margin: 0 0 10px; }
 
-.relative { position: relative; }
 .bottom { bottom: 0; margin-bottom: 0; position: absolute; }
+.relative { position: relative; }
+
+/* Bootstrap Overrides:
+ * ==================== */
+.img-polaroid {	margin: 5px 12px; }
 
 /* Main Page Setup
  * =============== */
@@ -56,7 +66,8 @@ a:hover { text-decoration: underline; }
 }
 
 #longContainer {
-	margin: 40px auto;
+	margin: auto;
+	padding: 40px 0 40px 0;
 	width: 1024px;
 }
 
@@ -200,4 +211,10 @@ p.header {
 	position: absolute;
 	top: 50%;
 	width: 270px;
+}
+
+/* Blog Styles:
+ * ============ */
+.blog-entry {
+	margin-bottom: 20px;
 }

@@ -34,12 +34,3 @@
 						<small>PHP Web Developer</small>
 					</blockquote>
 				</div>
-				<div class="span9">
-					<div class="page-header">
-						<h1>Blog <small>A place for my ramblings...</small></h1>
-					</div>
-					<ul class="breadcrumb">
-						<li><a href="#">Home</a> <span class="divider">/</span></li>
-						<li><a href="#">Library</a> <span class="divider">/</span></li>
-						<li class="active">Data</li>
-					</ul>
