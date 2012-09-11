@@ -4,8 +4,8 @@
 	{{foreach $arrBlogEntries as $arrBlogEntry}}
 	<div class="blog-entry">
 		<div class="bubble">
-			<!-- {{$arrBlogEntry.strBlogTitle}} - Header Section -->
 			<div class="wwell" style="padding-top: 0; padding-bottom: 10px;">
+				<!-- {{$arrBlogEntry.strBlogTitle}} - Header Section -->
 				<div class="page-header" style="margin-bottom: 10px;">
 					<div class="blog-date pull-right serif">
 						<div class="m">{{$arrBlogEntry.date.month|truncate:3:''}}</div>
