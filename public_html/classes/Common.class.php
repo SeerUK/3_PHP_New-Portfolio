@@ -82,7 +82,11 @@
 			return $this->arrErrors;
 		}
 
-
+		/**
+		 * Adds an entry to the errors array.
+		 * @param [string] $strErrorType    [The error type used as CSS style and message prefix]
+		 * @param [string] $strErrorMessage [The error message]
+		 */
 		public function setHTMLError( $strErrorType, $strErrorMessage )
 		{
 			switch ($strErrorType)
