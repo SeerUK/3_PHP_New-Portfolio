@@ -15,12 +15,19 @@
 
 	</head>
 	<body>
-		<div id="errContainer"></div>
+		<div id="errContainer">
+			{{foreach $arrHTMLErrors as $arrHTMLError}}
+				<div class="alert alert-{{$arrHTMLError.type}}">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong class="ncapitalize">{{$arrHTMLError.type}}:</strong> {{$arrHTMLError.message}}
+				</div>
+			{{/foreach}}
+		</div>
 		<div id="loginContainer">
 			<div class="bubble">
 				<div class="wwell">
-					<form method="POST">
-						<legend>Login</legend>
+					<form method="POST" class="nmargin">
+						<legend>Login <small>/ Administrative Access</small></legend>
 						<div class="control-group">
 							<label class="control-label" for="iptUsername">Username:</label>
 							<div class="controls">
@@ -31,14 +38,14 @@
 							<label class="control-label" for="inputPassword">Password:</label>
 							<div class="controls">
 								<input type="password" id="iptPassword" name="iptPassword" placeholder="Password...">
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="controls">
 								<label class="checkbox">
 									<input type="checkbox"> Remember me
 								</label>
-								<button type="submit" class="btn">Sign in</button>
+							</div>
+						</div>
+						<div class="control-group nmargin">
+							<div class="controls">
+								<button type="submit" class="btn btn-success btn-large btn-block">Sign in</button>
 							</div>
 						</div>
 					</form>

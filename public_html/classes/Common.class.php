@@ -61,4 +61,45 @@
 			return $timDifference.' '.$arrPeriods[$j].' '.$strEnding;
 		}
 
+
+	}
+
+	class HTMLError
+	{
+
+		/**
+		 * Array to store all the HTML errors in.
+		 * @var array
+		 */
+		protected $arrErrors = array();
+
+		/**
+		 * Returns all of the HTML errors to display.
+		 * @return [array] [All of the HTML errors stored]
+		 */
+		public function getHTMLErrors()
+		{
+			return $this->arrErrors;
+		}
+
+
+		public function setHTMLError( $strErrorType, $strErrorMessage )
+		{
+			switch ($strErrorType)
+			{
+				case 'info':
+				case 'success':
+				case 'error':
+				case 'warning':
+					$strErrorType = $strErrorType;
+					break;
+				default:
+					$strErrorType = 'error';
+					break;
+			}
+
+			$this->arrErrors[] = array( 'type' => $strErrorType
+			                          , 'message' => $strErrorMessage );
+		}
+
 	}

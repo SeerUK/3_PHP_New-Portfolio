@@ -139,6 +139,12 @@
 		protected $objEngine;
 
 		/**
+		 * HTML error handler instance.
+		 * @var [object]
+		 */
+		protected $objHtmlErrors;
+
+		/**
 		 * Check the invokation request and prepare the corresponding page
 		 * to be built.
 		 * @param [str] $strInvoke [Invoke from GET request]
@@ -158,7 +164,8 @@
 			else
 			{
 				$strHandler = TemplateHandler::GetHandler();
-				$this->objEngine = new $strHandler;
+				$this->objHtmlErrors = new HTMLError;
+				$this->objEngine     = new $strHandler;
 				$this->objEngine->setCacheDir( CACHE_DIR );
 				$this->objEngine->setCompileDir( COMPILED_DIR );
 

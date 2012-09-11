@@ -14,42 +14,26 @@
 	require_once( 'classes/Common.class.php' );
 	require_once( 'handlers/password.handler.php' );
 
-	/**
-	 * Main Login Class
-	 */
 	class LoginUI extends TemplateReq
 	{
 
-		//----------------------------------------------------------------------
-		// Begin build functions:
-		//----------------------------------------------------------------------
-
-		/**
-		 * @invoke      DoLogin
-		 *
-		 * @desc        Login page for all areas of the website. Authentication
-		 *              is page specific.
-		 */
 		protected function Login()
 		{
 
+			/* Pre-template Setup:
+			 * =================== */
+
+				/* Show error messages:
+				 * ==================== */
+				$arrHTMLErrors = array();
+				if(isset($_POST['iptUsername']) && isset($_POST['iptPassword']))
+				{
+					$this->objHtmlErrors->setHTMLError( 'info', 'Congratulations, you just submitted the form.' );
+				}
+
 			/* Template Setup:
 			 * =============== */
-			$this->objEngine->caching = true;
-
-			$arrHTMLErrors = array();
-
-			/* Show error messages:
-			 * ==================== */
-			if(isset($_POST['iptUsername']) && isset($_POST['iptPassword']))
-			{
-				$arrHTMLErrors[] = GenericCommon::getHTMLError(
-					'error',
-					'< Message >'
-				);
-			}
-
-			$this->objEngine->Assign( 'strErrors',				$arrHTMLErrors );
+			$this->objEngine->Assign( 'arrHTMLErrors',          $this->objHtmlErrors->getHTMLErrors() );
 			$this->objEngine->Assign( 'strPageTitle',           'Login');
 
 			$this->objEngine->Display( 'modules/templates/Login/Login.tpl' );
