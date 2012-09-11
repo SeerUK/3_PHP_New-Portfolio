@@ -28,7 +28,7 @@
 			$this->objEngine->caching = false;
 			$this->objEngine->Assign( 'strPageTitle',           'Home' );
 			$this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );
-			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::GetPrimaryNav() );
+			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::getPrimaryNav() );
 
 			$this->objEngine->Display( 'modules/templates/Root/Root.tpl' );
 		}
@@ -43,7 +43,7 @@
 			 * ============== */
 			$this->objEngine->caching = false;
 			$this->objEngine->Assign( 'strPageTitle',           'Skills' );
-			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::GetPrimaryNav() );
+			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::getPrimaryNav() );
 
 			$this->objEngine->Display( 'modules/templates/Root/Skills.tpl' );
 		}
@@ -61,7 +61,7 @@
 			$this->objEngine->caching = false;
 			$this->objEngine->Assign( 'strPageTitle',           'Portfolio' );
 			$this->objEngine->Assign( 'arrFeed',                $objFeed->ReturnFeed(8) );
-			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::GetPrimaryNav() );
+			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::getPrimaryNav() );
 
 			$this->objEngine->Display( 'modules/templates/Root/Portfolio.tpl' );
 		}
@@ -76,7 +76,7 @@
 			 * ============== */
 			$this->objEngine->caching = false;
 			$this->objEngine->Assign( 'strPageTitle',           'Contact' );
-			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::GetPrimaryNav() );
+			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::getPrimaryNav() );
 
 			$this->objEngine->Display( 'modules/templates/Root/Contact.tpl' );
 		}

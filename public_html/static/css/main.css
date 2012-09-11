@@ -218,3 +218,26 @@ p.header {
 .blog-entry {
 	margin-bottom: 20px;
 }
+
+.blog-date {
+	background-color: #212121;
+	border: 3px solid #ddd;
+	border-radius: 3px;
+	color: white;
+	margin: -6px 0 0 0;
+	padding: 4px 8px;
+}
+	.blog-date div {
+		font-style: italic;
+		margin: 0;
+		padding: 0;
+	}
+	.blog-date .d {
+		font-size: 27px;
+		margin-bottom: 4px;
+	}
+	.blog-date .m {
+		font-size: 14px;
+		line-height: 15px;
+		text-align: center;
+	}

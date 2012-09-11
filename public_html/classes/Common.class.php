@@ -17,7 +17,7 @@
 		 * Returns the primary navigation for use in templates.
 		 * @return [array]
 		 */
-		public static function GetPrimaryNav()
+		public static function getPrimaryNav()
 		{
 			/* TODO: Get this from the database:
 			 * ================================ */
