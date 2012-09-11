@@ -91,7 +91,6 @@
 				case 'success':
 				case 'error':
 				case 'warning':
-					$strErrorType = $strErrorType;
 					break;
 				default:
 					$strErrorType = 'error';

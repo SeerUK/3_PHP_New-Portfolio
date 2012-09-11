@@ -60,14 +60,14 @@
 			/**
 			 * Dev values:
 			 */
-			$strRoot = 'http://ewp.pde.com';
-			$strURI  = '/feed/SeerUK/';
+			//$strRoot = 'http://ewp.pde.com';
+			//$strURI  = '/feed/SeerUK/';
 
 			/**
 			 * Production values:
 			 */
-			//$strRoot = 'https://api.github.com';
-			//$strURI  = '/users/' . $strUser . '/events';
+			$strRoot = 'https://api.github.com';
+			$strURI  = '/users/' . $strUser . '/events';
 
 			$objCurl = curl_init();
 
@@ -92,6 +92,11 @@
 				 * ==================================== */
 				switch ( $objItem->type )
 				{
+
+					case 'CommitCommentEvent':
+						$arrFeed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $objItem->payload->comment->html_url . '">' . $objItem->payload->comment->commit_id . '</a>';
+						break;
+
 					/* Creating Branches / Repositories:
 					 * ================================= */
 					case 'CreateEvent':
