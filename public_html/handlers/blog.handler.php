@@ -18,7 +18,7 @@
 			$strQuery = 'SELECT strBlogTitle '.
 			                 ', strBlogSubtitle '.
 			                 ', strContent '.
-			                 ', stmTimestamp '.
+			                 ', stmCreated '.
 			              'FROM tblBlogEntry '.
 			          'ORDER BY stmTimestamp DESC ';
 

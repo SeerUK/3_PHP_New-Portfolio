@@ -30,7 +30,8 @@
 		 */
 		public function Setup( $strUsername, $strPassword, $bolRemember = false )
 		{
-			$strQuery = 'SELECT strUserName '.
+			$strQuery = 'SELECT intUserId '.
+			                 ', strUserName '.
 			                 ', strUserPassword '.
 			              'FROM tblUser '.
 			             "WHERE strUserName = '$strUsername' ".
@@ -50,6 +51,25 @@
 			{
 				return 'BadPassword';
 			}
+
+
+			/* Setup DB Session:
+			 * ================= */
+			$strSessionId    = md5( time() . rand( 0, 32767 ) );
+			$intUserId       = $arrUser['intUserId'];
+			$strUserPassword = $arrUser['strUserPassword'];
+			$strUserAgent    = $_SERVER['HTTP_USER_AGENT'];
+
+			$strQuery = 'INSERT INTO tblSession( strSessionId '.
+			                      ', intUserId '.
+			                      ', strUserPassword '.
+			                      ', strUserAgent) '.
+			                 "VALUES( '$strSessionId' ".
+			                 	  ", '$intUserId' ".
+			                 	  ", '$strUserPassword' ".
+			                 	  ", '$strUserAgent')";
+
+			DbHandler::Query( $strQuery );
 
 			return 'GoodRequest';
 		}

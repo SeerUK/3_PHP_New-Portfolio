@@ -30,6 +30,9 @@ body {
 a { color: #4183C4; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+input[type="text"], input[type="password"] { box-shadow: 0 0 0px 3px #F7F7F7; }
+.checkbox { font-size: 13px; }
+
 .n100ph { height: 100%; }
 .nnormal { font-weight: normal; }
 .nbold { font-weight: bold; }

@@ -37,7 +37,7 @@
 				 * ================== */
 				for( $i = 0; $i < count( $arrBlogEntries ); $i = $i + 1 )
 				{
-					$stmDate = strtotime( $arrBlogEntries[$i]['stmTimestamp'] );
+					$stmDate = strtotime( $arrBlogEntries[$i]['stmCreated'] );
 					$arrBlogEntries[$i]['date'] = getDate( $stmDate );
 				}
 

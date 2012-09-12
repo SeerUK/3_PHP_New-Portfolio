@@ -27,7 +27,7 @@
 			<div class="bubble">
 				<div class="wwell">
 					<form method="POST" class="nmargin">
-						<legend>Login <small>/ Administrative Access</small></legend>
+						<legend class="serif nnormal"><i>Login <small>/ Administrative Access</small></i></legend>
 						<div class="control-group">
 							<div class="controls">
 								<input type="text" id="iptUsername" name="iptUsername" placeholder="Username...">
