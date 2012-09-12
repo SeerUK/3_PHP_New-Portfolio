@@ -29,20 +29,19 @@
 					<form method="POST" class="nmargin">
 						<legend>Login <small>/ Administrative Access</small></legend>
 						<div class="control-group">
-							<label class="control-label" for="iptUsername">Username:</label>
 							<div class="controls">
 								<input type="text" id="iptUsername" name="iptUsername" placeholder="Username...">
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="inputPassword">Password:</label>
 							<div class="controls">
 								<input type="password" id="iptPassword" name="iptPassword" placeholder="Password...">
 								<label class="checkbox">
-									<input type="checkbox"> Remember me
+									<input type="checkbox" name="iptRemember"> Remember me
 								</label>
 							</div>
 						</div>
+						<br />
 						<div class="control-group nmargin">
 							<div class="controls">
 								<button type="submit" class="btn btn-success btn-large btn-block">Sign in</button>

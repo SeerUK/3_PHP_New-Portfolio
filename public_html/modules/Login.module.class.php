@@ -26,9 +26,31 @@
 				/* Show error messages:
 				 * ==================== */
 				$arrHTMLErrors = array();
-				if(isset($_POST['iptUsername']) && isset($_POST['iptPassword']))
+				if( isset( $_POST['iptUsername'] ) && isset( $_POST['iptPassword'] ) )
 				{
-					$this->objHtmlErrors->setHTMLError( 'info', 'Congratulations, you just submitted the form.' );
+					if( empty( $_POST['iptUsername'] ) || empty( $_POST['iptPassword'] ) )
+					{
+						$this->objHtmlErrors->setHTMLError( 'error', 'Please fill in both your username and password.' );
+					}
+					else
+					{
+						$bolRemember = isset($_POST['iptRemember']) ? ($_POST['iptRemember'] == 'on' ? true : false) : false;
+
+						switch( $this->objSessionsHandler->Setup( $_POST['iptUsername'], $_POST['iptPassword'], $bolRemember ) )
+						{
+							case 'BadPassword':
+								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid password entered.' );
+								break;
+							case 'BadUser':
+								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid username entered.' );
+								break;
+							case 'GoodRequest':
+								$this->objHtmlErrors->setHTMLError( 'info', 'Good so far' );
+								break;
+							default:
+								break;
+						}
+					}
 				}
 
 			/* Template Setup:

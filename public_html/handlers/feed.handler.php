@@ -60,14 +60,14 @@
 			/**
 			 * Dev values:
 			 */
-			//$strRoot = 'http://ewp.pde.com';
-			//$strURI  = '/feed/SeerUK/';
+			$strRoot = 'http://ewp.pde.com';
+			$strURI  = '/feed/SeerUK/';
 
 			/**
 			 * Production values:
 			 */
-			$strRoot = 'https://api.github.com';
-			$strURI  = '/users/' . $strUser . '/events';
+			//$strRoot = 'https://api.github.com';
+			//$strURI  = '/users/' . $strUser . '/events';
 
 			$objCurl = curl_init();
 

@@ -145,6 +145,12 @@
 		protected $objHtmlErrors;
 
 		/**
+		 * Globally used instance of session handler.
+		 * @var [object]
+		 */
+		protected $objSessionsHandler;
+
+		/**
 		 * Check the invokation request and prepare the corresponding page
 		 * to be built.
 		 * @param [str] $strInvoke [Invoke from GET request]
@@ -165,6 +171,7 @@
 			{
 				$strHandler = TemplateHandler::GetHandler();
 				$this->objHtmlErrors = new HTMLError;
+				$this->objSessionsHandler = new SessionsHandler;
 				$this->objEngine     = new $strHandler;
 				$this->objEngine->setCacheDir( CACHE_DIR );
 				$this->objEngine->setCompileDir( COMPILED_DIR );
