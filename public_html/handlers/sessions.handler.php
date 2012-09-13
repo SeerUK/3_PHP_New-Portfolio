@@ -19,6 +19,7 @@
 		public function __construct()
 		{
 			session_start();
+			$this->Read();
 		}
 
 		/**
@@ -30,6 +31,14 @@
 		 */
 		public function Setup( $strUsername, $strPassword, $bolRemember = false )
 		{
+			$strUsername = DbHandler::Escape( $strUsername );
+			$strPassword = DbHandler::Escape( $strPassword );
+
+			if( !preg_match( '/^([A-Za-z0-9_])+$/', $strUsername ) )
+			{
+				return 'BadRequest';
+			}
+
 			$strQuery = 'SELECT intUserId '.
 			                 ', strUserName '.
 			                 ', strUserPassword '.
@@ -71,7 +80,15 @@
 
 			DbHandler::Query( $strQuery );
 
-			return 'GoodRequest';
+			return 'OK';
+		}
+
+		/**
+		 * Reads session information from the cookie we store.
+		 */
+		public function Read()
+		{
+
 		}
 
 

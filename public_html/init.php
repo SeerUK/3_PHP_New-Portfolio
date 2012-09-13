@@ -19,10 +19,19 @@
 	 * ================ */
 	define( 'RAW_ROOT',         'ewp.pde.com' );
 	define( 'ROOT',             'http://' . RAW_ROOT . '/' );
-	define( 'SECURE_ROOT',      'https://' . RAW_ROOT . '/' );
-	define( 'STATIC_ROOT',      '//' . RAW_ROOT . '/static/' );
+	define( 'SECURE_ROOT',      'https://secure.pde.com/3/' );
 	define( 'COOKIE_DOMAIN',    RAW_ROOT );
 	define( 'COOKIE_PATH',      '/' );
+
+	// Setup secure settings:
+	if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == "on" )
+	{
+		define( 'STATIC_ROOT',      SECURE_ROOT . '/static/' );
+	}
+	else
+	{
+		define( 'STATIC_ROOT',      ROOT . '/static/' );
+	}
 
 	/* File System Settings:
 	 *

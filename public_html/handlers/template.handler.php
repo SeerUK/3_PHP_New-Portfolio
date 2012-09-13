@@ -169,10 +169,10 @@
 			}
 			else
 			{
-				$strHandler = TemplateHandler::GetHandler();
-				$this->objHtmlErrors = new HTMLError;
+				$strHandler               = TemplateHandler::GetHandler();
+				$this->objHtmlErrors      = new HTMLError;
 				$this->objSessionsHandler = new SessionsHandler;
-				$this->objEngine     = new $strHandler;
+				$this->objEngine          = new $strHandler;
 				$this->objEngine->setCacheDir( CACHE_DIR );
 				$this->objEngine->setCompileDir( COMPILED_DIR );
 

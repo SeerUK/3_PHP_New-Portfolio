@@ -19,8 +19,9 @@
 		 */
 		public static function getPrimaryNav()
 		{
-			/* TODO: Get this from the database:
-			 * ================================ */
+			/**
+			 * @todo: Get this from the database:
+			 */
 			return array( 'Home' => '?module=Root&invoke=Root'
 			            , 'Blog' => '?module=Blog&invoke=Root'
 			            , 'Skills' => '?module=Root&invoke=Skills'
@@ -71,7 +72,7 @@
 		 * Array to store all the HTML errors in.
 		 * @var array
 		 */
-		protected $arrErrors = array();
+		private $arrErrors = array();
 
 		/**
 		 * Returns all of the HTML errors to display.

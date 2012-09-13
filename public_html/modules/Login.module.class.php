@@ -25,7 +25,6 @@
 
 				/* Show error messages:
 				 * ==================== */
-				$arrHTMLErrors = array();
 				if( isset( $_POST['iptUsername'] ) && isset( $_POST['iptPassword'] ) )
 				{
 					if( empty( $_POST['iptUsername'] ) || empty( $_POST['iptPassword'] ) )
@@ -38,13 +37,16 @@
 
 						switch( $this->objSessionsHandler->Setup( $_POST['iptUsername'], $_POST['iptPassword'], $bolRemember ) )
 						{
+							case 'BadRequest':
+								$this->objHtmlErrors->setHTMLError( 'error', 'Illegal characters in credentials. Try again.' );
+								break;
 							case 'BadPassword':
-								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid password entered.' );
+								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid password entered. Try again.' );
 								break;
 							case 'BadUser':
-								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid username entered.' );
+								$this->objHtmlErrors->setHTMLError( 'error', 'Invalid username entered. Try again.' );
 								break;
-							case 'GoodRequest':
+							case 'OK':
 								$this->objHtmlErrors->setHTMLError( 'info', 'Good so far' );
 								break;
 							default:

@@ -22,10 +22,8 @@
          */
         public static function Hash( $strPassword )
         {
-
             $objHasher = new PasswordHash(8, false);
             return $objHasher->HashPassword( $strPassword );
-
         }
 
         /**
