@@ -42,7 +42,7 @@
 			$strQuery = 'SELECT intUserId '.
 			                 ', strUserName '.
 			                 ', strUserPassword '.
-			              'FROM tblUser '.
+			              'FROM '.DB_MAIN.'.tblUser '.
 			             "WHERE strUserName = '$strUsername' ".
 			             'LIMIT 1';
 			$arrUser = DbHandler::FetchRow( $strQuery );
@@ -64,19 +64,48 @@
 
 			/* Setup DB Session:
 			 * ================= */
-			$strSessionId    = md5( time() . rand( 0, 32767 ) );
-			$intUserId       = $arrUser['intUserId'];
-			$strUserPassword = $arrUser['strUserPassword'];
-			$strUserAgent    = $_SERVER['HTTP_USER_AGENT'];
+			$strSessionId       = md5( time() . rand( 0, 65535 ) );
+			$strSecureSessionId = md5( time() . rand( 0, 4294836225 ) );
+			$intUserId          = $arrUser['intUserId'];
+			$strUserPassword    = $arrUser['strUserPassword'];
+			$strUserAgent       = $_SERVER['HTTP_USER_AGENT'];
+			$strRemoteAddr      = $_SERVER['REMOTE_ADDR'];
 
-			$strQuery = 'INSERT INTO tblSession( strSessionId '.
+			/* Remove Old Session Data (if any):
+			 * ================================= */
+			DbHandler::Query('DELETE FROM '.DB_MAIN.".tblSession WHERE strRemoteAddr = '$strRemoteAddr'");
+
+			/* Insert Insecure Session Data:
+			 * ============================= */
+			$strQuery = 'INSERT INTO '.DB_MAIN.'.tblSession( strSessionId '.
 			                      ', intUserId '.
 			                      ', strUserPassword '.
-			                      ', strUserAgent) '.
-			                 "VALUES( '$strSessionId' ".
+			                      ', strUserAgent '.
+			                      ', strRemoteAddr '.
+			                      ', strType) '.
+			                 "VALUES('$strSessionId' ".
+			                      ", '$intUserId' ".
+			                      ", '$strUserPassword' ".
+			                      ", '$strUserAgent' ".
+			                      ", '$strRemoteAddr' ".
+			                      ', \'insecure\')';
+
+			DbHandler::Query( $strQuery );
+
+			/* Insert Secure Session Data:
+			 * =========================== */
+			$strQuery = 'INSERT INTO '.DB_MAIN.'.tblSession( strSessionId '.
+			                      ', intUserId '.
+			                      ', strUserPassword '.
+			                      ', strUserAgent '.
+			                      ', strRemoteAddr '.
+			                      ', strType) '.
+			                 "VALUES('$strSecureSessionId' ".
 			                 	  ", '$intUserId' ".
 			                 	  ", '$strUserPassword' ".
-			                 	  ", '$strUserAgent')";
+			                 	  ", '$strUserAgent' ".
+			                 	  ", '$strRemoteAddr' ".
+			                 	  ', \'secure\')';
 
 			DbHandler::Query( $strQuery );
 

@@ -19,7 +19,7 @@
 			                 ', strBlogSubtitle '.
 			                 ', strContent '.
 			                 ', stmCreated '.
-			              'FROM tblBlogEntry '.
+			              'FROM '.DB_MAIN.'.tblBlogEntry '.
 			          'ORDER BY stmTimestamp DESC ';
 
 			/* Calculate limits for pages:

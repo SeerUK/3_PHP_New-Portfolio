@@ -18,6 +18,7 @@
 
 		protected function Root()
 		{
+
 			/* Pre-template Setup:
 			 * =================== */
 
@@ -46,7 +47,7 @@
 			$this->objEngine->caching = false;
 			$this->objEngine->Assign( 'strPageTitle',           'Blog' );
 			$this->objEngine->Assign( 'arrBlogEntries',         $arrBlogEntries );
-			$this->objEngine->Assign( 'arrPrimaryNavigation',   GenericCommon::getPrimaryNav() );
+			$this->objEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
 			$this->objEngine->Display( 'modules/templates/Blog/Root.tpl' );
 		}

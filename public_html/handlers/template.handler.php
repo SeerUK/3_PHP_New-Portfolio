@@ -151,12 +151,39 @@
 		protected $objSessionsHandler;
 
 		/**
+		 * Flag to check if page should be loaded as secure or insecure:
+		 * @var [boolean]
+		 */
+		protected $bolSecure;
+
+		/**
 		 * Check the invokation request and prepare the corresponding page
 		 * to be built.
 		 * @param [str] $strInvoke [Invoke from GET request]
 		 */
 		public function __construct( $strInvoke )
 		{
+
+			/* Check and set connection type based on module enforcement:
+			 * ========================================================== */
+			if ($this->isSecure())
+			{
+				if ( !isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != SECURE_DOMAIN )
+				{
+					$arrUri = explode( '/', $_SERVER['REQUEST_URI'] );
+					header( 'Location: ' . SECURE_ROOT . $arrUri[sizeof($arrUri)-1] );
+					exit;
+				}
+			}
+			else
+			{
+				if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != DOMAIN )
+				{
+					$arrUri = explode( '/', $_SERVER['REQUEST_URI'] );
+					header( 'Location: ' . ROOT . $arrUri[sizeof($arrUri)-1] );
+					exit;
+				}
+			}
 
 			if ( is_numeric( substr( $strInvoke, 1 ) ) )
 			{
@@ -179,6 +206,11 @@
 				$this->$strInvoke();
 			}
 
+		}
+
+		public function isSecure()
+		{
+			return (bool)$this->bolSecure;
 		}
 
 	}

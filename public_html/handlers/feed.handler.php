@@ -188,7 +188,7 @@
 
 			foreach( $arrFull as $strEntry )
 			{
-				$strEntry['timestamp'] = GenericCommon::RelativeTime( $strEntry['timestamp'] );
+				$strEntry['timestamp'] = Common::RelativeTime( $strEntry['timestamp'] );
 				if( $intLimit )
 				{
 					$arrReturn[] = $strEntry;

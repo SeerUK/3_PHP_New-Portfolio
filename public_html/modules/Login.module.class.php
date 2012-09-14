@@ -17,6 +17,8 @@
 	class LoginUI extends TemplateReq
 	{
 
+		protected $bolSecure = true;
+
 		protected function Login()
 		{
 

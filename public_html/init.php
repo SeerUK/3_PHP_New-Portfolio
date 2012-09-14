@@ -9,6 +9,8 @@
 	 * @package [SeerUK/3_PHP_New-Portfolio]
 	 * @since   [v0.1-alpha]
 	 *
+	 * @todo Add secure and non-secure path values.
+	 *
 	 */
 
 	//--------------------------------------------------------------------------
@@ -17,28 +19,36 @@
 
 	/* Domain Settings:
 	 * ================ */
-	define( 'RAW_ROOT',         'ewp.pde.com' );
-	define( 'ROOT',             'http://' . RAW_ROOT . '/' );
-	define( 'SECURE_ROOT',      'https://secure.pde.com/3/' );
-	define( 'COOKIE_DOMAIN',    RAW_ROOT );
-	define( 'COOKIE_PATH',      '/' );
+	define( 'DOMAIN',               'ewp.pde.com' );
+	define( 'SECURE_DOMAIN',        'secure.pde.com');
+	define( 'PROTOCOL',             'http://' );
+	define( 'SECURE_PROTOCOL',      'https://' );
+	define( 'URI',                  '/' );
+	define( 'SECURE_URI',           '/3/' );
+	define( 'ROOT',                 PROTOCOL . DOMAIN . URI );
+	define( 'SECURE_ROOT',          SECURE_PROTOCOL . SECURE_DOMAIN . SECURE_URI );
+	define( 'COOKIE_DOMAIN',        DOMAIN );
+	define( 'COOKIE_PATH',          '/' );
+	define( 'SECURE_COOKIE_DOMAIN',  SECURE_DOMAIN );
+	define( 'SECURE_COOKIE_PATH',   '/3/' );
 
-	// Setup secure settings:
+	/* Setup secure settings:
+	 * ====================== */
 	if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == "on" )
 	{
-		define( 'STATIC_ROOT',      SECURE_ROOT . '/static/' );
+		define( 'STATIC_ROOT',      SECURE_ROOT . 'static/' );
 	}
 	else
 	{
-		define( 'STATIC_ROOT',      ROOT . '/static/' );
+		define( 'STATIC_ROOT',      ROOT . 'static/' );
 	}
 
 	/* File System Settings:
 	 *
 	 * These Settings are specific to Smarty.
 	 * ====================================== */
-	define( 'CACHE_DIR',        'C:/cache/' . RAW_ROOT . '/cache' );
-	define( 'COMPILED_DIR',     'C:/cache/' . RAW_ROOT . '/compiled' );
+	define( 'CACHE_DIR',        'C:/cache/' . DOMAIN . '/cache' );
+	define( 'COMPILED_DIR',     'C:/cache/' . DOMAIN . '/compiled' );
 
 	/* Database Settings:
 	 * ================== */
@@ -46,12 +56,14 @@
 	define( 'DB_HOST',          'localhost' );
 	define( 'DB_USER',          'root' );
 	define( 'DB_PASS',          'Diablo2' );
-	define( 'DB_DB',            'ew_portfolio' );
+
+	/* Databases:
+	 * ========== */
+	define( 'DB_MAIN',            'ew_portfolio' );
 
 	/* Website Settings:
 	 * ================= */
 	define( 'TITLE',            'Elliot Wright' );
-	define( 'SESSION_COOKIE',   'ew180_sessuid' );
 
 
 	//--------------------------------------------------------------------------
