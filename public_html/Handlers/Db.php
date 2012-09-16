@@ -7,19 +7,21 @@
 	 * ultra flexible here we can switch bewtween different DBA's whenver
 	 * we need to and just update this file.
 	 *
-	 * @package [SeerUK/3_PHP_New-Portfolio]
-	 * @since   [v0.1-alpha]
+	 * @category SeerUK
+	 * @package  3_PHP_New-Portfolio
+	 * @version  0.1-alpha
+	 * @since 	 0.1-alpha
 	 *
 	 */
 
-	require_once( 'db.libs/dibi.php' );
+	require_once( 'Libs/Db/dibi.php' );
 
 	class DbHandler
 	{
 		/**
 		 * Connects to the database.
 		 */
-		public static function Connect()
+		public static function connect()
 		{
 			dibi::connect( array(
 				'driver'    => DB_DRIVER,
@@ -32,54 +34,54 @@
 
 		/**
 		 * Escapes unescaped strings so that they're safe(r) for the database.
-		 * @param  [string] $strEscape [The string to be escaped]
+		 * @param  [string] $string [The string to be escaped]
 		 * @return [string]
 		 */
-		public static function Escape($strEscape)
+		public static function escape( $string )
 		{
-			return mysql_real_escape_string($strEscape);
+			return mysql_real_escape_string( $string );
 		}
 
 		/**
 		 * Fetches a single value (must select only 1 value) for a given query
-		 * @param  [string] $strQuery [The query to return values for]
+		 * @param  [string] $query [The query to return values for]
 		 * @return [string]
 		 */
-		public static function Fetch($strQuery)
+		public static function fetch( $query )
 		{
-			return dibi::fetchSingle($strQuery);
+			return dibi::fetchSingle( $query );
 		}
 
 		/**
 		 * Fetches all rows for a given query
-		 * @param  [string] $strQuery [The query to return values for]
+		 * @param  [string] $query [The query to return values for]
 		 * @return [array]
 		 */
-		public static function FetchAll($strQuery)
+		public static function fetchAll( $query )
 		{
-			return dibi::fetchAll($strQuery);
+			return dibi::fetchAll( $query );
 		}
 
 		/**
 		 * Fetches a single row for a given query
-		 * @param  [string] $strQuery [The query to return values for]
+		 * @param  [string] $query [The query to return values for]
 		 * @return [array]
 		 */
-		public static function FetchRow($strQuery)
+		public static function fetchRow( $query )
 		{
-			return dibi::fetch($strQuery);
+			return dibi::fetch( $query) ;
 		}
 
 		/**
 		 * Runs a given query
-		 * @param  [string] $strQuery [The query to run]
+		 * @param  [string] $query [The query to run]
 		 * @return [object]
 		 */
-		public static function Query($strQuery)
+		public static function query( $query )
 		{
 			try
 			{
-				$result = dibi::query($strQuery);
+				$result = dibi::query( $query );
 				return $result;
 			}
 			catch ( DibiDriverException $e )

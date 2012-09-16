@@ -6,8 +6,10 @@
 	 * Handles authentication and permissions. Permissiosn are assigned to
 	 * groups AND users specifically.
 	 *
-	 * @package [SeerUK/3_PHP_New-Portfolio]
-	 * @since   [v0.1-alpha]
+	 * @category SeerUK
+	 * @package  3_PHP_New-Portfolio
+	 * @version  0.1-alpha
+	 * @since 	 0.1-alpha
 	 *
 	 */
 

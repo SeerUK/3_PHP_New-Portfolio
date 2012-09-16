@@ -6,18 +6,20 @@
 	 * Sets up administrative pages, only allow access to users who have
 	 * permissions!
 	 *
-	 * @package [SeerUK/3_PHP_New-Portfolio]
-	 * @since   [v0.1-alpha]
+	 * @category SeerUK
+	 * @package  3_PHP_New-Portfolio
+	 * @version  0.1-alpha
+	 * @since 	 0.1-alpha
 	 *
 	 */
 
-	require_once( 'classes/Common.class.php' );
-	require_once( 'classes/Admin.class.php' );
+	require_once( 'Classes/Admin.php' );
 
-	class AdminUI extends TemplateReq
+
+	class AdminUI extends TemplateAbstract
 	{
 
-		public function Root()
+		protected function _root()
 		{
 			/* Pre-template setup:
 			 * =================== */
@@ -30,7 +32,7 @@
 			 * ============== */
 			$this->objEngine->caching = true;
 
-			$this->objEngine->Display( 'modules/templates/Admin/Root.tpl' );
+			$this->objEngine->Display( 'Modules/Templates/Admin/Root.tpl' );
 		}
 
 	}
