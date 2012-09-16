@@ -55,9 +55,9 @@ input[type="text"], input[type="password"] { box-shadow: 0 0 0 3px #F7F7F7; }
 	left: 50%;
 	margin-left: -400px;
 	position: absolute;
-	top: 10px;
+	top: 10PX;
 	width: 800px;
-	z-index: 2;
+	z-index: 51;
 }
 	#errContainer .alert {
 		margin-top: 10px;

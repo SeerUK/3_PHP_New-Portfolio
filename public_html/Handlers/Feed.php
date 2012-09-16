@@ -94,7 +94,6 @@
 				 * ==================================== */
 				switch ( $responseItem->type )
 				{
-
 					case 'CommitCommentEvent':
 						$feed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $responseItem->payload->comment->html_url . '">'
 						                     . $responseItem->payload->comment->commit_id . '</a>';

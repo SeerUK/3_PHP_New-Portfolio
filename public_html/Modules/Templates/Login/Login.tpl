@@ -26,7 +26,7 @@
 							<div class="controls">
 								<input type="password" id="iptPassword" name="iptPassword" placeholder="Password...">
 								<label class="checkbox">
-									<input type="checkbox" name="iptRemember"> Remember me
+									<input type="checkbox" name="iptRemember" checked> Remember me
 								</label>
 							</div>
 						</div>

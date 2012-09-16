@@ -13,11 +13,12 @@
 	 *
 	 */
 
+	require_once( './Classes/Common.php' );
 	require_once( 'Libs/Template/Smarty.class.php' );
+	require_once( 'Errors.php' );
 	require_once( 'Sessions.php' );
 	require_once( 'Auth.php' );
 	require_once( 'Feed.php' );
-	require_once( './Classes/Common.php' );
 
 	class TemplateHandler
 	{
@@ -70,7 +71,7 @@
 			{
 				case 404:
 				default:
-					header( 'Location: ' . ROOT . '?request=Error/' . $errorCode . '/');
+					header( 'Location: ' . ROOT . Common::getFormattedRequest( 'Error/' . $errorCode . '/' ) );
 					exit;
 			}
 		}
@@ -146,100 +147,87 @@
 		 */
 		public function __construct( $invoke )
 		{
-			/* Check and set connection type based on module enforcement:
-			 * ========================================================== */
+			/**
+			 * Check and set connection type based on module enforcement:
+			 */
 			if ( $this->getSecureFlag() )
 			{
 				if ( !isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != SECURE_DOMAIN )
 				{
-					$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
-					$uri     = explode( '/', $request );
-
-					$module = (!empty( $uri[0] ) ? ucfirst( strtolower( $uri[0] ) ) . '/' : '');
-					$invoke = (!empty( $uri[1] ) ? ucfirst( strtolower( $uri[1] ) ) . '/' : '');
-
-					$location = SECURE_ROOT . $module . $invoke;
-
-					$skipRequest = isset( $_GET['request'] ) ? true : false;
-					$firstGet    = true;
-					foreach( $_GET as $getKey => $getValue )
-					{
-						if( $skipRequest )
-						{
-							$skipRequest = false;
-							continue;
-						}
-						if( $firstGet )
-						{
-							$firstGet = false;
-							$location.= '?';
-						}
-						else
-						{
-							$location.= '&';
-						}
-
-						$location.= $getKey . '=' . $getValue;
-					}
-
-					header( 'Location: ' . $location );
-					exit;
+					$this->_setConnectionType( 'secure' );
 				}
 			}
 			else
 			{
 				if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != DOMAIN )
 				{
-					$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
-					$uri     = explode( '/', $request );
-
-					$module = (!empty( $uri[0] ) ? ucfirst( strtolower( $uri[0] ) ) . '/' : '');
-					$invoke = (!empty( $uri[1] ) ? ucfirst( strtolower( $uri[1] ) ) . '/' : '');
-
-					$location = ROOT . $module . $invoke;
-
-					$skipRequest = isset( $_GET['request'] ) ? true : false;
-					$firstGet    = true;
-					foreach( $_GET as $getKey => $getValue )
-					{
-						if( $skipRequest )
-						{
-							$skipRequest = false;
-							continue;
-						}
-						if( $firstGet )
-						{
-							$firstGet = false;
-							$location.= '?';
-						}
-						else
-						{
-							$location.= '&';
-						}
-
-						$location.= $getKey . '=' . $getValue;
-					}
-
-					header( 'Location: ' . $location );
-					exit;
+					$this->_setConnectionType( 'insecure' );
 				}
 			}
 
-			if ( method_exists( $this, $invoke ) )
+			/**
+			 * If the page does not exist in the module we're in then redirect
+			 * user to the 404 page.
+			 */
+			if ( !method_exists( $this, $invoke ) )
 			{
-				$templateHandler       = TemplateHandler::getHandler();
-				$this->_htmlError      = new HtmlError;
-				$this->_sessionHandler = new SessionsHandler;
-				$this->_templateEngine = new $templateHandler;
-				$this->_templateEngine->setCacheDir( CACHE_DIR );
-				$this->_templateEngine->setCompileDir( COMPILED_DIR );
+				TemplateHandler::httpError( '404' );
+			}
 
-				$this->$invoke();
-			}
-			else
+			$templateHandler       = TemplateHandler::getHandler();
+			$this->_htmlError      = new Errors;
+			$this->_sessionHandler = new SessionsHandler;
+			$this->_templateEngine = new $templateHandler;
+			$this->_templateEngine->setCacheDir( CACHE_DIR );
+			$this->_templateEngine->setCompileDir( COMPILED_DIR );
+
+			$this->$invoke();
+		}
+
+		protected function _setConnectionType( $type )
+		{
+			$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
+			$uri     = explode( '/', $request );
+
+			$module = (!empty( $uri[0] ) ? ucfirst( strtolower( $uri[0] ) ) . '/' : '');
+			$invoke = (!empty( $uri[1] ) ? ucfirst( strtolower( $uri[1] ) ) . '/' : '');
+
+			switch ($type)
 			{
-				TemplateHandler::httpError('404');
+				case 'secure':
+					$location = SECURE_ROOT . $module . $invoke;
+					break;
+				case 'insecure':
+					$location = ROOT . $module . $invoke;
+					break;
+				default:
+					return false;
 			}
+
+			$skipRequest = isset( $_GET['request'] ) ? true : false;
+			$firstGet    = true;
+			foreach( $_GET as $getKey => $getValue )
+			{
+				if( $skipRequest )
+				{
+					$skipRequest = false;
+					continue;
+				}
+				if( $firstGet )
+				{
+					$firstGet = false;
+					$location.= '?';
+				}
+				else
+				{
+					$location.= '&';
+				}
+
+				$location.= $getKey . '=' . $getValue;
+			}
+
+			header( 'Location: ' . $location );
+			exit;
 		}
 
 		public function getSecureFlag()
