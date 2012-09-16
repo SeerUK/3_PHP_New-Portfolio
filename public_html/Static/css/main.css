@@ -111,6 +111,14 @@ input[type="text"], input[type="password"] { box-shadow: 0 0 0 3px #F7F7F7; }
 			font-weight: bold;
 		}
 
+.fixed-navigation {
+	height: 416px;
+	margin-top: -208px;
+	position: fixed;
+	top: 50%;
+	width: 240px;
+}
+
 /* Common Styles:
  * ============== */
 .bubble {

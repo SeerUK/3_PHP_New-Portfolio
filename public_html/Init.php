@@ -31,6 +31,7 @@
 	define( 'COOKIE_PATH',          '/' );
 	define( 'SECURE_COOKIE_DOMAIN',  SECURE_DOMAIN );
 	define( 'SECURE_COOKIE_PATH',   '/3/' );
+	define( 'URI_REWRITTEN',         true );
 
 	/* Setup secure settings:
 	 * ====================== */

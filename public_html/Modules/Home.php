@@ -1,9 +1,9 @@
 <?php
 
 	/**
-	 * Root Module.
+	 * Home Module.
 	 *
-	 * Handles setting up all the pages in the 'Root' module.
+	 * Handles setting up all the pages in the 'Home' module.
 	 *
 	 * @category SeerUK
 	 * @package  3_PHP_New-Portfolio
@@ -12,10 +12,10 @@
 	 *
 	 */
 
-	class RootUi extends TemplateAbstract
+	class HomeUi extends TemplateAbstract
 	{
 
-		protected function _root()
+		protected function _home()
 		{
 			/* Pre-template Setup:
 			 * =================== */

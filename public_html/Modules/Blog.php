@@ -18,7 +18,7 @@
 	class BlogUI extends TemplateAbstract
 	{
 
-		protected function _root()
+		protected function _home()
 		{
 
 			/* Pre-template Setup:

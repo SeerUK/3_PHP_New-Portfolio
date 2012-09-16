@@ -21,7 +21,7 @@
 
 		protected $_secureFlag = true;
 
-		protected function _login()
+		protected function _home()
 		{
 
 			/* Pre-template Setup:

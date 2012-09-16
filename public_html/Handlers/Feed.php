@@ -190,7 +190,7 @@
 
 			foreach( $full as $entry )
 			{
-				$entry['timestamp'] = Common::RelativeTime( $entry['timestamp'] );
+				$entry['timestamp'] = Common::relativeTime( $entry['timestamp'] );
 				if( $limit )
 				{
 					$return[] = $entry;

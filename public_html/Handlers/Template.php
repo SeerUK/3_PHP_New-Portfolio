@@ -70,7 +70,7 @@
 			{
 				case 404:
 				default:
-					header( 'Location: ' . ROOT . '?module=Error&invoke=' . $errorCode );
+					header( 'Location: ' . ROOT . '?request=Error/' . $errorCode . '/');
 					exit;
 			}
 		}
@@ -83,42 +83,29 @@
 		 */
 		private function _validateUri()
 		{
+			$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
+			$uri     = explode( '/', $request );
 
 			/**
-			 * We will always only have 'module' and 'invoke'
+			 * Page request handling can be fairly dyanmic, this is to account
+			 * for all of the possible allowed combinations of request URI's
 			 */
-			if ( isset( $_GET['module'] ) && isset( $_GET['invoke'] ) )
+			$this->module = ucfirst( strtolower( (!empty( $uri[0] ) ? $uri[0] : 'Home' ) ) );
+			$this->invoke = '_' . strtolower( (isset( $uri[1] ) ? (!empty( $uri[1] ) ? $uri[1] : 'Home') : 'Home' ) );
+
+			/**
+			 * Verify Existance of module and invokation... test invoke:
+			 */
+			if ( file_exists( 'Modules/' . $this->module . '.php' ) )
 			{
-				$this->module = ucfirst( strtolower( $_GET['module'] ) );
-				$this->invoke = strtolower( $_GET['invoke'] );
+				require_once( 'Modules/' . $this->module . '.php' );
 
-				/**
-				 * URI template values must be alphanumeric.
-				 */
-				if ( !ctype_alnum( $this->module ) || !ctype_alnum( $this->invoke ) )
-				{
-					$this::httpError( '404' );
-				}
-
-				/**
-				 * Verify Existance of module and invokation... test invoke:
-				 */
-				if ( file_exists( 'Modules/' . $this->module . '.php' ) )
-				{
-					require_once( 'Modules/' . $this->module . '.php' );
-
-					$strClass = $this->module . 'Ui';
-					$this->template = new $strClass( $this->invoke );
-				}
-				else
-				{
-					$this::httpError( '404' );
-				}
+				$moduleClass = $this->module . 'Ui';
+				$this->template = new $moduleClass( $this->invoke );
 			}
 			else
 			{
-				require_once( 'Modules/Root.php' );
-				$this->template = new RootUI( 'root' );
+				$this::httpError( '404' );
 			}
 
 		}
@@ -159,17 +146,43 @@
 		 */
 		public function __construct( $invoke )
 		{
-
-			$invoke = '_' . $invoke;
-
 			/* Check and set connection type based on module enforcement:
 			 * ========================================================== */
 			if ( $this->getSecureFlag() )
 			{
 				if ( !isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != SECURE_DOMAIN )
 				{
-					$uri = explode( '/', $_SERVER['REQUEST_URI'] );
-					header( 'Location: ' . SECURE_ROOT . $uri[sizeof( $uri )-1] );
+					$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
+					$uri     = explode( '/', $request );
+
+					$module = (!empty( $uri[0] ) ? ucfirst( strtolower( $uri[0] ) ) . '/' : '');
+					$invoke = (!empty( $uri[1] ) ? ucfirst( strtolower( $uri[1] ) ) . '/' : '');
+
+					$location = SECURE_ROOT . $module . $invoke;
+
+					$skipRequest = isset( $_GET['request'] ) ? true : false;
+					$firstGet    = true;
+					foreach( $_GET as $getKey => $getValue )
+					{
+						if( $skipRequest )
+						{
+							$skipRequest = false;
+							continue;
+						}
+						if( $firstGet )
+						{
+							$firstGet = false;
+							$location.= '?';
+						}
+						else
+						{
+							$location.= '&';
+						}
+
+						$location.= $getKey . '=' . $getValue;
+					}
+
+					header( 'Location: ' . $location );
 					exit;
 				}
 			}
@@ -177,8 +190,37 @@
 			{
 				if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTP_HOST'] != DOMAIN )
 				{
-					$uri = explode( '/', $_SERVER['REQUEST_URI'] );
-					header( 'Location: ' . ROOT . $uri[sizeof( $uri )-1] );
+					$request = isset( $_GET['request'] ) ? $_GET['request'] : '';
+					$uri     = explode( '/', $request );
+
+					$module = (!empty( $uri[0] ) ? ucfirst( strtolower( $uri[0] ) ) . '/' : '');
+					$invoke = (!empty( $uri[1] ) ? ucfirst( strtolower( $uri[1] ) ) . '/' : '');
+
+					$location = ROOT . $module . $invoke;
+
+					$skipRequest = isset( $_GET['request'] ) ? true : false;
+					$firstGet    = true;
+					foreach( $_GET as $getKey => $getValue )
+					{
+						if( $skipRequest )
+						{
+							$skipRequest = false;
+							continue;
+						}
+						if( $firstGet )
+						{
+							$firstGet = false;
+							$location.= '?';
+						}
+						else
+						{
+							$location.= '&';
+						}
+
+						$location.= $getKey . '=' . $getValue;
+					}
+
+					header( 'Location: ' . $location );
 					exit;
 				}
 			}

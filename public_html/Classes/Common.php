@@ -14,6 +14,23 @@
 
 	class Common
 	{
+		/**
+		 * Gets a corretly formatted URL for a link dependant on rewrite
+		 * setting in config.
+		 * @param  [string] $request [The request value]
+		 * @return [string]          [The formatted request to append to the URL]
+		 */
+		public static function getFormattedRequest( $request )
+		{
+			if( URI_REWRITTEN )
+			{
+				return $request;
+			}
+			else
+			{
+				return '?request=' . $request;
+			}
+		}
 
 		/**
 		 * Returns the primary navigation for use in templates.
@@ -25,11 +42,11 @@
 			 * @todo: Get this from the database:
 			 */
 			return array(
-				'Home'      => ROOT . '?module=Root&invoke=Root',
-				'Blog'      => ROOT . '?module=Blog&invoke=Root',
-				'Skills'    => ROOT . '?module=Root&invoke=Skills',
-				'Portfolio' => ROOT . '?module=Root&invoke=Portfolio',
-				'Contact'   => ROOT . '?module=Root&invoke=Contact'
+				'Home'      => ROOT,
+				'Blog'      => ROOT . Common::getFormattedRequest( 'Blog/' ),
+				'Skills'    => ROOT . Common::getFormattedRequest( 'Home/Skills/' ),
+				'Portfolio' => ROOT . Common::getFormattedRequest( 'Home/Portfolio/' ),
+				'Contact'   => ROOT . Common::getFormattedRequest( 'Home/Contact/' )
 			);
 		}
 
@@ -38,20 +55,20 @@
 		 * @param  [integer] $timestamp [A unix timestamp to be converted]
 		 * @return [string]
 		 */
-		public static function RelativeTime( $timestamp )
+		public static function relativeTime( $timestamp )
 		{
 			$timeDifference = time() - $timestamp;
 			$timePeriods    = array( 'second', 'minute', 'hour', 'day', 'week','month', 'years', 'decade' );
-			$timeLengths    = array( '60','60','24','7','4.35','12','10' );
+			$timeLengths    = array( '60', '60', '24', '7', '4.35', '12', '10' );
 
 			if ( $timeDifference > 0 )
 			{
-				$suffix = 'ago';
+				$timeSuffix = 'ago';
 			}
 			else
 			{
 				$timeDifference = -$timeDifference;
-				$suffix = 'to go';
+				$timeSuffix     = 'to go';
 			}
 
 			for( $j = 0; $timeDifference >= $timeLengths[$j]; $j++ )
@@ -62,7 +79,7 @@
 
 			if( $timeDifference != 1 ) $timePeriods[$j].= 's';
 
-			return $timeDifference . ' ' . $timePeriods[$j] . ' ' . $suffix;
+			return $timeDifference . ' ' . $timePeriods[$j] . ' ' . $timeSuffix;
 		}
 
 	}
