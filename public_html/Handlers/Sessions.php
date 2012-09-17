@@ -73,12 +73,15 @@
 			$userAgent       = $_SERVER['HTTP_USER_AGENT'];
 			$remoteAddr      = $_SERVER['REMOTE_ADDR'];
 
-			/* Remove Old Session Data (if any):
+			/* Remove old session data (if any):
 			 * ================================= */
-			DbHandler::query( 'DELETE FROM ' . DB_MAIN . ".tblSession WHERE strRemoteAddr = '$remoteAddr'" );
+			$query = 'DELETE FROM ' . DB_MAIN . '.tblSession '
+			       .       "WHERE strRemoteAddr = '$remoteAddr'";
 
-			/* Insert Insecure Session Data:
-			 * ============================= */
+			DbHandler::query( $query );
+
+			/* Insert session data:
+			 * ==================== */
 			$query = 'INSERT INTO ' . DB_MAIN . '.tblSession( strSessionId '
 			       .           ', intUserId '
 			       .           ', strUserPassword '
@@ -90,26 +93,20 @@
 			       .           ", '$userPassword' "
 			       .           ", '$userAgent' "
 			       .           ", '$remoteAddr' "
-			       .           ', \'insecure\')';
-
-			DbHandler::query( $query );
-
-			/* Insert Secure Session Data:
-			 * =========================== */
-			$query = 'INSERT INTO ' . DB_MAIN . '.tblSession( strSessionId '
-			       .           ', intUserId '
-			       .           ', strUserPassword '
-			       .           ', strUserAgent '
-			       .           ', strRemoteAddr '
-			       .           ', strType) '
-			       .      "VALUES('$secureSessionId' "
+			       .           ', "insecure") '
+			       .           ",('$secureSessionId' "
 			       .           ", '$userId' "
 			       .           ", '$userPassword' "
 			       .           ", '$userAgent' "
 			       .           ", '$remoteAddr' "
-			       .           ', \'secure\')';
+			       .           ', "secure")';
 
 			DbHandler::query( $query );
+
+			/* Set Up cookies:
+			 * =============== */
+			setcookie( COOKIE_NAME, $sessionId, time()+(3600*24*30*12), COOKIE_PATH, COOKIE_DOMAIN );
+			setcookie( SECURE_COOKIE_NAME, $sessionId, time()+(3600*24*30*12), SECURE_COOKIE_PATH, SECURE_COOKIE_DOMAIN );
 
 			return 'OK';
 		}

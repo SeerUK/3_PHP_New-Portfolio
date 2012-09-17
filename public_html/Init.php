@@ -27,11 +27,16 @@
 	define( 'SECURE_URI',           '/3/' );
 	define( 'ROOT',                 PROTOCOL . DOMAIN . URI );
 	define( 'SECURE_ROOT',          SECURE_PROTOCOL . SECURE_DOMAIN . SECURE_URI );
+	define( 'URI_REWRITTEN',        true );
+
+	/* Cookie Settings:
+	 * ================ */
+	define( 'COOKIE_NAME',          'ewp_ins283uj' );
 	define( 'COOKIE_DOMAIN',        DOMAIN );
 	define( 'COOKIE_PATH',          '/' );
-	define( 'SECURE_COOKIE_DOMAIN',  SECURE_DOMAIN );
+	define( 'SECURE_COOKIE_NAME',   'ewp_s283uj' );
+	define( 'SECURE_COOKIE_DOMAIN', SECURE_DOMAIN );
 	define( 'SECURE_COOKIE_PATH',   '/3/' );
-	define( 'URI_REWRITTEN',         true );
 
 	/* Setup secure settings:
 	 * ====================== */
