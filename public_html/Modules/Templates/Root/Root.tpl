@@ -1,4 +1,4 @@
-{{include file='.\RootHeader.tpl'}}
+{{include file='./Base/RootHeader.tpl'}}
 
 <div class="span5 relative n100ph">
 	<p class="lead serif nitalic">Thanks for stopping by! Why don't you take a look around?</p>
@@ -26,4 +26,4 @@
 	</div>
 </div>
 
-{{include file='.\RootFooter.tpl'}}
+{{include file='./Base/RootFooter.tpl'}}

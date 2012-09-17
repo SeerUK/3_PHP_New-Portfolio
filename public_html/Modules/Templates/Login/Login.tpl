@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{{include file='../Root/RootHead.tpl'}}
+		{{include file='../Root/Base/RootHead.tpl'}}
 	</head>
 	<body>
 		<div id="errContainer">

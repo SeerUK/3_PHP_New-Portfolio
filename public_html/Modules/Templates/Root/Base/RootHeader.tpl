@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		{{include file='.\RootHead.tpl'}}
+		{{include file='./RootHead.tpl'}}
 	</head>
 	<body>
+		{{include file='./UserBar.tpl'}}
 		<div id="errContainer"></div>
 		<div id="fixedContainer">
 			<div class="row-fluid n100ph">

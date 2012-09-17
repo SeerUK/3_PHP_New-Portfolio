@@ -76,7 +76,8 @@
 			/* Remove old session data (if any):
 			 * ================================= */
 			$query = 'DELETE FROM ' . DB_MAIN . '.tblSession '
-			       .       "WHERE strRemoteAddr = '$remoteAddr'";
+			       .       "WHERE strRemoteAddr = '$remoteAddr' "
+			       .         "AND strUserAgent  = '$userAgent'";
 
 			DbHandler::query( $query );
 

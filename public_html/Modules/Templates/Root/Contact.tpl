@@ -1,4 +1,4 @@
-{{include file='.\RootHeader.tpl'}}
+{{include file='./Base/RootHeader.tpl'}}
 
 <div class="span9">
     <form method="POST">
@@ -42,4 +42,4 @@
     </form>
 </div>
 
-{{include file='.\RootFooter.tpl'}}
+{{include file='./Base/RootFooter.tpl'}}

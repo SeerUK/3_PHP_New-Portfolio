@@ -34,6 +34,8 @@ input[type="text"], input[type="password"] { box-shadow: 0 0 0 3px #F7F7F7; }
 .checkbox { font-size: 13px; }
 
 .n100ph { height: 100%; }
+.nm10r { margin-right: 10px; }
+.nm10l { margin-left: 10px; }
 .nitalic { font-style: italic; }
 .nnormal { font-weight: normal; }
 .nbold { font-weight: bold; }
