@@ -105,8 +105,8 @@
 
 			/* Set Up cookies:
 			 * =============== */
-			setcookie( COOKIE_NAME, $sessionId, time()+(3600*24*30*12), COOKIE_PATH, COOKIE_DOMAIN );
-			setcookie( SECURE_COOKIE_NAME, $sessionId, time()+(3600*24*30*12), SECURE_COOKIE_PATH, SECURE_COOKIE_DOMAIN );
+			setcookie( COOKIE_NAME, $sessionId, time()+(3600*24*30*12), COOKIE_PATH, COOKIE_DOMAIN, false, false );
+			setcookie( SECURE_COOKIE_NAME, $secureSessionId, time()+(3600*24*30*12), SECURE_COOKIE_PATH, SECURE_COOKIE_DOMAIN, true, true );
 
 			return 'OK';
 		}

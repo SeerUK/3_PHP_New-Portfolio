@@ -32,7 +32,7 @@
 	/* Cookie Settings:
 	 * ================ */
 	define( 'COOKIE_NAME',          'ewp_ins283uj' );
-	define( 'COOKIE_DOMAIN',        DOMAIN );
+	define( 'COOKIE_DOMAIN',        '.pde.com' );
 	define( 'COOKIE_PATH',          '/' );
 	define( 'SECURE_COOKIE_NAME',   'ewp_s283uj' );
 	define( 'SECURE_COOKIE_DOMAIN', SECURE_DOMAIN );
