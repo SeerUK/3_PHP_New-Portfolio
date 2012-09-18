@@ -17,7 +17,12 @@
 
 	class SessionsHandler
 	{
+		/** @var [string] [The current user's session ID] */
+		protected $_userSession;
 
+		/**
+		 * Start PHP sessions:
+		 */
 		public function __construct()
 		{
 			session_start();
@@ -114,10 +119,21 @@
 
 		/**
 		 * Reads session information from the cookie we store.
+		 * @param [string] $type [The session cookie that should be read]
 		 */
-		public function read()
+		public function read( $type )
 		{
-
+			switch( $type )
+			{
+				case 'secure':
+					$this->_userSession = $_COOKIE[ SECURE_COOKIE_NAME ];
+					break;
+				case 'insecure':
+					$this->_userSession = $_COOKIE[ COOKIE_NAME ];
+					break;
+				default:
+					return false;
+			}
 		}
 
 

@@ -148,6 +148,16 @@
 		public function __construct( $invoke )
 		{
 			/**
+			 * Create required variables and class instances:
+			 */
+			$templateHandler        = TemplateHandler::getHandler();
+			$this->_htmlError       = new Errors;
+			$this->_sessionsHandler = new SessionsHandler;
+			$this->_templateEngine  = new $templateHandler;
+			$this->_templateEngine->setCacheDir( CACHE_DIR );
+			$this->_templateEngine->setCompileDir( COMPILED_DIR );
+
+			/**
 			 * Check and set connection type based on module enforcement:
 			 */
 			if ( $this->getSecureFlag() )
@@ -156,6 +166,8 @@
 				{
 					$this->_setConnectionType( 'secure' );
 				}
+
+				$this->_sessionsHandler->read( 'secure' );
 			}
 			else
 			{
@@ -163,6 +175,8 @@
 				{
 					$this->_setConnectionType( 'insecure' );
 				}
+
+				$this->_sessionsHandler->read( 'insecure' );
 			}
 
 			/**
@@ -173,13 +187,6 @@
 			{
 				TemplateHandler::httpError( '404' );
 			}
-
-			$templateHandler       = TemplateHandler::getHandler();
-			$this->_htmlError      = new Errors;
-			$this->_sessionHandler = new SessionsHandler;
-			$this->_templateEngine = new $templateHandler;
-			$this->_templateEngine->setCacheDir( CACHE_DIR );
-			$this->_templateEngine->setCompileDir( COMPILED_DIR );
 
 			$this->$invoke();
 		}

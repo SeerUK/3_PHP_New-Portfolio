@@ -13,7 +13,9 @@
 			</ul>
 		</div>
 
-		<div class="btn-group nm10r">
-			<button class="btn btn-success">Admin</button>
-		</div>	</div>
+		<div class="btn-group pull-left nm10r">
+			<button class="btn btn-success">Admin Panel</button>
+		</div>
+		<div class="clearfix"></div>
+	</div>
 </div>
