@@ -51,6 +51,37 @@
 		}
 
 		/**
+		 * Returns the username of the given user id.
+		 * @param  [integer]        $userId [A user id]
+		 * @return [string|boolean]         [The corresponding user name]
+		 */
+		public static function getUserNameById( $userId )
+		{
+			if( !preg_match( '/^\d+$/', $userId ) )
+			{
+				return false;
+			}
+
+			$query = 'SELECT strUserName '
+			       .   'FROM ' . DB_MAIN . '.tblUser '
+			       .  "WHERE intUserId =  $userId";
+			return DbHandler::fetch( $query );
+		}
+
+		/**
+		 * Returns the user id of the given user name.
+		 * @param  [string]  $userName [A user name]
+		 * @return [integer]           [The corrsponding user id]
+		 */
+		public static function getUserIdByName( $userName )
+		{
+			$query = 'SELECT intUserId '
+			       .   'FROM ' . DB_MAIN . '.tblUser '
+			       .  "WHERE strUserName =  '$userName'";
+			return DbHandler::fetch( $query );
+		}
+
+		/**
 		 * Converts Unix timestamps into a relative time (i.e. Facebook style.)
 		 * @param  [integer] $timestamp [A unix timestamp to be converted]
 		 * @return [string]

@@ -17,6 +17,10 @@
 
 		protected function _home()
 		{
+			$permissions = new AuthHandler;
+
+			$permissions->requirePermission( 'Modules.Admin.Home', 1 );
+
 			/* Pre-template Setup:
 			 * =================== */
 			$feedHandler = new FeedHandler;

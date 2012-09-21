@@ -15,7 +15,6 @@
 
 	require_once( 'Handlers/Password.php' );
 
-
 	class LoginUi extends TemplateAbstract
 	{
 

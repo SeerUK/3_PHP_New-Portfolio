@@ -17,7 +17,7 @@
 
 	class SessionsHandler
 	{
-		/** @var [string] [The current user's session ID] */
+		/** @var [array] [The current user's session] */
 		protected $_userSession;
 
 		/**
@@ -26,6 +26,15 @@
 		public function __construct()
 		{
 			session_start();
+		}
+
+		/**
+		 * Returns the current session ID
+		 * @return [type] [description]
+		 */
+		public function getSession()
+		{
+			return $this->_userSession;
 		}
 
 		/**
@@ -126,14 +135,20 @@
 			switch( $type )
 			{
 				case 'secure':
-					$this->_userSession = $_COOKIE[ SECURE_COOKIE_NAME ];
+					$sessionId = $_COOKIE[ SECURE_COOKIE_NAME ];
 					break;
 				case 'insecure':
-					$this->_userSession = $_COOKIE[ COOKIE_NAME ];
+					$sessionId = $_COOKIE[ COOKIE_NAME ];
 					break;
 				default:
 					return false;
 			}
+
+			$query = 'SELECT * '
+			       .   'FROM ' . DB_MAIN . '.tblSession '
+			       .  "WHERE strSessionId = '$sessionId' ";
+
+			$this->_userSession = DbHandler::fetchRow( $query );
 		}
 
 

@@ -67,13 +67,8 @@
 		 */
 		public static function httpError( $errorCode )
 		{
-			switch( $errorCode )
-			{
-				case 404:
-				default:
-					header( 'Location: ' . ROOT . Common::getFormattedRequest( 'Error/' . $errorCode . '/' ) );
-					exit;
-			}
+			header( 'Location: ' . ROOT . Common::getFormattedRequest( 'Error/' . $errorCode . '/' ) );
+			exit;
 		}
 
 		/**
@@ -115,12 +110,11 @@
 
 	abstract class TemplateAbstract
 	{
-
 		/**
-		 * Template engine object instance.
+		 * Globally used instance of auth handler.
 		 * @var [object]
 		 */
-		protected $_templateEngine;
+		protected $_authHandler;
 
 		/**
 		 * HTML error handler instance.
@@ -129,16 +123,22 @@
 		protected $_htmlError;
 
 		/**
+		 * Flag to check if page should be loaded as secure or insecure:
+		 * @var [boolean]
+		 */
+		protected $_secureFlag;
+
+		/**
 		 * Globally used instance of session handler.
 		 * @var [object]
 		 */
 		protected $_sessionHandler;
 
 		/**
-		 * Flag to check if page should be loaded as secure or insecure:
-		 * @var [boolean]
+		 * Template engine object instance.
+		 * @var [object]
 		 */
-		protected $_secureFlag;
+		protected $_templateEngine;
 
 		/**
 		 * Check the invokation request and prepare the corresponding page
@@ -153,6 +153,7 @@
 			$templateHandler        = TemplateHandler::getHandler();
 			$this->_htmlError       = new Errors;
 			$this->_sessionsHandler = new SessionsHandler;
+			$this->_authHandler     = new AuthHandler( array( 'intGroupId' => 1 ) );
 			$this->_templateEngine  = new $templateHandler;
 			$this->_templateEngine->setCacheDir( CACHE_DIR );
 			$this->_templateEngine->setCompileDir( COMPILED_DIR );

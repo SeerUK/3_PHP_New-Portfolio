@@ -3,8 +3,10 @@
 	/**
 	 * Authentication Handler
 	 *
-	 * Handles authentication and permissions. Permissiosn are assigned to
-	 * groups AND users specifically.
+	 * Handles authentication using the permissions system and session system.
+	 * Users will only be able perform actions that require permissions if
+	 * they are in a group with that permission and logged in. Guests also
+	 * have permissions.
 	 *
 	 * @category SeerUK
 	 * @package  3_PHP_New-Portfolio
@@ -15,6 +17,40 @@
 
 	class AuthHandler {
 
+		public function hasPermission( $permission, $groupId )
+		{
+			$nodes = explode( '.', $permission );
+			$i     = count( $nodes ) - 1;
 
+			/* Set up group permission query:
+			 * ============================== */
+			$query =     'SELECT count(p.strPermission) '
+			       .       'FROM ' . DB_MAIN . '.tblGroupPermissionMap AS gpm '
+			       . 'INNER JOIN ' . DB_MAIN . '.ublPermission AS p ON p.intPermissionId = gpm.intPermissionId '
+			       .      "WHERE (p.strPermission = '$permission' ";
+
+			while( $i > 0 )
+			{
+				array_pop($nodes);
+				$query.= 'OR p.strPermission = \'' . implode( '.', $nodes ) . '\'';
+
+				$i = $i - 1;
+			}
+
+			$query.= 'OR p.strPermission = \'*\') '
+			       .   "AND (intGroupId = $groupId) "
+			       . 'LIMIT 1';
+
+			$result = (bool) DbHandler::fetch( $query );
+			return $result;
+		}
+
+		public function requirePermission( $permission, $groupId )
+		{
+			if( !$this->hasPermission( $permission, $groupId ) )
+			{
+				TemplateHandler::httpError('403');
+			}
+		}
 
 	}
