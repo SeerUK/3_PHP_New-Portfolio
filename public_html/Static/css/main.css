@@ -76,7 +76,7 @@ input[type="text"], input[type="password"] { box-shadow: 0 0 0 3px #F7F7F7; }
 
 #longContainer {
 	margin: auto;
-	padding: 40px 0 40px 0;
+	padding: 40px 0;
 	width: 1024px;
 }
 
@@ -125,13 +125,11 @@ input[type="text"], input[type="password"] { box-shadow: 0 0 0 3px #F7F7F7; }
  * ============== */
 .bubble {
 	background: #eee;
-	border-radius: 3px;
 	padding: 3px;
 }
 .wwell {
 	background-color: white;
 	border: 1px solid #d1d1d1;
-	border-radius: 2px;
 	padding: 19px;
 }
 
@@ -184,9 +182,7 @@ p.header {
 
 		/* Github Feed Style:
 		 * ================== */
-		.feed .entry.Github .details { display: none; }
 		.feed .entry.Github .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-		.feed .entry.Github time { display: none; }
 
 /* Contact Page Styles
  * =================== */
