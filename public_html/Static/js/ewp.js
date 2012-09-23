@@ -8,6 +8,8 @@
  */
 
 $(document).ready(function() {
+
+	/** Placeholder Fixes: */
 	if(!Modernizr.input.placeholder){
 		$("input").each( function(){
 			if($(this).val()==="" && $(this).attr("placeholder")!=="")
@@ -31,4 +33,5 @@ $(document).ready(function() {
 			}
 		});
 	}
+
 });

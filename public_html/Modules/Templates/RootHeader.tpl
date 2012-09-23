@@ -4,16 +4,15 @@
 		{{include file='./RootHead.tpl'}}
 	</head>
 	<body>
-		{{include file='./UserBar.tpl'}}
 		<div id="errContainer"></div>
-		<div id="fixedContainer">
+		<div class="container-fixed">
 			<div class="row-fluid n100ph">
 				<div class="span3">
 					<div class="bubble">
 						<nav>
-							<ul id="primary-navigation">
+							<ul class="epic-list">
 								{{foreach $arrPrimaryNavigation as $strPrimaryNavigationKey => $strPrimaryNavigationItem}}
-									<li><a {{if $strPageTitle == $strPrimaryNavigationKey}} class="active" {{/if}} href="{{$strPrimaryNavigationItem}}">{{$strPrimaryNavigationKey}}</a></li>
+									<li><a class="ellipsis {{if $strPageTitle == $strPrimaryNavigationKey}}active{{/if}}" href="{{$strPrimaryNavigationItem}}">{{$strPrimaryNavigationKey}}</a></li>
 								{{/foreach}}
 							</ul>
 						</nav>

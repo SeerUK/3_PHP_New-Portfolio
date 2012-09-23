@@ -1,0 +1,184 @@
+/*!
+ * Elliot Wright - Portfolio CSS
+ *
+ * Copyright 2012 Elliot Wright
+ */
+
+body {
+  font-size: 13px;
+}
+
+
+/* Text Styles:
+=============*/
+.serif {
+  font-family: 'Cambria', serif;
+}
+
+
+/* Block Styles:
+==============*/
+.container-fixed {
+  height: 437px;
+  left: 50%;
+  margin: -208px 0 0 -512px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  width: 1024px;
+}
+
+  .fixed-navigation {
+    height: 437px;
+    margin-top: -208px;
+    position: fixed;
+    top: 50%;
+    width: 240px;
+  }
+
+.container-long {
+  margin: auto;
+  padding: 40px 0;
+  width: 1024px;
+}
+
+/* Bootstrap Overrides:
+=====================*/
+.btn,
+.btn:hover,
+.btn:active {
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.well {
+  border-radius: 0;
+}
+
+/* Bootstrap Additions:
+=====================*/
+.well-white {
+  background-color: white;
+  color: #333;
+}
+
+.well-danger,
+.well-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+
+.well-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #3a87ad;
+}
+
+.well-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+
+.well-warning {
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+  color: #c09853;
+}
+
+/* Common Styles:
+===============*/
+.bubble {
+  background: #eee;
+  padding: 3px;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* Other Styles:
+==============*/
+.epic-list {
+  background-color: #FAFAFB;
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .epic-list > li {
+    border-bottom: 1px solid #EEE;
+    border-top: 1px solid white;
+    line-height: 1.4;
+  }
+    .epic-list > li:hover {
+      background-color: #fdfdfe;
+    }
+
+    .epic-list > .header {
+      background-color: white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .epic-list > .header,
+    .epic-list > .desc,
+    .epic-list > li > a {
+      display: block;
+      padding: 8px 10px;
+    }
+
+      .epic-list > li > a:hover {
+        text-decoration: none;
+      }
+
+        .epic-list .active {
+          background-color: white;
+          border-left: 2px solid #009966;
+          color: black;
+          font-weight: bold;
+        }
+
+    .epic-list > li > img {
+      margin-right: 8px;
+    }
+
+    .epic-list > li > p,
+    .epic-list > li > p ~ p {
+      margin-bottom: 0;
+    }
+
+    .epic-list > li > p {
+      margin-top: 5px;
+    }
+
+    .epic-list > li > p ~ p {
+      margin-top: 0;
+    }
+
+
+.mini-project {
+  padding: 12px;
+  position: relative;
+}
+
+  .mini-project > .header {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .mini-project > .pull-left {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+
+  .mini-project > .pull-right {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }

@@ -135,10 +135,10 @@
 			switch( $type )
 			{
 				case 'secure':
-					$sessionId = $_COOKIE[ SECURE_COOKIE_NAME ];
+					$sessionId = isset( $_COOKIE[ SECURE_COOKIE_NAME ] ) ? $_COOKIE[ SECURE_COOKIE_NAME ] : false;
 					break;
 				case 'insecure':
-					$sessionId = $_COOKIE[ COOKIE_NAME ];
+					$sessionId = isset( $_COOKIE[ COOKIE_NAME ] ) ? $_COOKIE[ COOKIE_NAME ] : false;
 					break;
 				default:
 					return false;
