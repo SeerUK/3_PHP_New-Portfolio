@@ -18,6 +18,8 @@
 	class BlogUI extends TemplateAbstract
 	{
 
+		protected $_secureFlag = true;
+
 		protected function _home()
 		{
 

@@ -57,9 +57,16 @@ body {
 
 /* Bootstrap Additions:
 =====================*/
+.lead small {
+  color: #999;
+  font-weight: normal;
+  line-height: 1;
+}
+
 .well-white {
   background-color: white;
-  color: #333333;
+  border-color: #D4D4D4;
+  color: #333;
 }
 
 .well-danger,
@@ -90,9 +97,13 @@ body {
 /* Common Styles:
 ===============*/
 .bubble {
-  background-color: #EEEEEE;
+  background-color: #EEE;
   padding: 3px;
 }
+
+  .bubble > .well {
+    margin: 0;
+  }
 
 .ellipsis {
   overflow: hidden;
@@ -113,7 +124,7 @@ body {
 }
 
   .epic-list > li {
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEE;
     border-top: 1px solid white;
     line-height: 1.4;
   }
@@ -140,7 +151,7 @@ body {
 
         .epic-list .active {
           background-color: white;
-          border-left: 2px solid #009966;
+          border-left: 2px solid #096;
           color: black;
           font-weight: bold;
         }

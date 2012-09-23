@@ -6,7 +6,7 @@
 		<a target="_blank" href="https://www.facebook.com/wright.elliot">
 			<img src="{{$smarty.const.STATIC_ROOT}}images/feed/facebook.png" class="pull-left" alt="Elliot on Facebook" title="Facebook" />
 		</a>
-		<a target="_blank" href="https://www.github.com/SeerUK">
+		<a target="_blank" href="https://www.github.com/SeerUK?tab=activity">
 			<img src="{{$smarty.const.STATIC_ROOT}}images/feed/github.png" class="pull-left" alt="Elliot on Github" title="Github" />
 		</a>
 		<a target="_blank" href="http://uk.linkedin.com/pub/elliot-wright/58/665/a19">

@@ -4,14 +4,14 @@
 	{{foreach $arrBlogEntries as $arrBlogEntry}}
 	<div class="blog-entry">
 		<div class="bubble">
-			<div class="wwell" style="padding-top: 0; padding-bottom: 10px;">
+			<div class="well well-white">
 				<!-- {{$arrBlogEntry.strBlogTitle}} - Header Section -->
-				<div class="page-header" style="margin-bottom: 10px;">
+				<div class="page-header">
 					<div class="blog-date pull-right serif">
 						<div class="m">{{$arrBlogEntry.date.month|truncate:3:''}}</div>
 						<div class="d">{{$arrBlogEntry.date.mday}}</div>
 					</div>
-					<h3 class="serif nnormal"><i>{{$arrBlogEntry.strBlogTitle}} <small>/ {{$arrBlogEntry.strBlogSubtitle}}</small></i></h3>
+					<p class="lead serif"><em>{{$arrBlogEntry.strBlogTitle}} <small>/ {{$arrBlogEntry.strBlogSubtitle}}</small></em></p>
 				</div>
 				<!-- {{$arrBlogEntry.strBlogTitle}} - Content Section -->
 				<div>
