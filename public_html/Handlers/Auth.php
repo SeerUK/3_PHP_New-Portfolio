@@ -22,9 +22,20 @@
 			$nodes = explode( '.', $permission );
 			$i     = count( $nodes ) - 1;
 
+			$query = 'SELECT COUNT(p.strPermission) '
+			       .   'FROM ' . DB_MAIN . '.ublPermission AS p '
+			       .  "WHERE (p.strPermission = '$permission') ";
+
+			$validPermisson = DbHandler::fetch( $query );
+
+			if( $validPermisson < 1 )
+			{
+				return false;
+			}
+
 			/* Set up group permission query:
 			 * ============================== */
-			$query =     'SELECT count(p.strPermission) '
+			$query =     'SELECT COUNT(p.strPermission) '
 			       .       'FROM ' . DB_MAIN . '.tblGroupPermissionMap AS gpm '
 			       . 'INNER JOIN ' . DB_MAIN . '.ublPermission AS p ON p.intPermissionId = gpm.intPermissionId '
 			       .      "WHERE (p.strPermission = '$permission' ";
