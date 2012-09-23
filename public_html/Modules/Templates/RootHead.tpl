@@ -1,7 +1,9 @@
 <title>{{$strPageTitle}} | {{$smarty.const.TITLE}}</title>
 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <!-- Include Stylesheets -->
-<link rel="stylesheet" href="{{$smarty.const.STATIC_ROOT}}css/bootstrap.css" />
+<link rel="stylesheet" href="{{$smarty.const.STATIC_ROOT}}css/bootstrap.min.css" />
 <!--
 	<link rel="stylesheet" href="{{$smarty.const.STATIC_ROOT}}css/main.css" />
 -->

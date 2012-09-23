@@ -87,8 +87,8 @@
 			{
 				/* Begin Friendly Output:
 				 * ====================== */
-				$feed[$i]['type'] = 'Github';
-				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $responseItem->actor->login . '">' . $responseItem->actor->login . '</a> ';
+				$feed[$i]['type'] = 'github';
+				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $responseItem->actor->login . '">Elliot</a> ';
 
 				/* Handle different events from Github:
 				 * ==================================== */

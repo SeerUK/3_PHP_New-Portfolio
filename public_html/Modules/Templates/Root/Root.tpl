@@ -22,18 +22,9 @@
 					<img src="{{$smarty.const.STATIC_ROOT}}images/feed/{{$entry.type}}.png" class="pull-left" alt="{{$entry.type}}" title="{{$entry.type}}" />
 					<p class="ellipsis">{{$entry.content}}</p>
 					<p>{{$entry.timestamp}}</p>
+				</li>
 			{{/foreach}}
 		</ul>
-		<div class="feed">
-			<p class="header">Recent Activity</p>
-			{{foreach $arrFeed as $entry}}
-				<span class="entry {{$entry.type}}">
-					<img src="{{$smarty.const.STATIC_ROOT}}images/feed/{{$entry.type}}.png" class="pull-left imgFeedType" alt="{{$entry.type}}" title="{{$entry.type}}" />
-					<div class="ellipsis">{{$entry.content}}</div>
-					<div>{{$entry.timestamp}}</div>
-				</span>
-			{{/foreach}}
-		</div>
 	</div>
 </div>
 

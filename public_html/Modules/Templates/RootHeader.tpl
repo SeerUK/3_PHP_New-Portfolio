@@ -18,8 +18,11 @@
 						</nav>
 					</div>
 					<br />
-					<blockquote class="pull-right">
-						<p><strong>Elliot Wright</strong></p>
-						<small>PHP Web Developer</small>
-					</blockquote>
+					{{include file='./SocialLinks.tpl'}}
+					<div class="clearfix">
+						<blockquote class="pull-right">
+							<p><strong>Elliot Wright</strong></p>
+							<small>PHP Web Developer</small>
+						</blockquote>
+					</div>
 				</div>

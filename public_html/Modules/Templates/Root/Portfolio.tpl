@@ -1,6 +1,6 @@
 {{include file='../RootHeader.tpl'}}
 
-<div class="span9 relative n100ph">
+<div class="span9">
     <p>Page content...</p>
 </div>
 
