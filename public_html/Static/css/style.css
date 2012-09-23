@@ -57,11 +57,35 @@ body {
 
 /* Bootstrap Additions:
 =====================*/
-.lead small {
-  color: #999;
-  font-weight: normal;
-  line-height: 1;
+.page-header > p {
+  font-size: 21px;
+  margin-bottom: 20px;
 }
+
+  .page-header > p small {
+    color: #999;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  .page-header > .date {
+    background-color: #212121;
+    border: 3px solid #ddd;
+    border-radius: 3px;
+    color: white;
+    float: right;
+    margin: -21px 0 0 0;
+    padding: 4px 8px;
+  }
+    .page-header > .date > .d {
+      font-size: 27px;
+      margin-bottom: 4px;
+    }
+    .page-header > .date > .m {
+      font-size: 14px;
+      line-height: 15px;
+      text-align: center;
+    }
 
 .well-white {
   background-color: white;
@@ -114,6 +138,14 @@ body {
 
 /* Other Styles:
 ==============*/
+.story-content > img.pull-left {
+  margin: 0 10px 8px 0;
+}
+
+.story-content > img.pull-right {
+  margin: 8px 0 0 10px;
+}
+
 .epic-list {
   background-color: #FAFAFB;
   border: 1px solid #D8D8D8;
