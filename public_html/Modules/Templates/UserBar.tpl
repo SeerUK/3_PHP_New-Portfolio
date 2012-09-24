@@ -1,3 +1,4 @@
+{{if $objSession}}
 <div class="userbar">
 	<div class="userbar-inner">
 		<div class="well well-small well-dark">
@@ -5,7 +6,7 @@
 				<button class="btn btn-small">Sign Out</button>
 			</div>
 			<div class="btn-group pull-right inline-right">
-				<button class="btn btn-success btn-small">Seer</button>
+				<button class="btn btn-success btn-small">{{$objSession.strDisplayName}}</button>
 				<button class="btn btn-success btn-small dropdown-toggle" data-toggle="dropdown">
 					<span class="caret"></span>
 				</button>
@@ -21,3 +22,4 @@
 		</div>
 	</div>
 </div>
+{{/if}}

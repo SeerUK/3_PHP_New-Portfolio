@@ -153,13 +153,13 @@
 			$templateHandler        = TemplateHandler::getHandler();
 			$this->_htmlError       = new Errors;
 			$this->_sessionsHandler = new SessionsHandler;
-			$this->_authHandler     = new AuthHandler( array( 'intGroupId' => 1 ) );
 			$this->_templateEngine  = new $templateHandler;
 			$this->_templateEngine->setCacheDir( CACHE_DIR );
 			$this->_templateEngine->setCompileDir( COMPILED_DIR );
 
 			/**
-			 * Check and set connection type based on module enforcement:
+			 * Check and set connection type based on module enforcement and
+			 * setup the user session based on that connection type:
 			 */
 			if ( $this->getSecureFlag() )
 			{
@@ -179,6 +179,9 @@
 
 				$this->_sessionsHandler->read( 'insecure' );
 			}
+
+			$this->_templateEngine->Assign( 'objSession',  $this->_sessionsHandler->userSession );
+			$this->_authHandler = new AuthHandler( isset( $this->_sessionsHandler->userSession->intGroupId ) ? $this->_sessionsHandler->userSession->intGroupId : 0 );
 
 			/**
 			 * If the page does not exist in the module we're in then redirect

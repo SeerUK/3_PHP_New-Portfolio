@@ -18,7 +18,7 @@
 	class SessionsHandler
 	{
 		/** @var [array] [The current user's session] */
-		protected $_userSession;
+		public $userSession;
 
 		/**
 		 * Start PHP sessions:
@@ -132,23 +132,58 @@
 		 */
 		public function read( $type )
 		{
+			$userAgent       = $_SERVER['HTTP_USER_AGENT'];
+			$remoteAddr      = $_SERVER['REMOTE_ADDR'];
+
 			switch( $type )
 			{
 				case 'secure':
 					$sessionId = isset( $_COOKIE[ SECURE_COOKIE_NAME ] ) ? $_COOKIE[ SECURE_COOKIE_NAME ] : false;
+
+					if( $sessionId ) 
+					{
+						$query =     'SELECT u.strUserName, '
+						       .            'COALESCE(u.strUserDisplayName, u.strUserName) AS strDisplayName, '
+						       .            'u.intGroupId, '
+						       .            'g.strGroupName '
+						       .       'FROM ' . DB_MAIN . '.tblSession AS us '
+						       . 'INNER JOIN ' . DB_MAIN . '.tblUser AS u ON (u.intUserId = us.intUserId AND u.strUserPassword = us.strUserPassword) '
+						       . 'INNER JOIN ' . DB_MAIN . '.ublGroup AS g ON g.intGroupId = u.intGroupId '
+						       .      "WHERE strSessionId = '$sessionId' "
+						       .        "AND strUserAgent = '$userAgent' "
+						       .        "AND strRemoteAddr = '$remoteAddr' ";
+					}
+
 					break;
 				case 'insecure':
 					$sessionId = isset( $_COOKIE[ COOKIE_NAME ] ) ? $_COOKIE[ COOKIE_NAME ] : false;
+
+					if( $sessionId )
+					{
+						$query =     'SELECT u.strUserName, '
+						       .            'COALESCE(u.strUserDisplayName, u.strUserName) AS strDisplayName, '
+						       .            'u.intGroupId, '
+						       .            'g.strGroupName '
+						       .       'FROM ' . DB_MAIN . '.tblSession AS us '
+						       . 'INNER JOIN ' . DB_MAIN . '.tblUser AS u ON (u.intUserId = us.intUserId AND u.strUserPassword = us.strUserPassword) '
+						       . 'INNER JOIN ' . DB_MAIN . '.ublGroup AS g ON g.intGroupId = u.intGroupId '
+						       .      "WHERE strSessionId = '$sessionId' "
+						       .        "AND strUserAgent = '$userAgent' "
+						       .        "AND strRemoteAddr = '$remoteAddr' ";
+					}
+
 					break;
 				default:
 					return false;
 			}
 
-			$query = 'SELECT * '
-			       .   'FROM ' . DB_MAIN . '.tblSession '
-			       .  "WHERE strSessionId = '$sessionId' ";
-
-			$this->_userSession = DbHandler::fetchRow( $query );
+			if( $sessionId )
+			{
+				$this->userSession = DbHandler::fetchRow( $query );
+				/**
+				 * @todo: Remove cookie(s) if invalid or stale session cookie is found!
+				 */
+			}
 		}
 
 

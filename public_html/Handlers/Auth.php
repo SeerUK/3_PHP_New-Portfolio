@@ -17,6 +17,13 @@
 
 	class AuthHandler {
 
+		public $userGroup;
+
+		public function __construct( $groupId ) 
+		{
+			$this->userGroup = $groupId;
+		}
+
 		public function hasPermission( $permission, $groupId )
 		{
 			$nodes = explode( '.', $permission );

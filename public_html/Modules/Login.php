@@ -38,7 +38,7 @@
 					{
 						$rememberMe = isset($_POST['iptRemember']) ? ($_POST['iptRemember'] == 'on' ? true : false) : false;
 
-						switch( $this->_sessionHandler->Setup( $_POST['iptUsername'], $_POST['iptPassword'], $rememberMe ) )
+						switch( $this->_sessionsHandler->setup( $_POST['iptUsername'], $_POST['iptPassword'], $rememberMe ) )
 						{
 							case 'BadRequest':
 								$this->_htmlError->setHTMLError( 'error', 'Illegal characters in credentials. Try again.' );
