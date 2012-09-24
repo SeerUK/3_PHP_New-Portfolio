@@ -4,6 +4,7 @@
 		{{include file='./RootHead.tpl'}}
 	</head>
 	<body>
+		{{include file='./UserBar.tpl'}}
 		<div id="errContainer"></div>
 		<div class="container-fixed">
 			<div class="row-fluid n100ph">

@@ -11,6 +11,10 @@ body {
 
 /* Text Styles:
 =============*/
+.capitalize {
+  text-transform: capitalize;
+}
+
 .serif {
   font-family: 'Cambria', serif;
 }
@@ -18,6 +22,19 @@ body {
 
 /* Block Styles:
 ==============*/
+.container-error {
+  left: 50%;
+  margin-left: -400px;
+  position: absolute;
+  top: 10PX;
+  width: 800px;
+  z-index: 51;
+}
+
+  .container-error .alert {
+    margin-top: 10px;
+  }
+
 .container-fixed {
   height: 437px;
   left: 50%;
@@ -36,6 +53,15 @@ body {
     width: 240px;
   }
 
+.container-login {
+  height: 335px;
+  left: 50%;
+  margin: -220px 0 0 -135px;
+  position: absolute;
+  top: 50%;
+  width: 270px;
+}
+
 .container-long {
   margin: auto;
   padding: 40px 0;
@@ -48,7 +74,7 @@ body {
 .btn:hover,
 .btn:active {
   border-radius: 2px;
-  font-size: 13px;
+  font-size: 13px !important;
 }
 
 .well {
@@ -93,6 +119,12 @@ body {
   color: #333;
 }
 
+.well-dark {
+  background-color: #2D2D2D;
+  border-color: #000;
+  color: white;
+}
+
 .well-danger,
 .well-error {
   background-color: #F2DEDE;
@@ -118,8 +150,21 @@ body {
   color: #C09853;
 }
 
-/* Common Styles:
-===============*/
+/* Uncommon Styles:
+=================*/
+.userbar {
+  margin-bottom: 46px;
+}
+
+.userbar-inner {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Generic Common Styles:
+=======================*/
 .bubble {
   background-color: #EEE;
   padding: 3px;
@@ -136,16 +181,8 @@ body {
 }
 
 
-/* Other Styles:
-==============*/
-.story-content > img.pull-left {
-  margin: 0 10px 8px 0;
-}
-
-.story-content > img.pull-right {
-  margin: 8px 0 0 10px;
-}
-
+/* Other Common Styles:
+=====================*/
 .epic-list {
   background-color: #FAFAFB;
   border: 1px solid #D8D8D8;
@@ -210,6 +247,15 @@ body {
     }
 
 
+.inline-left {
+  margin-right: 10px;
+}
+
+.inline-right {
+  margin-left: 10px;
+}
+
+
 .mini-project {
   padding: 12px;
   position: relative;
@@ -229,3 +275,12 @@ body {
     margin-bottom: 10px;
     margin-left: 10px;
   }
+
+
+.story-content > img.pull-left {
+  margin: 0 10px 8px 0;
+}
+
+.story-content > img.pull-right {
+  margin: 8px 0 0 10px;
+}
