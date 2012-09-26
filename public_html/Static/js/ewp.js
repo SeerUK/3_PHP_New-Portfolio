@@ -34,4 +34,43 @@ $(document).ready(function() {
 		});
 	}
 
+	EWP.common.containerFixed();
+	EWP.common.containerLong();
+	$(window).resize(function(){
+		EWP.common.containerFixed();
+		EWP.common.containerLong();
+	});
+
 });
+
+/* Modules:
+=========*/
+var EWP = (function($) {
+
+	var common = (function() {
+		return {
+
+			containerFixed: function() {
+				if($(window).height() < 546) {
+					$('.container-fixed').css({'top':'270px'});
+				} else {
+					$('.container-fixed').css({'top':''});
+				}
+			},
+
+			containerLong: function() {
+				if($(window).height() < 546) {
+					$('.navigation-fixed').css({'top':'270px'});
+				} else {
+					$('.navigation-fixed').css({'top':''});
+				}
+			}
+
+		};
+	}());
+
+	return {
+		'common': common
+	};
+
+}(jQuery));

@@ -1,5 +1,5 @@
-{{if $objSession}}
 <div class="userbar">
+	{{if $objSession}}
 	<div class="userbar-inner">
 		<div class="well well-small well-dark">
 			<div class="btn-group pull-right inline-right">
@@ -21,5 +21,5 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	{{/if}}
 </div>
-{{/if}}

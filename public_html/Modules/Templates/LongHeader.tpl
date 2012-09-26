@@ -9,7 +9,7 @@
 		<div class="container-long">
 			<div class="row-fluid n100ph">
 				<div class="span3">
-					<div class="fixed-navigation">
+					<div class="navigation-fixed">
 						<div class="bubble">
 							<nav>
 								<ul class="epic-list">
