@@ -224,7 +224,7 @@ body {
           font-weight: bold;
         }
 
-    .epic-list > li > img {
+    .epic-list > li > .sprite {
       margin: 8px 8px 7px 8px;
     }
 
@@ -283,3 +283,48 @@ body {
 .story-content > img.pull-right {
   margin: 8px 0 0 10px;
 }
+
+/* Sprites:
+=========*/
+.sprite{ background-image: url("../images/feed/sprites.png"); display: block; }
+.sprite-500px{ background-position: 0 0; width: 32px; height: 32px; }
+.sprite-addthis{ background-position: 0 -82px; width: 32px; height: 32px; }
+.sprite-behance{ background-position: 0 -164px; width: 32px; height: 32px; }
+.sprite-blogger{ background-position: 0 -246px; width: 32px; height: 32px; }
+.sprite-deliciou{ background-position: 0 -328px; width: 32px; height: 32px; }
+.sprite-delicious{ background-position: 0 -410px; width: 16px; height: 16px; }
+.sprite-deviantart{ background-position: 0 -476px; width: 32px; height: 32px; }
+.sprite-digg{ background-position: 0 -558px; width: 32px; height: 32px; }
+.sprite-dopplr{ background-position: 0 -640px; width: 32px; height: 32px; }
+.sprite-evernote{ background-position: 0 -722px; width: 32px; height: 32px; }
+.sprite-facebook{ background-position: 0 -804px; width: 32px; height: 32px; }
+.sprite-flickr{ background-position: 0 -886px; width: 32px; height: 32px; }
+.sprite-forrst{ background-position: 0 -968px; width: 32px; height: 32px; }
+.sprite-github{ background-position: 0 -1050px; width: 32px; height: 32px; }
+.sprite-google{ background-position: 0 -1132px; width: 32px; height: 32px; }
+.sprite-grooveshark{ background-position: 0 -1214px; width: 32px; height: 32px; }
+.sprite-instagram{ background-position: 0 -1296px; width: 32px; height: 32px; }
+.sprite-lastfm{ background-position: 0 -1378px; width: 32px; height: 32px; }
+.sprite-linkedin{ background-position: 0 -1460px; width: 32px; height: 32px; }
+.sprite-mail{ background-position: 0 -1542px; width: 32px; height: 32px; }
+.sprite-myspace{ background-position: 0 -1624px; width: 32px; height: 32px; }
+.sprite-path{ background-position: 0 -1706px; width: 32px; height: 32px; }
+.sprite-paypal{ background-position: 0 -1788px; width: 32px; height: 32px; }
+.sprite-picasa{ background-position: 0 -1870px; width: 32px; height: 32px; }
+.sprite-posterous{ background-position: -82px 0; width: 32px; height: 32px; }
+.sprite-reddit{ background-position: -82px -82px; width: 32px; height: 32px; }
+.sprite-rss{ background-position: -82px -164px; width: 32px; height: 32px; }
+.sprite-sharethis{ background-position: -82px -246px; width: 32px; height: 32px; }
+.sprite-skype{ background-position: -82px -328px; width: 32px; height: 32px; }
+.sprite-soundcloud{ background-position: -82px -410px; width: 32px; height: 32px; }
+.sprite-spotify{ background-position: -82px -492px; width: 32px; height: 32px; }
+.sprite-stumbleupon{ background-position: -82px -574px; width: 32px; height: 32px; }
+.sprite-tumblr{ background-position: -82px -656px; width: 32px; height: 32px; }
+.sprite-twitter{ background-position: -82px -738px; width: 32px; height: 32px; }
+.sprite-viddler{ background-position: -82px -820px; width: 32px; height: 32px; }
+.sprite-vimeo{ background-position: -82px -902px; width: 32px; height: 32px; }
+.sprite-virb{ background-position: -82px -984px; width: 32px; height: 32px; }
+.sprite-windows{ background-position: -82px -1066px; width: 32px; height: 32px; }
+.sprite-wordpress{ background-position: -82px -1148px; width: 32px; height: 32px; }
+.sprite-youtube{ background-position: -82px -1230px; width: 32px; height: 32px; }
+.sprite-zerply{ background-position: -82px -1312px; width: 32px; height: 32px; }
