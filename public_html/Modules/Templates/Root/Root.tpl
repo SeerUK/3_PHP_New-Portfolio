@@ -9,7 +9,7 @@
 		<p class="header"><strong>Top Hats &amp; Monocles</strong> (<abbr title="Top Hats &amp; Monocles">THNM</abbr>)</p>
 		<p class="desc"><abbr title="Top Hats &amp; Monocles">THNM</abbr> is a live streaming website for multiple streamers to use to entertain viewers.</p>
 		<p>The website is being redeveloped with better code and functionality in mind.</p>
-		<button class="btn btn-success btn-block">View Project</button>
+		<button class="btn btn-success btn-fancy btn-block">View Project</button>
 	</div>
 </div>
 
