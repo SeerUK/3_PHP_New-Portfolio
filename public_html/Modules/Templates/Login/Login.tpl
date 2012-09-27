@@ -33,7 +33,7 @@
 						<br />
 						<div class="control-group">
 							<div class="controls">
-								<button type="submit" class="btn btn-success btn-large btn-block">Sign in</button>
+								<button type="submit" class="btn btn-success btn-fancy btn-block">Sign in</button>
 							</div>
 						</div>
 					</form>

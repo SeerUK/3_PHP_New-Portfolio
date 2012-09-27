@@ -1,4 +1,4 @@
- 	{{include file='../RootHeader.tpl'}}
+{{include file='../RootHeader.tpl'}}
 
 <div class="span5">
 	<p class="lead serif"><em>Thanks for stopping by! Why don't you take a look around?</em></p>

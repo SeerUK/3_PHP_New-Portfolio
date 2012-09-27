@@ -76,8 +76,7 @@
 			curl_setopt( $curl, CURLOPT_URL, $feedRoot . $feedUri );
 			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
 			curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );
-
-			// curl_setopt( $curl, CONNECTTIMEOUT, 1 );
+			curl_setopt( $curl, CONNECTTIMEOUT, 1 );
 
 			$curlRepsonse = json_decode( curl_exec( $curl ) );
 			$feed         = array();
