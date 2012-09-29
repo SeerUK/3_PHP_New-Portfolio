@@ -50,6 +50,13 @@
 				default:
 					break;
 			}
+
+
+		}
+
+		public function addParser( FeedParser $parser )
+		{
+
 		}
 
 		/**

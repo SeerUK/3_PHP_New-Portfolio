@@ -18,11 +18,12 @@
 		protected function _home()
 		{
 			$this->_authHandler->requirePermission( 'Modules.Admin.Home', $this->_authHandler->userGroup );
-			
+
 			/* Pre-template Setup:
 			 * =================== */
 			$feedHandler = new FeedHandler;
-			$feedHandler->Parse( 'SeerUK','github' );
+			$githubParser = new GithubParser( 'SeerUK' );
+			$feedHandler->addParser($githubParser);
 
 			/* Template Setup:
 			 * =============== */
