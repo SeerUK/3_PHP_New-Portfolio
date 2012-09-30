@@ -33,38 +33,38 @@
 			$feed = array();
 
 			$i = 0;
-			foreach( $this->_rawFeed as $responseItem )
+			foreach( $this->_rawFeed as $feedItem )
 			{
 				/* Begin Friendly Output:
 				 * ====================== */
 				$feed[$i]['type'] = 'github';
-				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $responseItem->actor->login . '">Elliot</a> ';
+				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $feedItem->actor->login . '">Elliot</a> ';
 
 				/* Handle different events from Github:
 				 * ==================================== */
-				switch ( $responseItem->type )
+				switch ( $feedItem->type )
 				{
 					case 'CommitCommentEvent':
-						$feed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $responseItem->payload->comment->html_url . '">'
-						                     . $responseItem->payload->comment->commit_id . '</a>';
+						$feed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $feedItem->payload->comment->html_url . '">'
+						                     . $feedItem->payload->comment->commit_id . '</a>';
 						break;
 
 					/* Creating Branches / Repositories:
 					 * ================================= */
 					case 'CreateEvent':
-						switch ($responseItem->payload->ref_type)
+						switch ($feedItem->payload->ref_type)
 						{
 							case 'branch':
-								$feed[$i]['content'].= 'created ' . $responseItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '/tree/'
-								                     . $responseItem->payload->ref . '">' . $responseItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/'
-								                     . $responseItem->repo->name . '">' . $responseItem->repo->name . '</a>';
+								$feed[$i]['content'].= 'created ' . $feedItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '/tree/'
+								                     . $feedItem->payload->ref . '">' . $feedItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/'
+								                     . $feedItem->repo->name . '">' . $feedItem->repo->name . '</a>';
 								break;
 							case 'repository':
-								$feed[$i]['content'].= 'created ' . $responseItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">'
-								                     . $responseItem->repo->name . '</a>';
+								$feed[$i]['content'].= 'created ' . $feedItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">'
+								                     . $feedItem->repo->name . '</a>';
 								break;
 							default:
-								$feed[$i]['content'].= 'created a ' . $responseItem->payload->ref_type;
+								$feed[$i]['content'].= 'created a ' . $feedItem->payload->ref_type;
 								break;
 						}
 						break;
@@ -72,7 +72,7 @@
 					/* Creating / Editing Gists:
 					 * ========================= */
 					case 'GistEvent':
-						switch ($responseItem->payload->action)
+						switch ($feedItem->payload->action)
 						{
 							case 'update':
 								$feed[$i]['content'].= 'updated';
@@ -84,22 +84,22 @@
 								$feed[$i]['content'].= 'was active with';
 								break;
 						}
-						$feed[$i]['content'].= ' gist <a target="_blank" href="' . $responseItem->payload->gist->html_url . '">' . $responseItem->payload->gist->html_url . '</a>';
+						$feed[$i]['content'].= ' gist <a target="_blank" href="' . $feedItem->payload->gist->html_url . '">' . $feedItem->payload->gist->html_url . '</a>';
 						break;
 
 					/* Commenting on an 'Issue':
 					 * ========================= */
 					case 'IssueCommentEvent':
-						$feed[$i]['content'].= 'commented on <a target="_blank" href="' . $responseItem->payload->issue->html_url . '">issue ' . $responseItem->payload->issue->number . '</a> in '
-						                     . '<a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">' . $responseItem->repo->name . '</a>';
+						$feed[$i]['content'].= 'commented on <a target="_blank" href="' . $feedItem->payload->issue->html_url . '">issue ' . $feedItem->payload->issue->number . '</a> in '
+						                     . '<a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">' . $feedItem->repo->name . '</a>';
 						break;
 
 					/* Pushing to a Branch -> Repository:
 					 * ================================== */
 					case 'PushEvent':
-						$feed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '/tree/' . str_replace('refs/heads/','',$responseItem->payload->ref) . '">'
-						                     . str_replace('refs/heads/','',$responseItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">'
-						                     . $responseItem->repo->name . '</a>';
+						$feed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '/tree/' . str_replace('refs/heads/','',$feedItem->payload->ref) . '">'
+						                     . str_replace('refs/heads/','',$feedItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">'
+						                     . $feedItem->repo->name . '</a>';
 						break;
 
 					/* Unhandled events:
@@ -108,7 +108,7 @@
 						$feed[$i]['content'].= 'was active on Github';
 				}
 
-				$feed[$i]['timestamp'] = strtotime( $responseItem->created_at );
+				$feed[$i]['timestamp'] = strtotime( $feedItem->created_at );
 
 				$i = $i + 1;
 
@@ -129,8 +129,8 @@
 			/**
 			 * Production values:
 			 */
-			//$feedRoot = 'https://api.github.com';
-			//$feedUri  = '/users/' . $this->_username . '/events';
+			$feedRoot = 'https://api.github.com';
+			$feedUri  = '/users/' . $this->_username . '/events';
 
 			$curl = curl_init();
 
