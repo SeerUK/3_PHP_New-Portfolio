@@ -21,15 +21,16 @@
 
 			/* Pre-template Setup:
 			 * =================== */
-			$feedHandler = new FeedHandler;
-			$githubParser = new GithubParser( 'SeerUK' );
-			$feedHandler->addParser($githubParser);
+			$feedHandler  = new FeedHandler;
+			$feedHandler->parseFeed( new GithubParser( 'SeerUK' ) );
+
+			$feed = $feedHandler->getFeed( 8 );
 
 			/* Template Setup:
 			 * =============== */
 			$this->_templateEngine->caching = false;
 			$this->_templateEngine->Assign( 'strPageTitle',           'Home' );
-			$this->_templateEngine->Assign( 'arrFeed',                $feedHandler->returnFeed( 8 ) );
+			$this->_templateEngine->Assign( 'arrFeed',                $feed );
 			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
 			$this->_templateEngine->Display( 'Modules/Templates/Root/Root.tpl' );

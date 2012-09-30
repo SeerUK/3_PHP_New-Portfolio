@@ -81,7 +81,7 @@
 	 * ================================================================== */
 	if ( function_exists( 'date_default_timezone_set' ) )
 	{
-		if ( ! @date_default_timezone_get() )
+		if ( !@date_default_timezone_get() )
 		{
 			date_default_timezone_set( @ini_get( 'date.timezone' ) ? ini_get( 'date.timezone' ) : 'UTC' );
 		}

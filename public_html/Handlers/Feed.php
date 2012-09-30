@@ -1,4 +1,3 @@
-
 <?php
 
 	/**
@@ -13,8 +12,6 @@
 	 * @since 	 0.1-alpha
 	 *
 	 * @todo	[Compile list of feeds to read from from database]
-	 * @todo	[Find some way to limit the full returned feed before
-	 *			sorting. This could get REALLY slow after a while...]
 	 *
 	 */
 
@@ -22,7 +19,7 @@
 	 * the server the website is on instead every 5 minutes or so. It will make
 	 * any page with the feeds on load a LOT faster than it will with it
 	 * connecting remotely.
-	 * ======================================================================== */
+	=========================================================================*/
 
 	class FeedHandler
 	{
@@ -34,141 +31,34 @@
 		private $_feed = array();
 
 		/**
-		 * Parses a feed by passing it to the appropriate feed handler. If the
-		 * feed handler specified doesn't exist then the function will simply
-		 * ignore the feed.
-		 * @param [string] $source [The source of the feed]
-		 * @param [string] $type   [The feed type]
+		 * Constructor loads the currently 'installed' feed parsers.
+		 *
+		 * @todo Try learn what the hell you do with __autoload properly...
 		 */
-		public function parse( $source, $type )
+		public function __construct()
 		{
-			switch( $type )
-			{
-				case 'github':
-					@$this->_parseGithub( $source );
-					break;
-				default:
-					break;
+			if ( $handle = opendir( dirname(__FILE__) . '/Feed/Parser/' ) ) {
+				$files = array();
+
+				while ( false !== ( $entry = readdir( $handle ) ) )
+				{
+					if( preg_match( '/[^\s]+(\.(?i)(parser\.php))$/', $entry ) )
+					{
+						require_once( dirname(__FILE__) . '/Feed/Parser/' . $entry );
+					}
+				}
+				closedir( $handle );
 			}
-
-
-		}
-
-		public function addParser( FeedParser $parser )
-		{
-
 		}
 
 		/**
-		 * Parses Github atom files (currently).
-		 * @param [string] $user [The user of the feed we're parsing]
-		 * @todo  [Parse XML properly]
+		 * Adds a feed and parses it:
+		 * @param [string] $parsewr [The feed parser type]
+		 * @param [string] $source [The source for the parser to interpret]
 		 */
-		private function _parseGithub( $user )
+		public function parseFeed( ParseInterface $parser )
 		{
-			/**
-			 * Dev values:
-			 */
-			$feedRoot = 'http://ewp.pde.com';
-			$feedUri  = '/feed/SeerUK/';
-
-			/**
-			 * Production values:
-			 */
-			//$feedRoot = 'https://api.github.com';
-			//$feedUri  = '/users/' . $user . '/events';
-
-			$curl = curl_init();
-
-			curl_setopt( $curl, CURLOPT_URL, $feedRoot . $feedUri );
-			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );
-			curl_setopt( $curl, CONNECTTIMEOUT, 1 );
-
-			$curlRepsonse = json_decode( curl_exec( $curl ) );
-			$feed         = array();
-
-			$i = 0;
-			foreach( $curlRepsonse as $responseItem )
-			{
-				/* Begin Friendly Output:
-				 * ====================== */
-				$feed[$i]['type'] = 'github';
-				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $responseItem->actor->login . '">Elliot</a> ';
-
-				/* Handle different events from Github:
-				 * ==================================== */
-				switch ( $responseItem->type )
-				{
-					case 'CommitCommentEvent':
-						$feed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $responseItem->payload->comment->html_url . '">'
-						                     . $responseItem->payload->comment->commit_id . '</a>';
-						break;
-
-					/* Creating Branches / Repositories:
-					 * ================================= */
-					case 'CreateEvent':
-						switch ($responseItem->payload->ref_type)
-						{
-							case 'branch':
-								$feed[$i]['content'].= 'created ' . $responseItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '/tree/'
-								                     . $responseItem->payload->ref . '">' . $responseItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/'
-								                     . $responseItem->repo->name . '">' . $responseItem->repo->name . '</a>';
-								break;
-							case 'repository':
-								$feed[$i]['content'].= 'created ' . $responseItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">'
-								                     . $responseItem->repo->name . '</a>';
-								break;
-							default:
-								$feed[$i]['content'].= 'created a ' . $responseItem->payload->ref_type;
-								break;
-						}
-						break;
-
-					/* Creating / Editing Gists:
-					 * ========================= */
-					case 'GistEvent':
-						switch ($responseItem->payload->action)
-						{
-							case 'update':
-								$feed[$i]['content'].= 'updated';
-								break;
-							case 'create':
-								$feed[$i]['content'].= 'created';
-								break;
-							default:
-								$feed[$i]['content'].= 'was active with';
-								break;
-						}
-						$feed[$i]['content'].= ' gist <a target="_blank" href="' . $responseItem->payload->gist->html_url . '">' . $responseItem->payload->gist->html_url . '</a>';
-						break;
-
-					/* Commenting on an 'Issue':
-					 * ========================= */
-					case 'IssueCommentEvent':
-						$feed[$i]['content'].= 'commented on <a target="_blank" href="' . $responseItem->payload->issue->html_url . '">issue ' . $responseItem->payload->issue->number . '</a> in '
-						                     . '<a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">' . $responseItem->repo->name . '</a>';
-						break;
-
-					/* Pushing to a Branch -> Repository:
-					 * ================================== */
-					case 'PushEvent':
-						$feed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '/tree/' . str_replace('refs/heads/','',$responseItem->payload->ref) . '">'
-						                     . str_replace('refs/heads/','',$responseItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $responseItem->repo->name . '">'
-						                     . $responseItem->repo->name . '</a>';
-						break;
-
-					/* Unhandled events:
-					 * ================= */
-					default:
-						$feed[$i]['content'].= 'was active on Github';
-				}
-
-				$feed[$i]['timestamp'] = strtotime( $responseItem->created_at );
-
-				$i = $i + 1;
-			}
-
+			$feed = $parser->parse();
 			$this->_feed = array_merge_recursive( $this->_feed, $feed );
 		}
 
@@ -177,7 +67,7 @@
 		 * @param  [integer] $limit [If specified; limits the number of entires returned]
 		 * @return [array]
 		 */
-		public function returnFeed( $limit = false )
+		public function getFeed( $limit = false )
 		{
 			$full   = array();
 			$return = array();
