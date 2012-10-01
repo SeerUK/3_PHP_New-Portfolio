@@ -17,7 +17,7 @@
 
 		protected function _home()
 		{
-			$this->_authHandler->requirePermission( 'Modules.Admin.Home', $this->_authHandler->userGroup );
+			//$this->_authHandler->requirePermission( 'Modules.Admin.Home', $this->_authHandler->userGroup );
 
 			/* Pre-template Setup:
 			 * =================== */

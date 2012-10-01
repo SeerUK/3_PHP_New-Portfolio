@@ -42,11 +42,11 @@
 	 * ====================== */
 	if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == "on" )
 	{
-		define( 'STATIC_ROOT',      SECURE_ROOT . 'static/' );
+		define( 'STATIC_ROOT',      SECURE_ROOT . 'Static/' );
 	}
 	else
 	{
-		define( 'STATIC_ROOT',      ROOT . 'static/' );
+		define( 'STATIC_ROOT',      ROOT . 'Static/' );
 	}
 
 	/* File System Settings:

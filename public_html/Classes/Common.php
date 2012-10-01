@@ -43,7 +43,7 @@
 			 */
 			return array(
 				'Home'      => ROOT,
-				'Blog'      => SECURE_ROOT . Common::getFormattedRequest( 'Blog/' ),
+				'Blog'      => ROOT . Common::getFormattedRequest( 'Blog/' ),
 				'Skills'    => ROOT . Common::getFormattedRequest( 'Home/Skills/' ),
 				'Portfolio' => ROOT . Common::getFormattedRequest( 'Home/Portfolio/' ),
 				'Contact'   => ROOT . Common::getFormattedRequest( 'Home/Contact/' )

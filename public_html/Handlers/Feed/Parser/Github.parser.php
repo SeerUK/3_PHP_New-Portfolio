@@ -123,8 +123,8 @@
 			/**
 			 * Dev values:
 			 */
-			$feedRoot = 'http://ewp.pde.com';
-			$feedUri  = '/feed/SeerUK/';
+			$feedRoot = 'http://www.elliot-wright.net';
+			$feedUri  = '/Feed/SeerUK/';
 
 			/**
 			 * Production values:
