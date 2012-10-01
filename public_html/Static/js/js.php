@@ -25,30 +25,48 @@
 		}
 	}
 
+	/* Return 304 is the browser has a cached version already:
+	========================================================*/
+	if ( php_sapi_name() == 'apache2handler' || php_sapi_name() == 'apache' ) {
+		$headers = apache_request_headers();
+		if ( isset( $headers['If-Modified-Since'] ) && !empty( $headers['If-Modified-Since'] ) ) {
+			header( 'HTTP/1.1 304 Not Modified' );
+			exit;
+		}
+	}
+
+	/* Send cache and content-type headers:
+	=====================================*/
 	header( 'Cache-Control: max-age=604800' );
 	header( 'Content-Type: application/javascript' );
 	header( 'Last-Modified: ' . date( 'F d Y H:i:s.', getlastmod() ) );
 
+
+	/* Open the JS directory and list all of the minified JS files:
+	=============================================================*/
 	if ( $handle = opendir( './' ) ) {
 		$files = array();
-
-	    while ( false !== ( $entry = readdir( $handle ) ) ) 
-	    {
-	    	if( preg_match( '/[^\s]+(\.(?i)(min\.js))$/', $entry ) )
-	    	{
-	    		$files[] = $entry;
-	    	}
-	    }
-	    closedir( $handle );
+		while ( false !== ( $entry = readdir( $handle ) ) )
+		{
+			if( preg_match( '/[^\s]+(\.(?i)(min\.js))$/', $entry ) )
+			{
+				$files[] = $entry;
+			}
+		}
+		closedir( $handle );
 	}
 
-	if( $key = array_search( 'jquery.min.js', $files ) ) 
+	/* Always output dependancies first:
+	==================================*/
+	if( $key = array_search( 'jquery.min.js', $files ) )
 	{
 		echo file_get_contents( $files[$key] );
 		echo "\n";
 		unset( $files[$key] );
 	}
 
+	/* Output all other JS files:
+	===========================*/
 	foreach( $files as $file )
 	{
 		echo file_get_contents( $file );

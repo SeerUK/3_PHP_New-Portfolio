@@ -58,7 +58,7 @@
 		 */
 		public function parseFeed( ParseInterface $parser )
 		{
-			$feed = $parser->parse();
+			$feed = @$parser->parse();
 			$this->_feed = array_merge_recursive( $this->_feed, $feed );
 		}
 

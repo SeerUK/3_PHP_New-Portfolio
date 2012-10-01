@@ -129,8 +129,8 @@
 			/**
 			 * Production values:
 			 */
-			$feedRoot = 'https://api.github.com';
-			$feedUri  = '/users/' . $this->_username . '/events';
+			//$feedRoot = 'https://api.github.com';
+			//$feedUri  = '/users/' . $this->_username . '/events';
 
 			$curl = curl_init();
 
