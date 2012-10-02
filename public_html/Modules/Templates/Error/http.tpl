@@ -13,7 +13,7 @@
 							<p class="massive">!</p>
 						</div>
 						<div class="well well-small well-white well-container">
-							<a target="_blank" href="mailto:webmaster@unknown-degree.net" title="Email Webmaster" class="">
+							<a target="_blank" href="mailto:webmaster@unknown-degree.net?subject=HTTP Error: {{$errorString}}" title="Email Webmaster" class="">
 								<span class="sprite sprite-mail" style="margin: auto;"></span>
 							</a>
 						</div>
