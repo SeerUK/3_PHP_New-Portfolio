@@ -16,7 +16,7 @@
 			<div class="bubble">
 				<div class="well well-white">
 					<form method="POST">
-						<legend class="serif"><em>Login <small>/ Administrative Access</small></em></legend>
+						<legend class="serif"><em>Sign In <small>/ Restricted Access</small></em></legend>
 						<div class="control-group">
 							<div class="controls">
 								<input type="text" id="iptUsername" name="iptUsername" placeholder="Username...">
@@ -33,7 +33,8 @@
 						<br />
 						<div class="control-group">
 							<div class="controls">
-								<button type="submit" class="btn btn-success btn-fancy btn-block">Sign in</button>
+								<input type="submit" class="btn btn-success btn-fancy btn-block" value="Sign In" />
+								<a href="{{$smarty.const.ROOT}}" class="btn btn-block btn-fancy">Back</a>
 							</div>
 						</div>
 					</form>
