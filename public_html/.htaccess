@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} ^elliot-wright\.net
+RewriteRule ^(.*)$ http://www.elliot-wright.net/$1 [R=permanent,L]
+
 RewriteCond %{REQUEST_FILENAME} 	!-d
 RewriteCond %{REQUEST_FILENAME} 	!-f
 RewriteRule ^(.*)/$					index.php?request=$1 [L,NC,QSA]
