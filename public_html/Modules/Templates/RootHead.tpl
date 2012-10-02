@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <title>{{$strPageTitle}} | {{$smarty.const.TITLE}}</title>
 
 <!-- Include Stylesheets -->
