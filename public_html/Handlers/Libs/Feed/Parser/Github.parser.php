@@ -8,7 +8,7 @@
 	 * @category SeerUK
 	 * @package  3_PHP_New-Portfolio
 	 * @version  0.1-alpha
-	 * @since 	 0.1-alpha
+	 * @since    0.1-alpha
 	 *
 	 */
 
@@ -109,7 +109,7 @@
 		 */
 		private function _delegateEventHandler()
 		{
-			$eventHandler    = '_' . $this->_feedItem->type;
+			$eventHandler = '_' . $this->_feedItem->type;
 
 			if( method_exists( $this, $eventHandler ) )
 			{
