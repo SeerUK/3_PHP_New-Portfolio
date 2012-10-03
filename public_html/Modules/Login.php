@@ -62,7 +62,7 @@
 			 * =============== */
 			$this->_templateEngine->Assign( 'arrHTMLErrors', $this->_htmlError->getHTMLErrors() );
 			$this->_templateEngine->Assign( 'strPageTitle',  'Login' );
-			$this->_templateEngine->Display( 'Modules/Templates/Login/Login.tpl' );
+			$this->_templateEngine->Display( 'Templates/Modules/Login/Login.tpl' );
 		}
 
 	}

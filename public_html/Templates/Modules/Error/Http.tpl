@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-GB">
 <head>
-	{{include file='../RootHead.tpl'}}
+	{{include file='../../Base/RootHead.tpl'}}
 </head>
 <body>
 	<div class="container-http">
@@ -31,6 +31,6 @@
 			</div>
 		</div>
 	</div>
-	{{include file='../JavaScript.tpl'}}
+	{{include file='../../Base/JavaScript.tpl'}}
 </body>
 </html>

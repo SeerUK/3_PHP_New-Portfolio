@@ -24,16 +24,15 @@
 			$feedHandler  = new FeedHandler;
 			$feedHandler->parseFeed( new GithubParser( 'SeerUK' ) );
 
-			$feed = $feedHandler->getFeed( 8 );
-
 			/* Template Setup:
 			 * =============== */
 			$this->_templateEngine->caching = false;
-			$this->_templateEngine->Assign( 'strPageTitle',           'Home' );
-			$this->_templateEngine->Assign( 'arrFeed',                $feed );
-			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
-			$this->_templateEngine->Display( 'Modules/Templates/Root/Root.tpl' );
+			$this->_templateEngine->Assign( 'strPageTitle',         'Home' );
+			$this->_templateEngine->Assign( 'feed',                 $feedHandler->getFeed( 8 ) );
+			$this->_templateEngine->Assign( 'arrPrimaryNavigation', Common::getPrimaryNav() );
+
+			$this->_templateEngine->Display( 'Templates/Modules/Root/Root.tpl' );
 		}
 
 		protected function _skills()
@@ -41,10 +40,11 @@
 			/* Template Setup:
 			 * ============== */
 			$this->_templateEngine->caching = false;
-			$this->_templateEngine->Assign( 'strPageTitle',           'Skills' );
-			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
-			$this->_templateEngine->Display( 'Modules/Templates/Root/Skills.tpl' );
+			$this->_templateEngine->Assign( 'strPageTitle',         'Skills' );
+			$this->_templateEngine->Assign( 'arrPrimaryNavigation', Common::getPrimaryNav() );
+
+			$this->_templateEngine->Display( 'Templates/Modules/Root/Skills.tpl' );
 		}
 
 		protected function _portfolio()
@@ -52,10 +52,11 @@
 			/* Template Setup:
 			 * =============== */
 			$this->_templateEngine->caching = false;
-			$this->_templateEngine->Assign( 'strPageTitle',           'Portfolio' );
-			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
-			$this->_templateEngine->Display( 'Modules/Templates/Root/Portfolio.tpl' );
+			$this->_templateEngine->Assign( 'strPageTitle',         'Portfolio' );
+			$this->_templateEngine->Assign( 'arrPrimaryNavigation', Common::getPrimaryNav() );
+
+			$this->_templateEngine->Display( 'Templates/Modules/Root/Portfolio.tpl' );
 		}
 
 		protected function _contact()
@@ -63,9 +64,10 @@
 			/* Template Setup:
 			 * ============== */
 			$this->_templateEngine->caching = false;
-			$this->_templateEngine->Assign( 'strPageTitle',           'Contact' );
-			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
 
-			$this->_templateEngine->Display( 'Modules/Templates/Root/Contact.tpl' );
+			$this->_templateEngine->Assign( 'strPageTitle',         'Contact' );
+			$this->_templateEngine->Assign( 'arrPrimaryNavigation', Common::getPrimaryNav() );
+
+			$this->_templateEngine->Display( 'Templates/Modules/Root/Contact.tpl' );
 		}
 	}

@@ -50,7 +50,7 @@
 			$this->_templateEngine->Assign( 'strPageTitle',           'Blog' );
 			$this->_templateEngine->Assign( 'arrBlogEntries',         $blogEntries );
 			$this->_templateEngine->Assign( 'arrPrimaryNavigation',   Common::getPrimaryNav() );
-			$this->_templateEngine->Display( 'Modules/Templates/Blog/Root.tpl' );
+			$this->_templateEngine->Display( 'Templates/Modules/Blog/Root.tpl' );
 		}
 
 	}

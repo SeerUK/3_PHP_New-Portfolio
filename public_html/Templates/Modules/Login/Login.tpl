@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		{{include file='../RootHead.tpl'}}
+		{{include file='../../Base/RootHead.tpl'}}
 	</head>
 	<body>
 		<div class="container-error">
@@ -41,6 +41,6 @@
 				</div>
 			</div>
 		</div>
-		{{include '../JavaScript.tpl'}}
+		{{include '../../Base/JavaScript.tpl'}}
 	</body>
 </html>

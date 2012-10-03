@@ -1,4 +1,4 @@
-{{include file='../RootHeader.tpl'}}
+{{include file='../../Base/RootHeader.tpl'}}
 
 <div class="span5">
 	<p class="lead serif"><em>Thanks for stopping by! Why don't you take a look around?</em></p>
@@ -15,17 +15,8 @@
 
 <div class="span4">
 	<div class="bubble">
-		<ul class="epic-list">
-			<li class="header">Recent Activity</li>
-			{{foreach $arrFeed as $entry}}
-				<li class="ellipsis">
-					<span class="pull-left sprite sprite-{{$entry.type}}" title="{{$entry.type}}"></span>
-					<p class="ellipsis">{{$entry.content}}</p>
-					<p>{{$entry.timestamp}}</p>
-				</li>
-			{{/foreach}}
-		</ul>
+		{{include file='../../Handlers/Feed/Feed.tpl'}}
 	</div>
 </div>
 
-{{include file='../RootFooter.tpl'}}
+{{include file='../../Base/RootFooter.tpl'}}

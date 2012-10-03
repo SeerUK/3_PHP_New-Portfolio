@@ -1,4 +1,4 @@
-{{include file='../LongHeader.tpl'}}
+{{include file='../../Base/LongHeader.tpl'}}
 
 <div class="span9">
 	{{foreach $arrBlogEntries as $arrBlogEntry}}
@@ -33,4 +33,4 @@
 	<div class="clearfix"></div>
 </div>
 
-{{include file='../LongFooter.tpl'}}
+{{include file='../../Base/LongFooter.tpl'}}

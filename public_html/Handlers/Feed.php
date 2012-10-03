@@ -37,14 +37,14 @@
 		 */
 		public function __construct()
 		{
-			if ( $handle = opendir( dirname(__FILE__) . '/Feed/Parser/' ) ) {
+			if ( $handle = opendir( dirname(__FILE__) . '/Libs//Feed/Parser/' ) ) {
 				$files = array();
 
 				while ( false !== ( $entry = readdir( $handle ) ) )
 				{
 					if( preg_match( '/[^\s]+(\.(?i)(parser\.php))$/', $entry ) )
 					{
-						require_once( dirname(__FILE__) . '/Feed/Parser/' . $entry );
+						require_once( dirname(__FILE__) . '/Libs/Feed/Parser/' . $entry );
 					}
 				}
 				closedir( $handle );
@@ -58,7 +58,7 @@
 		 */
 		public function parseFeed( ParseInterface $parser )
 		{
-			$feed = @$parser->parse();
+			$feed = $parser->parse();
 			$this->_feed = array_merge_recursive( $this->_feed, $feed );
 		}
 

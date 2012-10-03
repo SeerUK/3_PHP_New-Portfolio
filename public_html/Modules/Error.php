@@ -45,7 +45,7 @@
 				<p>Unfortunately the page you were looking for couldn't be found!</p>
 				<p>Try go back, retrace your steps and see if you can find the right place. If you still run into problems then feel free to email me.</p>
 			");
-			$this->_templateEngine->Display( 'Modules/Templates/Error/http.tpl' );
+			$this->_templateEngine->Display( 'Templates/Modules/Error/Http.tpl' );
 		}
 
 	}
