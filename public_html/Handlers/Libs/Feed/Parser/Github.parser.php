@@ -251,7 +251,7 @@
 			return [
 				'message' => 'pushed to ' . str_replace( 'refs/heads/', '', $this->_feedItem->payload->ref ) . ' in',
 				'subject' => $this->_feedItem->repo->name,
-				'url'     => 'https://github.com/' . $this->_feedItem->repo->name . '/tree/' . str_replace( 'refs/heads/', '', $this->_feedItem->payload->ref )
+				'url'     => 'https://github.com/' . $this->_feedItem->repo->name . '/commit/' . $this->_feedItem->payload->commits[0]->sha
 			];
 		}
 
