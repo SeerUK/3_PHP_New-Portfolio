@@ -17,118 +17,46 @@
 	class GithubParser implements ParseInterface
 	{
 
+		/**
+		 * The current feed item when iterating over each item in the raw feed
+		 * @var [object]
+		 */
+		private $_feedItem;
+
+		/**
+		 * The raw feed returned from the Github API in the form of a PHP array
+		 * @var [array]
+		 */
 		private $_rawFeed;
 
+		/**
+		 * The user to parse the feed of
+		 * @var [string]
+		 */
 		private $_username;
 
+		/**
+		 * Pass in Github username for feed to parse
+		 * @param [string] $username [The user to parse the feed of]
+		 */
 		public function __construct( $username )
 		{
 			$this->_username = $username;
 		}
 
-		public function parse()
-		{
-			$this->_getFeed();
-
-			$feed = array();
-
-			$i = 0;
-			foreach( $this->_rawFeed as $feedItem )
-			{
-				/* Begin Friendly Output:
-				 * ====================== */
-				$feed[$i]['type'] = 'github';
-				$feed[$i]['content'] = '<a target="_blank" href="https://github.com/' . $feedItem->actor->login . '">Elliot</a> ';
-
-				/* Handle different events from Github:
-				 * ==================================== */
-				switch ( $feedItem->type )
-				{
-					case 'CommitCommentEvent':
-						$feed[$i]['content'].= 'commented on commit <a target="_blank" href="' . $feedItem->payload->comment->html_url . '">'
-						                     . $feedItem->payload->comment->commit_id . '</a>';
-						break;
-
-					/* Creating Branches / Repositories:
-					 * ================================= */
-					case 'CreateEvent':
-						switch ($feedItem->payload->ref_type)
-						{
-							case 'branch':
-								$feed[$i]['content'].= 'created ' . $feedItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '/tree/'
-								                     . $feedItem->payload->ref . '">' . $feedItem->payload->ref . '</a> in <a target="_blank" href="https://github.com/'
-								                     . $feedItem->repo->name . '">' . $feedItem->repo->name . '</a>';
-								break;
-							case 'repository':
-								$feed[$i]['content'].= 'created ' . $feedItem->payload->ref_type . ' <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">'
-								                     . $feedItem->repo->name . '</a>';
-								break;
-							default:
-								$feed[$i]['content'].= 'created a ' . $feedItem->payload->ref_type;
-								break;
-						}
-						break;
-
-					/* Creating / Editing Gists:
-					 * ========================= */
-					case 'GistEvent':
-						switch ($feedItem->payload->action)
-						{
-							case 'update':
-								$feed[$i]['content'].= 'updated';
-								break;
-							case 'create':
-								$feed[$i]['content'].= 'created';
-								break;
-							default:
-								$feed[$i]['content'].= 'was active with';
-								break;
-						}
-						$feed[$i]['content'].= ' gist <a target="_blank" href="' . $feedItem->payload->gist->html_url . '">' . $feedItem->payload->gist->html_url . '</a>';
-						break;
-
-					/* Commenting on an 'Issue':
-					 * ========================= */
-					case 'IssueCommentEvent':
-						$feed[$i]['content'].= 'commented on <a target="_blank" href="' . $feedItem->payload->issue->html_url . '">issue ' . $feedItem->payload->issue->number . '</a> in '
-						                     . '<a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">' . $feedItem->repo->name . '</a>';
-						break;
-
-					/* Pushing to a Branch -> Repository:
-					 * ================================== */
-					case 'PushEvent':
-						$feed[$i]['content'].= 'pushed to <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '/tree/' . str_replace('refs/heads/','',$feedItem->payload->ref) . '">'
-						                     . str_replace('refs/heads/','',$feedItem->payload->ref) . '</a> in <a target="_blank" href="https://github.com/' . $feedItem->repo->name . '">'
-						                     . $feedItem->repo->name . '</a>';
-						break;
-
-					/* Unhandled events:
-					 * ================= */
-					default:
-						$feed[$i]['content'].= 'was active on Github';
-				}
-
-				$feed[$i]['timestamp'] = strtotime( $feedItem->created_at );
-
-				$i = $i + 1;
-
-
-			}
-
-			return $feed;
-		}
-
+		/**
+		 * Returns the feed
+		 * @return [array] [The raw feed]
+		 */
 		private function _getFeed()
 		{
-			/**
-			 * Dev values:
-			 */
+			/* Dev values:
+			=========== */
 			$feedRoot = 'http://www.elliot-wright.net';
 			$feedUri  = '/Feed/SeerUK/';
 
-			/**
-			 * Production values:
-			 */
+			/* Production values:
+			================== */
 			//$feedRoot = 'https://api.github.com';
 			//$feedUri  = '/users/' . $this->_username . '/events';
 
@@ -139,7 +67,147 @@
 			curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );
 			curl_setopt( $curl, CURLOPT_TIMEOUT, 1 );
 
-			$this->_rawFeed = json_decode( curl_exec( $curl ) );
+			return json_decode( curl_exec( $curl ) );
 		}
+
+		/**
+		 * Sets up the parsing of each event from the Github feed.
+		 * @return [array] [description]
+		 *
+		 * @todo Cache feed, then stop using development values.
+		 */
+		public function parse()
+		{
+			$this->_rawFeed = $this->_getFeed();
+
+			$feed = [ ];
+
+			$i = 0;
+			foreach( $this->_rawFeed as $feedItem )
+			{
+				$feed[$i]['type']      = 'github';
+				$feed[$i]['content']   = $this->_delegateEventHandler( $feedItem );
+				$feed[$i]['timestamp'] = strtotime( $feedItem->created_at );
+
+				$i++;
+			}
+
+			return $feed;
+		}
+
+		/**
+		 * Delegates an event handler to handle all all of the Github payloads
+		 * @param  [object] $feedItem [The current feed item]
+		 */
+		private function _delegateEventHandler( $feedItem )
+		{
+			$this->_feedItem = $feedItem;
+			$eventHandler    = '_' . $this->_feedItem->type;
+
+			//if(method_exists($this, $eventHandler))
+			//{
+			//	return $this->$eventHandler( $feedItem );
+			//}
+			//else
+			//{
+				return $this->_DefaultEvent( $feedItem );
+			//}
+		}
+
+		private function _CommitCommentEvent()
+		{
+
+		}
+
+		private function _CreateEvent()
+		{
+
+		}
+
+		private function _DefaultEvent()
+		{
+			return "test";
+		}
+
+		private function _DeleteEvent()
+		{
+
+		}
+
+		private function _DownloadEvent()
+		{
+
+		}
+
+		private function _FollowEvent()
+		{
+
+		}
+
+		private function _ForkEvent()
+		{
+
+		}
+
+		private function _ForkApplyEvent()
+		{
+
+		}
+
+		private function _GistEvent()
+		{
+
+		}
+
+		private function _GollumEvent()
+		{
+
+		}
+
+		private function _IssueCommentEvent()
+		{
+
+		}
+
+		private function _IssuesEvent()
+		{
+
+		}
+
+		private function _MemberEvent()
+		{
+
+		}
+
+		private function _PublicEvent()
+		{
+
+		}
+
+		private function _PullRequestEvent()
+		{
+
+		}
+
+		private function _PullRequestReviewCommentEvent()
+		{
+
+		}
+
+		private function _PushEvent()
+		{
+
+		}
+
+		private function _TeamAddEvent()
+		{
+
+		}
+
+		private function _WatchEvent()
+		{
+
+		}
+
 
 	}

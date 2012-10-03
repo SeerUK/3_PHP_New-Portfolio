@@ -73,14 +73,14 @@
 			$return = array();
 
 			/* Build the full list of all feed entries.
-			 * ======================================== */
+			======================================== */
 			foreach( $this->_feed as $entry )
 			{
 				$full[] = $entry;
 			}
 
 			/* Sort the array by time before returning...
-			 * ========================================== */
+			========================================== */
 			$this->sortFeed( $full, 'timestamp' );
 
 			foreach( $full as $entry )
