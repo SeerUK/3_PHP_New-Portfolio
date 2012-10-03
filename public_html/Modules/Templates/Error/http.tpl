@@ -31,6 +31,6 @@
 			</div>
 		</div>
 	</div>
-	{{include file='../js.tpl'}}
+	{{include file='../JavaScript.tpl'}}
 </body>
 </html>
