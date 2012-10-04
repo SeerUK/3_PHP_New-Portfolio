@@ -9,9 +9,7 @@
 	 * @category SeerUK
 	 * @package  3_PHP_New-Portfolio
 	 * @version  0.1-alpha
-	 * @since 	 0.1-alpha
-	 *
-	 * @todo	[Compile list of feeds to read from from database]
+	 * @since    0.1-alpha
 	 *
 	 */
 
@@ -56,7 +54,7 @@
 		 * @param [string] $parsewr [The feed parser type]
 		 * @param [string] $source [The source for the parser to interpret]
 		 */
-		public function parseFeed( ParseInterface $parser )
+		public function Add( ParseInterface $parser )
 		{
 			$feed = $parser->parse();
 			$this->_feed = array_merge_recursive( $this->_feed, $feed );

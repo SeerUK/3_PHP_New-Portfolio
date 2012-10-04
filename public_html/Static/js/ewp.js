@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 });
 
+
 /* Modules:
 =========*/
 var EWP = (function($) {
@@ -27,13 +28,21 @@ var EWP = (function($) {
 		return {
 
 			containerFixed: function() {
-				if($(window).height() < 546)
+				if($(window).width() < 768)
 				{
-					$('.container-fixed').css({'top':'270px'});
+					$('.content').removeClass('content-fixed');
 				}
 				else
 				{
-					$('.container-fixed').css({'top':''});
+					$('.content').addClass('content-fixed');
+					if($(window).height() < 546)
+					{
+						$('.content-fixed').css({'top':'270px'});
+					}
+					else
+					{
+						$('.content-fixed').css({'top':''});
+					}
 				}
 			},
 

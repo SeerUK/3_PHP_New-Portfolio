@@ -8,7 +8,7 @@
 	 * @category SeerUK
 	 * @package  3_PHP_New-Portfolio
 	 * @version  0.1-alpha
-	 * @since 	 0.1-alpha
+	 * @since    0.1-alpha
 	 *
 	 */
 
@@ -20,9 +20,9 @@
 			//$this->_authHandler->requirePermission( 'Modules.Admin.Home', $this->_authHandler->userGroup );
 
 			/* Pre-template Setup:
-			 * =================== */
+			=================== */
 			$feedHandler  = new FeedHandler;
-			$feedHandler->parseFeed( new GithubParser( 'SeerUK' ) );
+			$feedHandler->Add( new GithubParser( 'SeerUK' ) );
 
 			/* Template Setup:
 			 * =============== */
@@ -38,7 +38,7 @@
 		protected function _skills()
 		{
 			/* Template Setup:
-			 * ============== */
+			============== */
 			$this->_templateEngine->caching = false;
 
 			$this->_templateEngine->Assign( 'strPageTitle',         'Skills' );
@@ -50,7 +50,7 @@
 		protected function _portfolio()
 		{
 			/* Template Setup:
-			 * =============== */
+			=============== */
 			$this->_templateEngine->caching = false;
 
 			$this->_templateEngine->Assign( 'strPageTitle',         'Portfolio' );
@@ -62,7 +62,7 @@
 		protected function _contact()
 		{
 			/* Template Setup:
-			 * ============== */
+			============== */
 			$this->_templateEngine->caching = false;
 
 			$this->_templateEngine->Assign( 'strPageTitle',         'Contact' );

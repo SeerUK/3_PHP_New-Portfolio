@@ -57,15 +57,14 @@
 
 			/* Production values:
 			================== */
-			$feedRoot = 'https://api.github.com';
-			$feedUri  = '/users/' . $this->_username . '/events';
+			//$feedRoot = 'https://api.github.com';
+			//$feedUri  = '/users/' . $this->_username . '/events';
 
 			$curl = curl_init();
 
 			curl_setopt( $curl, CURLOPT_URL, $feedRoot . $feedUri );
 			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
 			curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false );
-			curl_setopt( $curl, CURLOPT_TIMEOUT, 1 );
 
 			return json_decode( curl_exec( $curl ) );
 		}
