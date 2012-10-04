@@ -1,4 +1,4 @@
-<div class="clearfix">
+<div class="clearfix visible-desktop">
 	<blockquote class="pull-right">
 		<a target="_blank" href="http://seer79.deviantart.com/" title="DeviantART">
 			<span class="pull-right sprite sprite-deviantart"></span>

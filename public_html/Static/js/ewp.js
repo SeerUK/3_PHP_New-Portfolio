@@ -28,7 +28,7 @@ var EWP = (function($) {
 		return {
 
 			containerFixed: function() {
-				if($(window).width() < 768)
+				if($(window).width() < 979)
 				{
 					$('.content').removeClass('content-fixed');
 				}

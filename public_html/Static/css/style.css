@@ -11,6 +11,7 @@ body {
 
 body {
   font-size: 13px;
+  min-width: 220px;
 }
 
 
@@ -46,13 +47,14 @@ body {
 
 .content {
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .content-error {
   left: 50%;
   margin-left: -400px;
   position: absolute;
-  top: 10PX;
+  top: 10px;
   width: 800px;
   z-index: 51;
 }
@@ -64,7 +66,6 @@ body {
 .content-fixed {
   height: 437px;
   margin-top: -218px;
-  padding: 10px;
   position: absolute;
   top: 50%;
 }
@@ -101,6 +102,45 @@ body {
   padding: 16px 0;
   width: 1024px;
 }
+
+.content-row > .content-col:first-child {
+  margin-left: 0;
+}
+
+.content-col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  margin-left: 2.7624309392265194%;
+  *margin-left: 2.709239449864817%;
+  min-height: 30px;
+  width: 48.61878453038674%;
+  *width: 48.56559304102504%;
+}
+
+  /* Responsive Content Columns:
+  ============================*/
+  @media (min-width: 768px) and (max-width: 979px) {
+
+    .content-col {
+      float: none;
+      margin-left: 0;
+      width: 100%;
+    }
+
+  }
+
+  @media (max-width: 767px) {
+
+    .content-col {
+      float: none;
+      margin-left: 0;
+      width: 100%;
+    }
+
+  }
 
 /* Bootstrap Overrides:
 =====================*/
@@ -151,6 +191,7 @@ body {
   color: #222;
   font-size: 13px;
   height: 42px;
+  line-height: 42px;
   margin: -12px 0;
   padding: 0 16px;
 }
@@ -171,10 +212,20 @@ body {
   margin-right: 5px;
 }
 
+.navbtn {
+  display: block;
+}
+
   .navbtn:hover {
     border-bottom: 4px solid #EEE;
     height: 42px;
-    padding: 4px 16px 0;
+    padding: -4px 16px 0;
+    text-decoration: none;
+  }
+
+  a.navbtn:hover {
+    height: 38px;
+    padding: 0 16px 0;
   }
 
   .navbtn-primary:hover {
@@ -234,6 +285,13 @@ body {
   margin: 0;
 }
 
+.well-mini {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+}
+
 .well-dark {
   background-color: #2D2D2D;
   border-color: #000;
@@ -251,6 +309,13 @@ body {
   background-color: #D9EDF7;
   border-color: #BCE8F1;
   color: #3A87AD;
+}
+
+.well-invisible {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: #333;
 }
 
 .well-success {
@@ -271,20 +336,84 @@ body {
   color: #333;
 }
 
-/* Uncommon Styles:
-=================*/
-.userbar-inner {
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 99;
-}
-
 /* Generic Common Styles:
 =======================*/
+.mainbar {
+  position: relative;
+}
+
+.mainbar > .brand {
+  float: right;
+}
+
+  .mainbar > .brand > blockquote {
+    border-left: 0;
+    border-right: 5px solid #EEE;
+    padding-left: 0;
+    padding-right: 15px;
+  }
+
+    .mainbar > .brand > blockquote p {
+      text-align: right;
+    }
+
+    .mainbar > .brand > blockquote small::before {
+      content: '';
+    }
+
+    .mainbar > .brand > blockquote small::after {
+      content: ' —';
+    }
+
+  /* Brand Responsive Design:
+  =========================*/
+  @media (max-width: 767px) {
+
+    .mainbar,
+    .mainbar > .flip {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    .mainbar > .brand {
+      float: none;
+    }
+
+      .mainbar > .brand > blockquote {
+        border-left: 5px solid #EEE;
+        border-right: 0;
+        padding-left: 15px;
+        padding-right: 0;
+      }
+
+        .mainbar > .brand > blockquote p {
+          font-size: 30px;
+          line-height: 1.4;
+          text-align: left;
+        }
+
+        .mainbar > .brand > blockquote small {
+          font-family: 'Cambria', serif;
+          font-size: 18px;
+          font-style: italic;
+        }
+
+        .mainbar > .brand > blockquote small::before {
+          content: '— ';
+        }
+
+        .mainbar > .brand > blockquote small::after {
+          content: '';
+        }
+
+  }
+
 .bubble {
   background-color: #EEE;
+  margin-bottom: 10px;
   padding: 3px;
 }
 
@@ -296,6 +425,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.userbar {
+  margin-bottom: 60px;
+}
+
+.userbar-inner {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
 }
 
 
@@ -375,14 +516,20 @@ body {
 
 
 .mini-project {
+  height: 191px;
   padding: 12px;
   position: relative;
 }
 
-  .mini-project > .header {
-    font-size: 14px;
-    margin: 6px 0;
+  .mini-project > .desc {
+    max-height: 143px;
+    overflow: hidden;
   }
+
+    .mini-project > .desc > .header {
+      font-size: 14px;
+      margin: 6px 0;
+    }
 
   .mini-project > .pull-left {
     margin-bottom: 10px;
