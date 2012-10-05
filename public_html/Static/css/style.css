@@ -11,7 +11,7 @@ body {
 
 body {
   font-size: 13px;
-  min-width: 220px;
+  min-width: 250px;
 }
 
 
@@ -144,6 +144,12 @@ body {
 
 /* Bootstrap Overrides:
 =====================*/
+.alert {
+  border-radius: 0;
+  box-shadow: 0 0 0 3px #eee;
+  margin: 3px;
+}
+
 .btn,
 .btn:hover,
 .btn:active,
@@ -166,6 +172,7 @@ body {
 }
 
 .btn {
+  background-image: none;
   font-size: 13px;
 }
 
@@ -349,6 +356,7 @@ body {
   .mainbar > .brand > blockquote {
     border-left: 0;
     border-right: 5px solid #EEE;
+    margin-bottom: 0;
     padding-left: 0;
     padding-right: 15px;
   }
@@ -383,9 +391,11 @@ body {
     }
 
       .mainbar > .brand > blockquote {
-        border-left: 5px solid #EEE;
+        border-bottom: 1px solid #eee;
+        border-left: 0;
         border-right: 0;
-        padding-left: 15px;
+        padding-bottom: 20px;
+        padding-left: 10px;
         padding-right: 0;
       }
 
@@ -427,12 +437,22 @@ body {
   white-space: nowrap;
 }
 
+@media (max-width: 767px) {
+
+  .primary-navigation {
+    display: none;
+  }
+
+}
+
+
 .userbar {
   margin-bottom: 60px;
 }
 
 .userbar-inner {
   left: 0;
+  min-width: 285px;
   position: fixed;
   right: 0;
   top: 0;

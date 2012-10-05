@@ -11,7 +11,7 @@
 				<div class="row-fluid">
 					<div class="span3">
 						<div class="mainbar">
-							<div class="bubble flip">
+							<div class="bubble flip primary-navigation">
 								<nav>
 									<ul class="epic-list">
 										{{foreach $arrPrimaryNavigation as $strPrimaryNavigationKey => $strPrimaryNavigationItem}}

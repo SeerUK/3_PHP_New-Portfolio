@@ -52,7 +52,7 @@
 		{
 			/* Dev values:
 			=========== */
-			$feedRoot = 'http://www.elliot-wright.net';
+			$feedRoot = 'http://ewp.pde.com';
 			$feedUri  = '/Feed/SeerUK/';
 
 			/* Production values:

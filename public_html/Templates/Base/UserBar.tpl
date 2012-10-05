@@ -1,19 +1,16 @@
 <div class="userbar">
-	{{if $objSession}}
 	<div class="userbar-inner">
 		<div class="well well-dark well-small">
-			<button type="button" class="navbtn pull-right">Sign Out</button>
-			<button type="button" class="navbtn navbtn-success pull-right">{{$objSession.strDisplayName}}</button>
-			<button type="button" class="navbtn navbtn-danger pull-left">Admin Panel</button>
+			{{if $objSession}}
+				<a href="{{$smarty.const.ROOT}}Login/" class="navbtn pull-right">Sign Out</a>
+				<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-right">{{$objSession.strDisplayName}}</a>
+			{{else}}
+				<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-right">Sign In</a>
+			{{/if}}
+			<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-left visible-phone">
+				<i class="icon-tasks icon-white"></i>
+			</a>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	{{else}}
-	<div class="userbar-inner">
-		<div class="well well-dark well-small">
-			<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-right">Sign In</a>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	{{/if}}
 </div>

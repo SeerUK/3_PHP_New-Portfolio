@@ -4,7 +4,7 @@
 		{{include file='../../Base/RootHead.tpl'}}
 	</head>
 	<body>
-		<div class="container-error">
+		<div class="content-error">
 			{{foreach $arrHTMLErrors as $arrHTMLError}}
 				<div class="alert alert-{{$arrHTMLError.type}}">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -12,7 +12,7 @@
 				</div>
 			{{/foreach}}
 		</div>
-		<div class="container-login">
+		<div class="content-login">
 			<div class="bubble">
 				<div class="well well-white">
 					<form method="POST">
