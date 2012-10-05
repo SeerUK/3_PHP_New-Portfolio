@@ -4,7 +4,13 @@
 	<div class="content-row">
 		<div class="content-col">
 			<p class="lead serif"><em>Thanks for stopping by! Why don't you take a look around?</em></p>
-			<p>I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed to the right!</p>
+			<p>
+				I like to work on a lot of things, if you want to see pretty much everything I'm working on (publically) at the moment, check out the 'Recent Activity' feed
+				<span>
+					<span class="hidden-phone">to the right!</span>
+					<span class="visible-phone">further down the page.</span>
+				</span>
+			</p>
 			<p>The major projects I'm working on at the moment you can find described in a bit more detail by <span class="hidden-phone">checking out the box below, or </span>looking at my <a href="{{$smarty.const.ROOT}}Home/Portfolio/">portfolio page</a>.</p>
 			<div class="mini-project hidden-phone well">
 				<img src="{{$smarty.const.STATIC_ROOT}}images/projects/140_140_thnm.jpg" class="pull-left img-polaroid" alt="" title="" width="140" height="140" />
