@@ -11,11 +11,23 @@
 				<div class="row-fluid">
 					<div class="span3">
 						<div class="mainbar">
-							<div class="bubble flip primary-navigation">
+							<div class="bubble flip">
 								<nav>
-									<ul class="epic-list">
+									<ul class="epic-list navigation navigation-primary">
+										<li class="header visible-phone">
+											<a href="#">
+												Navigation
+												<button type="button" class="pull-right">
+													<i class="icon-chevron-down"></i>
+												</button>
+											</a>
+										</li>
 										{{foreach $arrPrimaryNavigation as $strPrimaryNavigationKey => $strPrimaryNavigationItem}}
-											<li><a class="ellipsis {{if $strPageTitle == $strPrimaryNavigationKey}}active{{/if}}" href="{{$strPrimaryNavigationItem}}">{{$strPrimaryNavigationKey}}</a></li>
+											<li class="hidden-phone">
+												<a class="ellipsis {{if $strPageTitle == $strPrimaryNavigationKey}}active{{/if}}" href="{{$strPrimaryNavigationItem}}">
+													{{$strPrimaryNavigationKey}}
+												</a>
+											</li>
 										{{/foreach}}
 									</ul>
 								</nav>

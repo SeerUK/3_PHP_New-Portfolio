@@ -23,9 +23,10 @@
 			</div>
 		</div>
 		<div class="well well-container well-invisible well-mini hidden-desktop hidden-tablet"></div>
-		<div class="content-col">
-			<div class="bubble">
-				{{include file='../../Handlers/Feed/Feed.tpl'}}
+			<div class="content-col">
+				<div class="bubble">
+					{{include file='../../Handlers/Feed/Feed.tpl'}}
+				</div>
 			</div>
 		</div>
 	</div>

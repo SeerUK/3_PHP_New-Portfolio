@@ -7,9 +7,6 @@
 			{{else}}
 				<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-right">Sign In</a>
 			{{/if}}
-			<a href="{{$smarty.const.ROOT}}Login/" class="navbtn navbtn-success pull-left visible-phone">
-				<i class="icon-tasks icon-white"></i>
-			</a>
 			<div class="clearfix"></div>
 		</div>
 	</div>
